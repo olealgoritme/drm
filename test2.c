@@ -207,13 +207,24 @@ exit:
 
 int main(int argc, const char *argv[]) {
   	uint32_t fb_id = 0;
+    
+    DmaBufMetadata img;
+    img.width = fb->width;
+    img.height = fb->height;
+    img.pitch = fb->pitch;
+    img.offset = 0;
+    img.fourcc = DRM_FORMAT_XRGB8888; // FIXME
+    const char *sockname = argv[2];
+    const char *card = (argc > 3) ? argv[3] : "/dev/dri/card0";
+    const int drmfd = open(card, O_RDONLY);
+    int dma_buf_fd = -1;
+    int sockfd = -1;
 
 	if (argc < 3) {
 		printUsage(argv[0]);
 		return 1;
 	}
 
-	{
 		char *endptr;
 		fb_id = strtol(argv[1], &endptr, 0);
 		if (*endptr != '\0') {
@@ -221,21 +232,15 @@ int main(int argc, const char *argv[]) {
 			printUsage(argv[0]);
 			return 1;
 		}
-	}
-
-	const char *sockname = argv[2];
-
-	const char *card = (argc > 3) ? argv[3] : "/dev/dri/card0";
 
 	MSG("Opening card %s", card);
-	const int drmfd = open(card, O_RDONLY);
+    
 	if (drmfd < 0) {
 		perror("Cannot open card");
 		return 1;
 	}
 
-	int dma_buf_fd = -1;
-	int sockfd = -1;
+    
 	drmModeFBPtr fb = drmModeGetFB(drmfd, fb_id);
 	if (!fb) {
 		MSG("Cannot open fb %#x", fb_id);
@@ -250,12 +255,6 @@ int main(int argc, const char *argv[]) {
 		goto cleanup;
 	}
 
-	DmaBufMetadata img;
-	img.width = fb->width;
-	img.height = fb->height;
-	img.pitch = fb->pitch;
-	img.offset = 0;
-	img.fourcc = DRM_FORMAT_XRGB8888; // FIXME
 
 	const int ret = drmPrimeHandleToFD(drmfd, fb->handle, 0, &dma_buf_fd);
 	MSG("drmPrimeHandleToFD = %d, fd = %d", ret, dma_buf_fd);
