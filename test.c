@@ -27,7 +27,7 @@ int main(int argc, char *argv[]) {
     /*int sock_fd; */
     drmModeFBPtr fb_ptr;
 
-    drm_fd = open(card, O_RDONLY);
+    drm_fd = open(card, O_CLOEXEC);
     fb_ptr = drmModeGetFB(drm_fd, fb_id);
     MSG("Width: %u, Height: %u (FB ID: %#x)", fb_ptr->height, fb_ptr->width,
         fb_id);
