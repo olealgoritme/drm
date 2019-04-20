@@ -1,0 +1,44 @@
+DRM-KMS (Direct Rendering Manager) && (Kernel Mode-Setting)
+Experimentation and simple documentation by OleAlgo.
+
+Purpose of this doc and experimentation is to play with DMA [Direct Memory Access] buffer sharing from the GPU via DRM. 
+Firstly we need to understand how the DRM API and KMS API works.
+--------------------------------------------------------------------------
+
+- GPUs are referred to as DRM devices. DRM [Direct Rendering Manager] is a subsystem of the Linux kernel. DRM gives a programming interface to the GPUs of most modern graphics cards. DRM API let's you interact and send commands and data to the GPU, like controlling the mode setting of the display (e.g with KMS). DRM was previously a kernel-space subsystem of the X Server's DRI [Direct Rendering Infrastructure]. It has since been given a higher level API access, in the form of 
+
+- KMS [Kernel Mode-Setting] is a task to access a DRM device's monitors, displays and which frames to display. KMS can give you direct access and exclusive rights to the KMS API. Previously done with UMS (User-Space Mode-Setting). Most Open Source GPU drivers have now implemented the KMS Kernel API.
+
+- We can use DRM API to command the GPU to do hardware acceleration in form of 3D rendering / video decode/encode, as well as GPGPU [General Purpose GPU] computing. For our purpose, we want to look at the GEM's [Graphics Execution Manager] DMA buffer sharing.
+
+KMS API introduces 5 object structures:
+- CRTCs
+- Planes
+- Encoders
+- Connectors
+- Framebuffers
+
+
+CRTCs:
+------
+- CRTCs are CRT Controllers that provide an abstraction layer to the chip containing a pointer to a scanout buffer. Number of available CRTCs will tell you how many scanout buffers can be active. This is GPU dependant of course.
+
+
+Planes:
+------
+- Planes represents an image source that can be blended or overlayed over the CRTCs during a scanout process. Planes are associated with a framebuffer to crop a portion of the image memory (source), optionally scaled to destination size. The result is blended or overlayed over the CRTC. We can think of Planes like an empty canvas for image blending or overlaying.
+
+
+Encoders:
+------
+- Encoders take pixel data from CRTCs and converts them to a format for any attached Connector.
+
+
+Connectors:
+------
+- Connectors are destionations of the pixel data on a device, usually connects directly to an extern display like monitor or panel screen in a laptop. A connector can only be connected to one encoder at a time. The Connector structure also stores information about the attached display, like EDID display data, DPMS, connection status, and supported modes on the display.
+
+
+Framebuffers:
+------
+- Framebuffers are abstract memory objects that provide a source of pixel data to scanout to a CRTC. Applications requests creation of framebuffers via the API, and control their behavior. Framebuffers rely on the underneath memory manager for low-level memory operations. When creating a framebuffer, applications pass a memory handle through the API which is used as backing storage. The framebuffer itself is only an abstract object with no data. It just refers to memory buffers that must be create with the drm-memory() API.
