@@ -42,3 +42,4 @@ Connectors:
 Framebuffers:
 ------
 - Framebuffers are abstract memory objects that provide a source of pixel data to scanout to a CRTC. Applications requests creation of framebuffers via the API, and control their behavior. Framebuffers rely on the underneath memory manager for low-level memory operations. When creating a framebuffer, applications pass a memory handle through the API which is used as backing storage. The framebuffer itself is only an abstract object with no data. It just refers to memory buffers that must be create with the drm-memory() API.
+--------------------------------------------------------------------------------------------------------------------------

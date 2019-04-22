@@ -42,12 +42,12 @@ $(OBJDIR)/grab: $(GRAB_OBJS)
 	@mkdir -p $(dir $@)
 	$(CC) $^ $(LIBS) -lEGL -lX11 -o $@
 
-TEST_SOURCES = test.c
+TEST_SOURCES = test2.c
 TEST_OBJS = $(TEST_SOURCES:%=$(OBJDIR)/%.o)
 TEST_DEPS = $(TEST_OBJS:%=%.d)
 -include $(TEST_DEPS)
-test: $(OBJDIR)/test
-$(OBJDIR)/test: $(TEST_OBJS)
+test2: $(OBJDIR)/test2
+$(OBJDIR)/test2: $(TEST_OBJS)
 	@mkdir -p $(dir $@)
 	$(CC) $^ $(LIBS) -lEGL -lX11 -o $@
 
