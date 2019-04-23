@@ -46,10 +46,10 @@ void runEGL(const DmaBuf *img) {
     MSG("EGL: EGL_VERSION: '%s'", eglQueryString(edisp, EGL_VERSION));
     MSG("EGL: EGL_VENDOR: '%s'", eglQueryString(edisp, EGL_VENDOR));
     MSG("EGL: EGL_CLIENT_APIS: '%s'", eglQueryString(edisp, EGL_CLIENT_APIS));
-    MSG("EGL: client EGL_EXTENSIONS: '%s'",
+/*    MSG("EGL: client EGL_EXTENSIONS: '%s'",
         eglQueryString(EGL_NO_DISPLAY, EGL_EXTENSIONS));
     MSG("EGL: EGL_EXTENSIONS: '%s'", eglQueryString(edisp, EGL_EXTENSIONS));
-
+*/
     static const EGLint econfattrs[] = {EGL_BUFFER_SIZE,
                                         32,
                                         EGL_RED_SIZE,
@@ -98,7 +98,7 @@ void runEGL(const DmaBuf *img) {
         CWBorderPixel | CWBitGravity | CWEventMask | CWColormap, &winattrs);
     ASSERT(xwin);
 
-    XStoreName(xdisp, xwin, "kmsgrab");
+    XStoreName(xdisp, xwin, "xuwDmaBuf");
 
     {
         Atom delete_message = XInternAtom(xdisp, "WM_DELETE_WINDOW", True);
@@ -118,7 +118,7 @@ void runEGL(const DmaBuf *img) {
 
     ASSERT(eglMakeCurrent(edisp, esurf, esurf, ectx));
 
-    MSG("%s", glGetString(GL_EXTENSIONS));
+    //MSG("%s", glGetString(GL_EXTENSIONS));
 
     // FIXME check for EGL_EXT_image_dma_buf_import
     EGLAttrib eimg_attrs[] = {EGL_WIDTH,
@@ -199,7 +199,7 @@ void runEGL(const DmaBuf *img) {
             glRects(-1, -1, 1, 1);
 
             ASSERT(eglSwapBuffers(edisp, esurf));
-            printf("swapped buffers\n");
+        
         }
     }
 
