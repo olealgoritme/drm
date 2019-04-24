@@ -26,6 +26,8 @@
         return;                                                       \
     }
 
+#define MAX_FBS 16
+
 static int width = 2560, height = 720;
 
 typedef struct {
@@ -212,44 +214,123 @@ exit:
     XCloseDisplay(xdisp);
 }
 
+uint32_t guess_fb_id(int fd) {
+    uint32_t fbs[MAX_FBS];
+    int count_fbs = 0;
+    drmModeFBPtr fb;
+    drmModePlaneResPtr planes;
+    drmModePlanePtr plane;
+
+    planes = drmModeGetPlaneResources(fd);
+    if (planes) {
+        MSG("count_planes = %u", planes->count_planes);
+        for (uint32_t i = 0; i < planes->count_planes; ++i) {
+            MSG("\t%u: %#x", i, planes->planes[i]);
+            plane = drmModeGetPlane(fd, planes->planes[i]);
+            if (plane) {
+                MSG("\tcrtc_id=%#x fb_id=%#x crtc_x=%u crtc_y=%u x=%u y=%u possible_crtcs=%#x gamma_size=%u",
+                        plane->crtc_id, plane->fb_id, plane->crtc_x, plane->crtc_y, plane->x, plane->y,
+                        plane->possible_crtcs, plane->gamma_size);
+                MSG("\tcount_formats = %u", plane->count_formats);
+                for (uint32_t j = 0; j < plane->count_formats; ++j) {
+                    const uint32_t f = plane->formats[j];
+                    MSG("\t\t%u: %#x %c%c%c%c", j, f, f&0xff, (f>>8)&0xff, (f>>16)&0xff, (f>>24)&0xff);
+                }
+
+                if (plane->fb_id) {
+                    int found = 0;
+                    for (int k = 0; k < count_fbs; ++k) {
+                        if (fbs[k] == plane->fb_id) {
+                            found = 1;
+                            break;
+                        }
+                    }
+
+                    if (!found) {
+                        if (count_fbs == MAX_FBS) {
+                            MSG("Max number of fbs (%d) exceeded", MAX_FBS);
+                        } else {
+                            fbs[count_fbs++] = plane->fb_id;
+                        }
+                    }
+                }
+                drmModeFreePlane(plane);
+            }
+        }
+        drmModeFreePlaneResources(planes);
+    }
+
+    MSG("count_fbs = %d", count_fbs);
+
+    // stupid guess work FIXME
+    int w[MAX_FBS];
+    for (int i = 0; i < count_fbs; ++i) {
+        MSG("\t%d: %#x", i, fbs[i]);
+        fb = drmModeGetFB(fd, fbs[i]);
+        w[i] = fb->width;
+        if (!fb) {
+            MSG("\t\tERROR");
+            continue;
+        }
+    }
+    int maxW = w[0];
+    int mw_len = sizeof(maxW);
+    for (int i = 0; i < mw_len; i++) {
+        if(maxW < w[i]) {
+            maxW = w[i];
+        }
+    }
+
+    // returns hex id of fb with largest display width
+    return fbs[maxW];
+}
+
 int main(int argc, const char *argv[]) {
 
-
-    if(argc == 1) {
-        printf("Starting DRM\n");
-    }
-    uint32_t fb_id = 0x82;
-    int drmfd; 
-    int dma_buf_fd = -1;
+    uint32_t fb_id;
+    int drm_fd; 
+    int dma_buf_fd;
     const char *card;
     drmModeFBPtr fb;
 
+
+    // step1: read card
+    // step2: set/guess fb id
+    // step3: test fb
+    // step4: get fb handle
+
     card = "/dev/dri/card0";
-    drmfd = open(card, O_RDONLY);
+    drm_fd = open(card, O_RDONLY);
 
     MSG("Opening card %s", card);
-
-    if (drmfd < 0) {
+    if (drm_fd < 0) {
         perror("Cannot open card");
-        return 1;
-    }
-
-    fb = drmModeGetFB(drmfd, fb_id);
-    if (!fb) {
-        MSG("Cannot open fb %#x", fb_id);
         goto cleanup;
     }
-    
-MSG("fb_id=%#x width=%u height=%u pitch=%u bpp=%u depth=%u handle=%#x",
+
+    if(argc == 2) {
+        fb_id = strtol(argv[1], NULL, 0);
+    } else { 
+        fb_id = guess_fb_id(drm_fd);
+    }
+    printf("%s Trying fb id: \n", argv[1]);
+
+    fb = drmModeGetFB(drm_fd, fb_id);
+
+    if (!fb) {
+        MSG("Cant open fb id: %#x", fb_id);
+        goto cleanup;
+    }
+
+
+    MSG("fb_id=%#x width=%u height=%u pitch=%u bpp=%u depth=%u handle=%#x",
     fb_id, fb->width, fb->height, fb->pitch, fb->bpp, fb->depth,
     fb->handle);
 
-if (!fb->handle) {
-    MSG("Not permitted to get fb handles. Run either with sudo, or setcap "
-        "cap_sys_admin+ep %s",
-        argv[0]);
+    if (!fb->handle) {
+    MSG("Can't get framebuffer handle. Run either with sudo, or put user in video group. %s", argv[0]);
     goto cleanup;
-}
+    }
 
     DmaBuf img;
     img.width = fb->width;
@@ -258,15 +339,17 @@ if (!fb->handle) {
     img.offset = 0;
     img.fourcc = DRM_FORMAT_XRGB8888;  // FIXME
 
-    const int ret = drmPrimeHandleToFD(drmfd, fb->handle, 0, &dma_buf_fd);
+    const int ret = drmPrimeHandleToFD(drm_fd, fb->handle, 0, &dma_buf_fd);
     MSG("drmPrimeHandleToFD = %d, fd = %d", ret, dma_buf_fd);
     img.fd = dma_buf_fd;
 
     runEGL(&img);
 
+
 cleanup:
     if (dma_buf_fd >= 0) close(dma_buf_fd);
-    if (fb) drmModeFreeFB(fb);
-    close(drmfd);
+//    if (fb) drmModeFreeFB(fb);
+    if (drm_fd) close(drm_fd);
     return 0;
+  return 0;
 }
