@@ -214,15 +214,82 @@ exit:
     XCloseDisplay(xdisp);
 }
 
+ssize_t enumerateModeResources(int fd, const drmModeResPtr res) {
+	
+    ssize_t lucky_guess;
+    
+    MSG("\tcount_fbs = %d", res->count_fbs);
+	for (int i = 0; i < res->count_fbs; ++i)
+		MSG("\t\t%d: 0x%x", i, res->fbs[i]);
+
+    // stupid guess work FIXME
+    int w[MAX_FBS];
+    for (int i = 0; i < res->count_fbs; i++) {
+        MSG("\t%d: %#x", i, res->fbs[i]);
+        drmModeFBPtr fb = drmModeGetFB(fd, res->fbs[i]);
+        w[i] = fb->width;
+        MSG("Width: %d", w[i]);
+        if (!fb) {
+            MSG("\t\tERROR");
+            continue;
+        } 
+    }
+    int maxW = w[0];
+    int mw_len = sizeof(maxW);
+    for (int i = 0; i < mw_len; i++) {
+        if(maxW < w[i]) {
+            maxW = w[i];
+        }
+    }
+    lucky_guess = (ssize_t) res->fbs[maxW];
+
+    
+	MSG("\tcount_crtcs = %d", res->count_crtcs);
+	for (int i = 0; i < res->count_crtcs; ++i) {
+		MSG("\t\t%d: 0x%x", i, res->crtcs[i]);
+		drmModeCrtcPtr crtc = drmModeGetCrtc(fd, res->crtcs[i]);
+		if (crtc) {
+			MSG("\t\t\tbuffer_id = 0x%x gamma_size = %d", crtc->buffer_id, crtc->gamma_size);
+			MSG("\t\t\t(%u %u %u %u) %d",
+				crtc->x, crtc->y, crtc->width, crtc->height, crtc->mode_valid);
+			MSG("\t\t\tmode.name = %s", crtc->mode.name);
+			drmModeFreeCrtc(crtc);
+		}
+	}
+
+	MSG("\tcount_connectors = %d", res->count_connectors);
+	for (int i = 0; i < res->count_connectors; ++i) {
+		MSG("\t\t%d: 0x%x", i, res->connectors[i]);
+		drmModeConnectorPtr conn = drmModeGetConnectorCurrent(fd, res->connectors[i]);
+		if (conn) {
+			drmModeFreeConnector(conn);
+		}
+	}
+
+	MSG("\tcount_encoders = %d", res->count_encoders);
+	for (int i = 0; i < res->count_encoders; ++i)
+		MSG("\t\t%d: 0x%x", i, res->encoders[i]);
+
+	MSG("\twidth: %u .. %u", res->min_width, res->max_width);
+	MSG("\theight: %u .. %u", res->min_height, res->max_height);
+    
+    return lucky_guess;
+}
+
+/*
 uint32_t guess_fb_id(int fd) {
     uint32_t fbs[MAX_FBS];
+    uint32_t lucky_guess = 0x00;
     int count_fbs = 0;
-    drmModeFBPtr fb;
+    //drmModeFBPtr fb;
     drmModePlaneResPtr planes;
     drmModePlanePtr plane;
-
-    planes = drmModeGetPlaneResources(fd);
-    if (planes) {
+    drmModeResPtr res;
+    
+    res = drmModeGetResources(fd);
+	if (res) {
+		enumerateModeResources(fd, res);
+    }
         MSG("count_planes = %u", planes->count_planes);
         for (uint32_t i = 0; i < planes->count_planes; ++i) {
             MSG("\t%u: %#x", i, planes->planes[i]);
@@ -242,6 +309,8 @@ uint32_t guess_fb_id(int fd) {
                     for (int k = 0; k < count_fbs; ++k) {
                         if (fbs[k] == plane->fb_id) {
                             found = 1;
+                            MSG("ID: %#x", plane->fb_id);
+                            lucky_guess = plane->fb_id;
                             break;
                         }
                     }
@@ -258,32 +327,18 @@ uint32_t guess_fb_id(int fd) {
             }
         }
         drmModeFreePlaneResources(planes);
-    }
 
     MSG("count_fbs = %d", count_fbs);
 
-    // stupid guess work FIXME
-    int w[MAX_FBS];
-    for (int i = 0; i < count_fbs; ++i) {
-        MSG("\t%d: %#x", i, fbs[i]);
-        fb = drmModeGetFB(fd, fbs[i]);
-        w[i] = fb->width;
-        if (!fb) {
-            MSG("\t\tERROR");
-            continue;
-        }
-    }
-    int maxW = w[0];
-    int mw_len = sizeof(maxW);
-    for (int i = 0; i < mw_len; i++) {
-        if(maxW < w[i]) {
-            maxW = w[i];
-        }
-    }
 
-    // returns hex id of fb with largest display width
-    return fbs[maxW];
+    
+    
+    //drmModeFreeFB(fb);
+    // returns hex id of buffer with largest display width
+
+  return lucky_guess;
 }
+*/
 
 int main(int argc, const char *argv[]) {
 
@@ -309,12 +364,13 @@ int main(int argc, const char *argv[]) {
     }
 
     if(argc == 2) {
+        MSG("Trying fb id: %s", argv[1]);
         fb_id = strtol(argv[1], NULL, 0);
     } else { 
-        fb_id = guess_fb_id(drm_fd);
+        MSG("Guessing fb id...");
+        drmModeResPtr res = drmModeGetResources(drm_fd);
+        fb_id = enumerateModeResources(drm_fd, res);
     }
-    printf("%s Trying fb id: \n", argv[1]);
-
     fb = drmModeGetFB(drm_fd, fb_id);
 
     if (!fb) {
@@ -324,7 +380,7 @@ int main(int argc, const char *argv[]) {
 
 
     MSG("fb_id=%#x width=%u height=%u pitch=%u bpp=%u depth=%u handle=%#x",
-    fb_id, fb->width, fb->height, fb->pitch, fb->bpp, fb->depth,
+    fb->fb_id, fb->width, fb->height, fb->pitch, fb->bpp, fb->depth,
     fb->handle);
 
     if (!fb->handle) {
