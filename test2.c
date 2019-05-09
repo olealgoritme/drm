@@ -28,7 +28,7 @@
 
 #define MAX_FBS 16
 
-static int width = 2560, height = 720;
+static int width = 854, height = 240;
 
 typedef struct {
     int width, height;
@@ -219,31 +219,11 @@ ssize_t enumerateModeResources(int fd, const drmModeResPtr res) {
     ssize_t lucky_guess;
     
     MSG("\tcount_fbs = %d", res->count_fbs);
-	for (int i = 0; i < res->count_fbs; ++i)
+	for (int i = 0; i < res->count_fbs; i++) {
 		MSG("\t\t%d: 0x%x", i, res->fbs[i]);
-
-    // stupid guess work FIXME
-    int w[MAX_FBS];
-    for (int i = 0; i < res->count_fbs; i++) {
-        MSG("\t%d: %#x", i, res->fbs[i]);
-        drmModeFBPtr fb = drmModeGetFB(fd, res->fbs[i]);
-        w[i] = fb->width;
-        MSG("Width: %d", w[i]);
-        if (!fb) {
-            MSG("\t\tERROR");
-            continue;
-        } 
-    }
-    int maxW = w[0];
-    int mw_len = sizeof(maxW);
-    for (int i = 0; i < mw_len; i++) {
-        if(maxW < w[i]) {
-            maxW = w[i];
-        }
-    }
-    lucky_guess = (ssize_t) res->fbs[maxW];
-
+    } 
     
+    lucky_guess = (ssize_t) res->fbs[1];
 	MSG("\tcount_crtcs = %d", res->count_crtcs);
 	for (int i = 0; i < res->count_crtcs; ++i) {
 		MSG("\t\t%d: 0x%x", i, res->crtcs[i]);
@@ -276,70 +256,6 @@ ssize_t enumerateModeResources(int fd, const drmModeResPtr res) {
     return lucky_guess;
 }
 
-/*
-uint32_t guess_fb_id(int fd) {
-    uint32_t fbs[MAX_FBS];
-    uint32_t lucky_guess = 0x00;
-    int count_fbs = 0;
-    //drmModeFBPtr fb;
-    drmModePlaneResPtr planes;
-    drmModePlanePtr plane;
-    drmModeResPtr res;
-    
-    res = drmModeGetResources(fd);
-	if (res) {
-		enumerateModeResources(fd, res);
-    }
-        MSG("count_planes = %u", planes->count_planes);
-        for (uint32_t i = 0; i < planes->count_planes; ++i) {
-            MSG("\t%u: %#x", i, planes->planes[i]);
-            plane = drmModeGetPlane(fd, planes->planes[i]);
-            if (plane) {
-                MSG("\tcrtc_id=%#x fb_id=%#x crtc_x=%u crtc_y=%u x=%u y=%u possible_crtcs=%#x gamma_size=%u",
-                        plane->crtc_id, plane->fb_id, plane->crtc_x, plane->crtc_y, plane->x, plane->y,
-                        plane->possible_crtcs, plane->gamma_size);
-                MSG("\tcount_formats = %u", plane->count_formats);
-                for (uint32_t j = 0; j < plane->count_formats; ++j) {
-                    const uint32_t f = plane->formats[j];
-                    MSG("\t\t%u: %#x %c%c%c%c", j, f, f&0xff, (f>>8)&0xff, (f>>16)&0xff, (f>>24)&0xff);
-                }
-
-                if (plane->fb_id) {
-                    int found = 0;
-                    for (int k = 0; k < count_fbs; ++k) {
-                        if (fbs[k] == plane->fb_id) {
-                            found = 1;
-                            MSG("ID: %#x", plane->fb_id);
-                            lucky_guess = plane->fb_id;
-                            break;
-                        }
-                    }
-
-                    if (!found) {
-                        if (count_fbs == MAX_FBS) {
-                            MSG("Max number of fbs (%d) exceeded", MAX_FBS);
-                        } else {
-                            fbs[count_fbs++] = plane->fb_id;
-                        }
-                    }
-                }
-                drmModeFreePlane(plane);
-            }
-        }
-        drmModeFreePlaneResources(planes);
-
-    MSG("count_fbs = %d", count_fbs);
-
-
-    
-    
-    //drmModeFreeFB(fb);
-    // returns hex id of buffer with largest display width
-
-  return lucky_guess;
-}
-*/
-
 int main(int argc, const char *argv[]) {
 
     uint32_t fb_id;
@@ -371,6 +287,7 @@ int main(int argc, const char *argv[]) {
         drmModeResPtr res = drmModeGetResources(drm_fd);
         fb_id = enumerateModeResources(drm_fd, res);
     }
+
     fb = drmModeGetFB(drm_fd, fb_id);
 
     if (!fb) {

@@ -23,6 +23,15 @@ OBJDIR ?= $(BUILDDIR)/$(CONFIG)
 $(OBJDIR)/%.c.o: %.c
 	@mkdir -p $(dir $@)
 	$(COMPILE.c) -c $< -o $@
+	
+ENUM_SOURCES = prime-dumb-kms.c
+ENUM_OBJS = $(ENUM_SOURCES:%=$(OBJDIR)/%.o)
+ENUM_DEPS = $(ENUM_OBJS:%=%.d)
+-include $(ENUM_DEPS)
+prime-dumb-kms: $(OBJDIR)/prime-dumb-kms
+$(OBJDIR)/prime-dumb-kms: $(ENUM_OBJS)
+	@mkdir -p $(dir $@)
+	$(CC) $^ $(LIBS) -o $@
 
 ENUM_SOURCES = enum.c
 ENUM_OBJS = $(ENUM_SOURCES:%=$(OBJDIR)/%.o)
