@@ -307,7 +307,7 @@ int main()
 		 */
 		for (uint_fast32_t p = 0; p < width_pixel; p++)
 			((uint32_t *) primed_framebuffer)[pixel++] = current_color;
-		pixel += diff_between_width_and_stride;
+		    pixel += diff_between_width_and_stride;
 		//LOG("pixel : %lu, size : %lu\n", pixel, size_in_pixels);
 	}
 

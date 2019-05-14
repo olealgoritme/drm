@@ -2,6 +2,8 @@
 #include <libdrm/drm_fourcc.h>
 #include <xf86drmMode.h>
 
+#include <netinet/in.h>
+#include <arpa/inet.h>
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <sys/un.h>
@@ -23,6 +25,53 @@ void printUsage(const char *name) {
 	MSG("usage: %s fb_id socket_filename </dev/dri/card>", name);
 }
 
+int tcp_start_server() {
+	int listenfd = 0, connfd = 0;
+	struct sockaddr_in serv_addr;
+
+	/* creates an UN-named socket inside the kernel and returns
+	 * an integer known as socket descriptor
+	 * This function takes domain/family as its first argument.
+	 * For Internet family of IPv4 addresses we use AF_INET
+	 */
+	listenfd = socket(AF_INET, SOCK_STREAM, 0);
+	memset(&serv_addr, '0', sizeof(serv_addr));
+
+	serv_addr.sin_family = AF_INET;
+	serv_addr.sin_addr.s_addr = htonl(INADDR_ANY);
+	serv_addr.sin_port = htons(1337);
+
+	/* The call to the function "bind()" assigns the details specified
+	 * in the structure 『serv_addr' to the socket created in the step above
+	 */
+	bind(listenfd, (struct sockaddr*)&serv_addr, sizeof(serv_addr));
+
+	/* The call to the function "listen()" with second argument as 10 specifies
+	 * maximum number of client connections that server will queue for this listening
+	 * socket.
+	 */
+	listen(listenfd, 10);
+
+	while(1)
+    {
+		/* In the call to accept(), the server is put to sleep and when for an incoming
+		 * client request, the three way TCP handshake* is complete, the function accept()
+		 * wakes up and returns the socket descriptor representing the client socket.
+		 */
+		connfd = accept(listenfd, (struct sockaddr*)NULL, NULL);
+		return connfd;
+        /* As soon as server gets a request from client, it prepares the date and time and
+		 * writes on the client socket through the descriptor returned by accept()
+		 */
+	    //sendfd(connfd, fd_to_send);	
+        // write(connfd, sendBuff, strlen(sendBuff));
+		//close(connfd);
+		//sleep(1);
+	
+    }
+}
+
+
 int main(int argc, const char *argv[]) {
 
 	uint32_t fb_id = 0;
@@ -42,7 +91,6 @@ int main(int argc, const char *argv[]) {
 		}
 	}
 
-	const char *sockname = argv[2];
 
 	const char *card = (argc > 3) ? argv[3] : "/dev/dri/card0";
 
@@ -54,7 +102,6 @@ int main(int argc, const char *argv[]) {
 	}
 
 	int dma_buf_fd = -1;
-	int sockfd = -1;
 	drmModeFBPtr fb = drmModeGetFB(drmfd, fb_id);
 	if (!fb) {
 		MSG("Cannot open fb %#x", fb_id);
@@ -68,7 +115,8 @@ int main(int argc, const char *argv[]) {
 		MSG("Not permitted to get fb handles. Run either with sudo, or setcap cap_sys_admin+ep %s", argv[0]);
 		goto cleanup;
 	}
-
+    
+    
 	DmaBufMetadata img;
 	img.width = fb->width;
 	img.height = fb->height;
@@ -78,41 +126,12 @@ int main(int argc, const char *argv[]) {
 
 	const int ret = drmPrimeHandleToFD(drmfd, fb->handle, 0, &dma_buf_fd);
 	MSG("drmPrimeHandleToFD = %d, fd = %d", ret, dma_buf_fd);
-
-	sockfd = socket(AF_UNIX, SOCK_STREAM, 0);
-	
-	{
-		struct sockaddr_un addr;
-		addr.sun_family = AF_UNIX;
-		if (strlen(sockname) >= sizeof(addr.sun_path)) {
-			MSG("Socket filename '%s' is too long, max %d",
-				sockname, (int)sizeof(addr.sun_path));
-			goto cleanup;
-		}
-		strcpy(addr.sun_path, sockname);
-		if (-1 == bind(sockfd, (const struct sockaddr*)&addr, sizeof(addr))) {
-			perror("Cannot bind unix socket");
-			goto cleanup;
-		}
-
-		if (-1 == listen(sockfd, 1)) {
-			perror("Cannot listen on unix socket");
-			goto cleanup;
-		}
-	}
-
-	for (;;) {
-		int connfd = accept(sockfd, NULL, NULL);
-		if (connfd < 0) {
-			perror("Cannot accept unix socket");
-			goto cleanup;
-		}
-
-		MSG("accepted socket %d", connfd);
-
-		struct msghdr msg = {0};
-
-		struct iovec io = {
+    
+    /* starting tcp socket server */
+    int clientfd = tcp_start_server();
+    
+    struct msghdr msg;
+    struct iovec io = {
 			.iov_base = &img,
 			.iov_len = sizeof(img),
 		};
@@ -128,7 +147,7 @@ int main(int argc, const char *argv[]) {
 		cmsg->cmsg_len = CMSG_LEN(sizeof(dma_buf_fd));
 		memcpy(CMSG_DATA(cmsg), &dma_buf_fd, sizeof(dma_buf_fd));
 
-		ssize_t sent = sendmsg(connfd, &msg, MSG_CONFIRM);
+		ssize_t sent = sendmsg(clientfd, &msg, MSG_CONFIRM);
 		if (sent < 0) {
 			perror("cannot sendmsg");
 			goto cleanup;
@@ -136,16 +155,14 @@ int main(int argc, const char *argv[]) {
 
 		MSG("sent %d", (int)sent);
 
-		close(connfd);
-	}
-
+		close(clientfd);
+    
 cleanup:
-	if (sockfd >= 0)
-		close(sockfd);
 	if (dma_buf_fd >= 0)
 		close(dma_buf_fd);
 	if (fb)
 		drmModeFreeFB(fb);
 	close(drmfd);
 	return 0;
+
 }

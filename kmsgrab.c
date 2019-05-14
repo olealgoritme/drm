@@ -13,6 +13,9 @@
 #include <sys/socket.h>
 #include <sys/un.h>
 
+#include <netinet/in.h>
+#include <netdb.h>
+#include <arpa/inet.h>
 #include <stdio.h>
 #include <unistd.h>
 #include <fcntl.h>
@@ -208,31 +211,32 @@ exit:
 int main(int argc, const char *argv[]) {
 #if 1
 	if (argc < 2) {
-		MSG("Usage: %s socket_filename", argv[0]);
+		MSG("Usage: %s hostname", argv[0]);
 		return 1;
 	}
 
-	const char *sockname = argv[1];
+    struct sockaddr_in serv_addr;
+    int sockfd = 0;
+	const char *hostname = argv[1];
 
-	int sockfd = socket(AF_UNIX, SOCK_STREAM, 0);
-	{
-		struct sockaddr_un addr;
-		addr.sun_family = AF_UNIX;
-		if (strlen(sockname) >= sizeof(addr.sun_path)) {
-			MSG("Socket filename '%s' is too long, max %d",
-				sockname, (int)sizeof(addr.sun_path));
-			goto cleanup;
-		}
+	sockfd = socket(AF_INET, SOCK_STREAM, 0);
 
-		strcpy(addr.sun_path, sockname);
-		if (-1 == connect(sockfd, (const struct sockaddr*)&addr, sizeof(addr))) {
-			perror("Cannot connect to unix socket");
-			goto cleanup;
-		}
+    memset(&serv_addr, '0', sizeof(serv_addr));
+    serv_addr.sin_family = AF_INET;
+	serv_addr.sin_port = htons(1337);
 
-		MSG("connected");
-	}
-
+    	if(inet_pton(AF_INET, hostname, &serv_addr.sin_addr) < 0) {
+		    perror("inet_pton error occured");
+	        goto cleanup;
+        }
+        
+        if( connect(sockfd, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) < 0) {
+		    perror("Connect Failed \n");
+		    goto cleanup;
+	    } else {
+            MSG("connected");
+        }
+        
 	DmaBuf img = {0};
 
 	{
