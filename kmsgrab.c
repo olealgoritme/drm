@@ -121,16 +121,19 @@ void runEGL(const DmaBuf *img) {
 	MSG("%s", glGetString(GL_EXTENSIONS));
 
 	// FIXME check for EGL_EXT_image_dma_buf_import
-	EGLAttrib eimg_attrs[] = {
+	
+    MSG("fd: %d", img->fd);
+    
+    EGLAttrib eimg_attrs[] = {
 		EGL_WIDTH, img->width,
 		EGL_HEIGHT, img->height,
-		EGL_LINUX_DRM_FOURCC_EXT, img->fourcc,
+        EGL_LINUX_DRM_FOURCC_EXT, img->fourcc,
 		EGL_DMA_BUF_PLANE0_FD_EXT, img->fd,
 		EGL_DMA_BUF_PLANE0_OFFSET_EXT, img->offset,
 		EGL_DMA_BUF_PLANE0_PITCH_EXT, img->pitch,
 		EGL_NONE
 	};
-	EGLImage eimg = eglCreateImage(edisp, EGL_NO_CONTEXT, EGL_LINUX_DMA_BUF_EXT, 0,
+	EGLImage eimg = eglCreateImage(edisp, EGL_NO_CONTEXT, EGL_LINUX_DMA_BUF_EXT, (EGLClientBuffer)NULL,
 		eimg_attrs);
 	ASSERT(eimg);
 

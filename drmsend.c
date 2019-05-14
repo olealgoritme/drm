@@ -76,7 +76,7 @@ int main(int argc, const char *argv[]) {
 
 	uint32_t fb_id = 0;
 
-	if (argc < 3) {
+	if (argc < 2) {
 		printUsage(argv[0]);
 		return 1;
 	}
