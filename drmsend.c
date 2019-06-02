@@ -95,7 +95,7 @@ int main(int argc, const char *argv[]) {
 	const char *card = (argc > 3) ? argv[3] : "/dev/dri/card0";
 
 	MSG("Opening card %s", card);
-	const int drmfd = open(card, O_RDONLY);
+	const int drmfd = open(card, O_RDWR);
 	if (drmfd < 0) {
 		perror("Cannot open card");
 		return 1;
@@ -124,7 +124,7 @@ int main(int argc, const char *argv[]) {
 	img.offset = 0;
 	img.fourcc = DRM_FORMAT_XRGB8888; // FIXME
 
-	const int ret = drmPrimeHandleToFD(drmfd, fb->handle, 0, &dma_buf_fd);
+	const int ret = drmPrimeHandleToFD(drmfd, fb->handle, DRM_FORMAT_XRGB8888, &dma_buf_fd);
 	MSG("drmPrimeHandleToFD = %d, fd = %d", ret, dma_buf_fd);
     
     /* starting tcp socket server */

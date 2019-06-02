@@ -4,7 +4,7 @@
 #define GL_GLEXT_PROTOTYPES
 #include <GL/gl.h>
 #include <GL/glext.h>
-
+#include <cairo/cairo.h>
 #include <libdrm/drm_fourcc.h>
 #include <xf86drm.h>
 #include <xf86drmMode.h>
@@ -20,309 +20,326 @@
 
 #define MSG(fmt, ...) printf(fmt "\n", ##__VA_ARGS__)
 
-#define ASSERT(cond)                                                  \
-    if (!(cond)) {                                                    \
-        MSG("ERROR @ %s:%d: (%s) failed", __FILE__, __LINE__, #cond); \
-        return;                                                       \
-    }
+#define ASSERT(cond)                                                           \
+  if (!(cond)) {                                                               \
+    MSG("ERROR @ %s:%d: (%s) failed", __FILE__, __LINE__, #cond);              \
+    return;                                                                    \
+  }
 
 #define MAX_FBS 16
 
 static int width = 854, height = 240;
 
 typedef struct {
-    int width, height;
-    uint32_t fourcc;
-    int offset, pitch;
-    int fd;
+  int width, height;
+  uint32_t fourcc;
+  int offset, pitch;
+  int fd;
 } DmaBuf;
 
-void runEGL(const DmaBuf *img) {
-    Display *xdisp;
-    ASSERT(xdisp = XOpenDisplay(NULL));
-    eglBindAPI(EGL_OPENGL_API);
-    EGLDisplay edisp = eglGetDisplay(xdisp);
-    EGLint ver_min, ver_maj;
-    eglInitialize(edisp, &ver_maj, &ver_min);
-    MSG("EGL: version %d.%d", ver_maj, ver_min);
-    MSG("EGL: EGL_VERSION: '%s'", eglQueryString(edisp, EGL_VERSION));
-    MSG("EGL: EGL_VENDOR: '%s'", eglQueryString(edisp, EGL_VENDOR));
-    MSG("EGL: EGL_CLIENT_APIS: '%s'", eglQueryString(edisp, EGL_CLIENT_APIS));
-/*    MSG("EGL: client EGL_EXTENSIONS: '%s'",
-        eglQueryString(EGL_NO_DISPLAY, EGL_EXTENSIONS));
-    MSG("EGL: EGL_EXTENSIONS: '%s'", eglQueryString(edisp, EGL_EXTENSIONS));
+/*
+void Screendump(char *tga_file, short W, short H) {
+  FILE *out = fopen(tga_file, "w");
+  char pixel_data[3 * W * H];
+  short TGAhead[] = {0, 2, 0, 0, 0, 0, W, H, 24};
+
+  glReadBuffer(GL_FRONT);
+  glReadPixels(0, 0, W, H, GL_BGR, GL_UNSIGNED_BYTE, pixel_data);
+  fwrite(&TGAhead, sizeof(TGAhead), 1, out);
+  fwrite(pixel_data, 3 * W * H, 1, out);
+  fclose(out);
+}
 */
-    static const EGLint econfattrs[] = {EGL_BUFFER_SIZE,
-                                        32,
-                                        EGL_RED_SIZE,
-                                        8,
-                                        EGL_GREEN_SIZE,
-                                        8,
-                                        EGL_BLUE_SIZE,
-                                        8,
-                                        EGL_ALPHA_SIZE,
-                                        8,
 
-                                        EGL_RENDERABLE_TYPE,
-                                        EGL_OPENGL_BIT,
-                                        EGL_SURFACE_TYPE,
-                                        EGL_WINDOW_BIT,
+void runEGL(const DmaBuf *img) {
+  Display *xdisp;
+  ASSERT(xdisp = XOpenDisplay(NULL));
+  eglBindAPI(EGL_OPENGL_API);
+  EGLDisplay edisp = eglGetDisplay(xdisp);
+  EGLint ver_min, ver_maj;
+  eglInitialize(edisp, &ver_maj, &ver_min);
+  MSG("EGL: version %d.%d", ver_maj, ver_min);
+  MSG("EGL: EGL_VERSION: '%s'", eglQueryString(edisp, EGL_VERSION));
+  MSG("EGL: EGL_VENDOR: '%s'", eglQueryString(edisp, EGL_VENDOR));
+  MSG("EGL: EGL_CLIENT_APIS: '%s'", eglQueryString(edisp, EGL_CLIENT_APIS));
+  /*    MSG("EGL: client EGL_EXTENSIONS: '%s'",
+          eglQueryString(EGL_NO_DISPLAY, EGL_EXTENSIONS));
+      MSG("EGL: EGL_EXTENSIONS: '%s'", eglQueryString(edisp, EGL_EXTENSIONS));
+  */
+  static const EGLint econfattrs[] = {EGL_BUFFER_SIZE,
+                                      32,
+                                      EGL_RED_SIZE,
+                                      8,
+                                      EGL_GREEN_SIZE,
+                                      8,
+                                      EGL_BLUE_SIZE,
+                                      8,
+                                      EGL_ALPHA_SIZE,
+                                      8,
 
-                                        EGL_NONE};
-    EGLConfig config;
-    EGLint num_config;
-    eglChooseConfig(edisp, econfattrs, &config, 1, &num_config);
+                                      EGL_RENDERABLE_TYPE,
+                                      EGL_OPENGL_BIT,
+                                      EGL_SURFACE_TYPE,
+                                      EGL_WINDOW_BIT,
 
-    XVisualInfo *vinfo = NULL;
-    {
-        XVisualInfo xvisual_info = {0};
-        int num_visuals;
-        ASSERT(eglGetConfigAttrib(edisp, config, EGL_NATIVE_VISUAL_ID,
-                                  (EGLint *)&xvisual_info.visualid));
-        ASSERT(vinfo = XGetVisualInfo(xdisp, VisualScreenMask | VisualIDMask,
-                                      &xvisual_info, &num_visuals));
-    }
+                                      EGL_NONE};
+  EGLConfig config;
+  EGLint num_config;
+  eglChooseConfig(edisp, econfattrs, &config, 1, &num_config);
 
-    XSetWindowAttributes winattrs = {0};
-    winattrs.event_mask = KeyPressMask | KeyReleaseMask | ButtonPressMask |
-                          ButtonReleaseMask | PointerMotionMask | ExposureMask |
-                          VisibilityChangeMask | StructureNotifyMask;
-    winattrs.border_pixel = 0;
-    winattrs.bit_gravity = StaticGravity;
-    winattrs.colormap = XCreateColormap(xdisp, RootWindow(xdisp, vinfo->screen),
-                                        vinfo->visual, AllocNone);
-    ASSERT(winattrs.colormap != None);
-    winattrs.override_redirect = False;
+  XVisualInfo *vinfo = NULL;
+  {
+    XVisualInfo xvisual_info = {0};
+    int num_visuals;
+    ASSERT(eglGetConfigAttrib(edisp, config, EGL_NATIVE_VISUAL_ID,
+                              (EGLint *)&xvisual_info.visualid));
+    ASSERT(vinfo = XGetVisualInfo(xdisp, VisualScreenMask | VisualIDMask,
+                                  &xvisual_info, &num_visuals));
+  }
 
-    Window xwin = XCreateWindow(
-        xdisp, RootWindow(xdisp, vinfo->screen), 0, 0, width, height, 0,
-        vinfo->depth, InputOutput, vinfo->visual,
-        CWBorderPixel | CWBitGravity | CWEventMask | CWColormap, &winattrs);
-    ASSERT(xwin);
+  XSetWindowAttributes winattrs = {0};
+  winattrs.event_mask = KeyPressMask | KeyReleaseMask | ButtonPressMask |
+                        ButtonReleaseMask | PointerMotionMask | ExposureMask |
+                        VisibilityChangeMask | StructureNotifyMask;
+  winattrs.border_pixel = 0;
+  winattrs.bit_gravity = StaticGravity;
+  winattrs.colormap = XCreateColormap(xdisp, RootWindow(xdisp, vinfo->screen),
+                                      vinfo->visual, AllocNone);
+  ASSERT(winattrs.colormap != None);
+  winattrs.override_redirect = False;
 
-    XStoreName(xdisp, xwin, "xuwDmaBuf");
+  Window xwin = XCreateWindow(
+      xdisp, RootWindow(xdisp, vinfo->screen), 0, 0, width, height, 0,
+      vinfo->depth, InputOutput, vinfo->visual,
+      CWBorderPixel | CWBitGravity | CWEventMask | CWColormap, &winattrs);
+  ASSERT(xwin);
 
-    {
-        Atom delete_message = XInternAtom(xdisp, "WM_DELETE_WINDOW", True);
-        XSetWMProtocols(xdisp, xwin, &delete_message, 1);
-    }
+  XStoreName(xdisp, xwin, "xuwDmaBuf");
 
-    XMapWindow(xdisp, xwin);
+  {
+    Atom delete_message = XInternAtom(xdisp, "WM_DELETE_WINDOW", True);
+    XSetWMProtocols(xdisp, xwin, &delete_message, 1);
+  }
 
-    static const EGLint ectx_attrs[] = {EGL_CONTEXT_CLIENT_VERSION, 2,
-                                        EGL_NONE};
-    EGLContext ectx =
-        eglCreateContext(edisp, config, EGL_NO_CONTEXT, ectx_attrs);
-    ASSERT(EGL_NO_CONTEXT != ectx);
+  XMapWindow(xdisp, xwin);
 
-    EGLSurface esurf = eglCreateWindowSurface(edisp, config, xwin, 0);
-    ASSERT(EGL_NO_SURFACE != esurf);
+  static const EGLint ectx_attrs[] = {EGL_CONTEXT_CLIENT_VERSION, 2, EGL_NONE};
+  EGLContext ectx = eglCreateContext(edisp, config, EGL_NO_CONTEXT, ectx_attrs);
+  ASSERT(EGL_NO_CONTEXT != ectx);
 
-    ASSERT(eglMakeCurrent(edisp, esurf, esurf, ectx));
+  EGLSurface esurf = eglCreateWindowSurface(edisp, config, xwin, 0);
+  ASSERT(EGL_NO_SURFACE != esurf);
 
-    //MSG("%s", glGetString(GL_EXTENSIONS));
+  ASSERT(eglMakeCurrent(edisp, esurf, esurf, ectx));
 
-    // FIXME check for EGL_EXT_image_dma_buf_import
-    EGLAttrib eimg_attrs[] = {EGL_WIDTH,
-                              img->width,
-                              EGL_HEIGHT,
-                              img->height,
-                              EGL_LINUX_DRM_FOURCC_EXT,
-                              img->fourcc,
-                              EGL_DMA_BUF_PLANE0_FD_EXT,
-                              img->fd,
-                              EGL_DMA_BUF_PLANE0_OFFSET_EXT,
-                              img->offset,
-                              EGL_DMA_BUF_PLANE0_PITCH_EXT,
-                              img->pitch,
-                              EGL_NONE};
-    EGLImage eimg = eglCreateImage(edisp, EGL_NO_CONTEXT, EGL_LINUX_DMA_BUF_EXT,
-                                   0, eimg_attrs);
-    ASSERT(eimg);
+  // MSG("%s", glGetString(GL_EXTENSIONS));
 
-    // FIXME check for GL_OES_EGL_image (or alternatives)
-    GLuint tex = 1;
-    // glGenTextures(1, &tex);
-    glBindTexture(GL_TEXTURE_2D, tex);
-    PFNGLEGLIMAGETARGETTEXTURE2DOESPROC glEGLImageTargetTexture2DOES =
-        (PFNGLEGLIMAGETARGETTEXTURE2DOESPROC)eglGetProcAddress(
-            "glEGLImageTargetTexture2DOES");
-    ASSERT(glEGLImageTargetTexture2DOES);
-    glEGLImageTargetTexture2DOES(GL_TEXTURE_2D, eimg);
-    ASSERT(glGetError() == 0);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+  // FIXME check for EGL_EXT_image_dma_buf_import
+  EGLAttrib eimg_attrs[] = {EGL_WIDTH,
+                            img->width,
+                            EGL_HEIGHT,
+                            img->height,
+                            EGL_LINUX_DRM_FOURCC_EXT,
+                            img->fourcc,
+                            EGL_DMA_BUF_PLANE0_FD_EXT,
+                            img->fd,
+                            EGL_DMA_BUF_PLANE0_OFFSET_EXT,
+                            img->offset,
+                            EGL_DMA_BUF_PLANE0_PITCH_EXT,
+                            img->pitch,
+                            EGL_NONE};
+  EGLImage eimg = eglCreateImage(edisp, EGL_NO_CONTEXT, EGL_LINUX_DMA_BUF_EXT,
+                                 0, eimg_attrs);
+  ASSERT(eimg);
 
-    const char *fragment =
-        "#version 130\n"
-        "uniform vec2 res;\n"
-        "uniform sampler2D tex;\n"
-        "void main() {\n"
-        "vec2 uv = gl_FragCoord.xy / res;\n"
-        "uv.y = 1. - uv.y;\n"
-        "gl_FragColor = texture(tex, uv);\n"
-        "}\n";
-    int prog = ((PFNGLCREATESHADERPROGRAMVPROC)(eglGetProcAddress(
-        "glCreateShaderProgramv")))(GL_FRAGMENT_SHADER, 1, &fragment);
-    glUseProgram(prog);
-    glUniform1i(glGetUniformLocation(prog, "tex"), 0);
+  // FIXME check for GL_OES_EGL_image (or alternatives)
+  GLuint tex = 1;
+  // glGenTextures(1, &tex);
+  glBindTexture(GL_TEXTURE_2D, tex);
 
-    for (;;) {
-        while (XPending(xdisp)) {
-            XEvent e;
-            XNextEvent(xdisp, &e);
-            switch (e.type) {
-                case ConfigureNotify: {
-                    width = e.xconfigure.width;
-                    height = e.xconfigure.height;
-                } break;
+  PFNGLEGLIMAGETARGETTEXTURE2DOESPROC glEGLImageTargetTexture2DOES =
+      (PFNGLEGLIMAGETARGETTEXTURE2DOESPROC)eglGetProcAddress(
+          "glEGLImageTargetTexture2DOES");
+  ASSERT(glEGLImageTargetTexture2DOES);
+  glEGLImageTargetTexture2DOES(GL_TEXTURE_2D, eimg);
+  ASSERT(glGetError() == 0);
 
-                case KeyPress:
-                    switch (XLookupKeysym(&e.xkey, 0)) {
-                        case XK_Escape:
-                        case XK_q:
-                            goto exit;
-                            break;
-                    }
-                    break;
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 
-                case ClientMessage:
-                case DestroyNotify:
-                case UnmapNotify:
-                    goto exit;
-                    break;
-            }
+  const char *fragment = "#version 130\n"
+                         "uniform vec2 res;\n"
+                         "uniform sampler2D tex;\n"
+                         "void main() {\n"
+                         "vec2 uv = gl_FragCoord.xy / res;\n"
+                         "uv.y = 1. - uv.y;\n"
+                         "gl_FragColor = texture(tex, uv);\n"
+                         "}\n";
+  int prog = ((PFNGLCREATESHADERPROGRAMVPROC)(eglGetProcAddress(
+      "glCreateShaderProgramv")))(GL_FRAGMENT_SHADER, 1, &fragment);
+  glUseProgram(prog);
+  glUniform1i(glGetUniformLocation(prog, "tex"), 0);
+
+  for (;;) {
+    while (XPending(xdisp)) {
+      XEvent e;
+      XNextEvent(xdisp, &e);
+      switch (e.type) {
+      case ConfigureNotify: {
+        width = e.xconfigure.width;
+        height = e.xconfigure.height;
+      } break;
+
+      case KeyPress:
+        switch (XLookupKeysym(&e.xkey, 0)) {
+        case XK_Escape:
+        case XK_q:
+          goto exit;
+          break;
         }
+        break;
 
-        {
-            glViewport(0, 0, width, height);
-            glClear(GL_COLOR_BUFFER_BIT);
-
-            glUniform2f(glGetUniformLocation(prog, "res"), width, height);
-            glRects(-1, -1, 1, 1);
-
-            ASSERT(eglSwapBuffers(edisp, esurf));
-        
-        }
+      case ClientMessage:
+      case DestroyNotify:
+      case UnmapNotify:
+        goto exit;
+        break;
+      }
     }
+
+    {
+      glViewport(0, 0, width, height);
+      glClear(GL_COLOR_BUFFER_BIT);
+
+      glUniform2f(glGetUniformLocation(prog, "res"), width, height);
+      glRects(-1, -1, 1, 1);
+
+      ASSERT(eglSwapBuffers(edisp, esurf));
+    }
+  }
 
 exit:
-    eglMakeCurrent(edisp, EGL_NO_SURFACE, EGL_NO_SURFACE, EGL_NO_CONTEXT);
-    eglDestroyContext(edisp, ectx);
-    eglDestroySurface(xdisp, esurf);
-    XDestroyWindow(xdisp, xwin);
-    eglTerminate(edisp);
-    XCloseDisplay(xdisp);
+  eglMakeCurrent(edisp, EGL_NO_SURFACE, EGL_NO_SURFACE, EGL_NO_CONTEXT);
+  eglDestroyContext(edisp, ectx);
+  eglDestroySurface(xdisp, esurf);
+  XDestroyWindow(xdisp, xwin);
+  eglTerminate(edisp);
+  XCloseDisplay(xdisp);
 }
 
 ssize_t enumerateModeResources(int fd, const drmModeResPtr res) {
-	
-    ssize_t lucky_guess;
-    
-    MSG("\tcount_fbs = %d", res->count_fbs);
-	for (int i = 0; i < res->count_fbs; i++) {
-		MSG("\t\t%d: 0x%x", i, res->fbs[i]);
-    } 
-    
-    lucky_guess = (ssize_t) res->fbs[1];
-	MSG("\tcount_crtcs = %d", res->count_crtcs);
-	for (int i = 0; i < res->count_crtcs; ++i) {
-		MSG("\t\t%d: 0x%x", i, res->crtcs[i]);
-		drmModeCrtcPtr crtc = drmModeGetCrtc(fd, res->crtcs[i]);
-		if (crtc) {
-			MSG("\t\t\tbuffer_id = 0x%x gamma_size = %d", crtc->buffer_id, crtc->gamma_size);
-			MSG("\t\t\t(%u %u %u %u) %d",
-				crtc->x, crtc->y, crtc->width, crtc->height, crtc->mode_valid);
-			MSG("\t\t\tmode.name = %s", crtc->mode.name);
-			drmModeFreeCrtc(crtc);
-		}
-	}
 
-	MSG("\tcount_connectors = %d", res->count_connectors);
-	for (int i = 0; i < res->count_connectors; ++i) {
-		MSG("\t\t%d: 0x%x", i, res->connectors[i]);
-		drmModeConnectorPtr conn = drmModeGetConnectorCurrent(fd, res->connectors[i]);
-		if (conn) {
-			drmModeFreeConnector(conn);
-		}
-	}
+  ssize_t lucky_guess;
 
-	MSG("\tcount_encoders = %d", res->count_encoders);
-	for (int i = 0; i < res->count_encoders; ++i)
-		MSG("\t\t%d: 0x%x", i, res->encoders[i]);
+  MSG("\tcount_fbs = %d", res->count_fbs);
+  for (int i = 0; i < res->count_fbs; i++) {
+    MSG("\t\t%d: 0x%x", i, res->fbs[i]);
+  }
 
-	MSG("\twidth: %u .. %u", res->min_width, res->max_width);
-	MSG("\theight: %u .. %u", res->min_height, res->max_height);
-    
-    return lucky_guess;
+  lucky_guess = (ssize_t)res->fbs[1];
+  MSG("\tcount_crtcs = %d", res->count_crtcs);
+  for (int i = 0; i < res->count_crtcs; ++i) {
+    MSG("\t\t%d: 0x%x", i, res->crtcs[i]);
+    drmModeCrtcPtr crtc = drmModeGetCrtc(fd, res->crtcs[i]);
+    if (crtc) {
+      MSG("\t\t\tbuffer_id = 0x%x gamma_size = %d", crtc->buffer_id,
+          crtc->gamma_size);
+      MSG("\t\t\t(%u %u %u %u) %d", crtc->x, crtc->y, crtc->width, crtc->height,
+          crtc->mode_valid);
+      MSG("\t\t\tmode.name = %s", crtc->mode.name);
+      drmModeFreeCrtc(crtc);
+    }
+  }
+
+  MSG("\tcount_connectors = %d", res->count_connectors);
+  for (int i = 0; i < res->count_connectors; ++i) {
+    MSG("\t\t%d: 0x%x", i, res->connectors[i]);
+    drmModeConnectorPtr conn =
+        drmModeGetConnectorCurrent(fd, res->connectors[i]);
+    if (conn) {
+      drmModeFreeConnector(conn);
+    }
+  }
+
+  MSG("\tcount_encoders = %d", res->count_encoders);
+  for (int i = 0; i < res->count_encoders; ++i)
+    MSG("\t\t%d: 0x%x", i, res->encoders[i]);
+
+  MSG("\twidth: %u .. %u", res->min_width, res->max_width);
+  MSG("\theight: %u .. %u", res->min_height, res->max_height);
+
+  return lucky_guess;
 }
 
 int main(int argc, const char *argv[]) {
 
-    uint32_t fb_id;
-    int drm_fd; 
-    int dma_buf_fd;
-    const char *card;
-    drmModeFBPtr fb;
+  uint32_t fb_id;
+  int drm_fd;
+  int dma_buf_fd;
+  const char *card;
+  drmModeFBPtr fb;
 
+  // step1: read card
+  // step2: set/guess fb id
+  // step3: test fb
+  // step4: get fb handle
 
-    // step1: read card
-    // step2: set/guess fb id
-    // step3: test fb
-    // step4: get fb handle
+  card = "/dev/dri/card0";
+  drm_fd = open(card, O_RDONLY);
 
-    card = "/dev/dri/card0";
-    drm_fd = open(card, O_RDONLY);
-
-    MSG("Opening card %s", card);
-    if (drm_fd < 0) {
-        perror("Cannot open card");
-        goto cleanup;
-    }
-
-    if(argc == 2) {
-        MSG("Trying fb id: %s", argv[1]);
-        fb_id = strtol(argv[1], NULL, 0);
-    } else { 
-        MSG("Guessing fb id...");
-        drmModeResPtr res = drmModeGetResources(drm_fd);
-        fb_id = enumerateModeResources(drm_fd, res);
-    }
-
-    fb = drmModeGetFB(drm_fd, fb_id);
-
-    if (!fb) {
-        MSG("Cant open fb id: %#x", fb_id);
-        goto cleanup;
-    }
-
-
-    MSG("fb_id=%#x width=%u height=%u pitch=%u bpp=%u depth=%u handle=%#x",
-    fb->fb_id, fb->width, fb->height, fb->pitch, fb->bpp, fb->depth,
-    fb->handle);
-
-    if (!fb->handle) {
-    MSG("Can't get framebuffer handle. Run either with sudo, or put user in video group. %s", argv[0]);
+  MSG("Opening card %s", card);
+  if (drm_fd < 0) {
+    perror("Cannot open card");
     goto cleanup;
-    }
+  }
 
-    DmaBuf img;
-    img.width = fb->width;
-    img.height = fb->height;
-    img.pitch = fb->pitch;
-    img.offset = 0;
-    img.fourcc = DRM_FORMAT_XRGB8888;  // FIXME
+  if (argc == 2) {
+    MSG("Trying fb id: %s", argv[1]);
+    fb_id = strtol(argv[1], NULL, 0);
+  } else {
+    MSG("Guessing fb id...");
+    drmModeResPtr res = drmModeGetResources(drm_fd);
+    fb_id = enumerateModeResources(drm_fd, res);
+  }
 
-    const int ret = drmPrimeHandleToFD(drm_fd, fb->handle, 0, &dma_buf_fd);
-    MSG("drmPrimeHandleToFD = %d, fd = %d", ret, dma_buf_fd);
-    img.fd = dma_buf_fd;
+  fb = drmModeGetFB(drm_fd, fb_id);
 
-    runEGL(&img);
+  if (!fb) {
+    MSG("Cant open fb id: %#x", fb_id);
+    goto cleanup;
+  }
 
+  MSG("fb_id=%#x width=%u height=%u pitch=%u bpp=%u depth=%u handle=%#x",
+      fb->fb_id, fb->width, fb->height, fb->pitch, fb->bpp, fb->depth,
+      fb->handle);
+
+  if (!fb->handle) {
+    MSG("Can't get framebuffer handle. Run either with sudo, or put user in "
+        "video group. %s",
+        argv[0]);
+    goto cleanup;
+  }
+
+  DmaBuf img;
+  img.width = fb->width;
+  img.height = fb->height;
+  img.pitch = fb->pitch;
+  img.offset = 0;
+  img.fourcc = DRM_FORMAT_XRGB8888; // FIXME
+
+  int ret = drmPrimeHandleToFD(drm_fd, fb->handle, 0, &dma_buf_fd);
+
+  MSG("drmPrimeHandleToFD = %d, fd = %d", ret, dma_buf_fd);
+  img.fd = dma_buf_fd;
+
+  runEGL(&img);
 
 cleanup:
-    if (dma_buf_fd >= 0) close(dma_buf_fd);
-//    if (fb) drmModeFreeFB(fb);
-    if (drm_fd) close(drm_fd);
-    return 0;
+  if (dma_buf_fd >= 0)
+    close(dma_buf_fd);
+  //    if (fb) drmModeFreeFB(fb);
+  if (drm_fd)
+    close(drm_fd);
+  return 0;
   return 0;
 }

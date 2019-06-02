@@ -4,8 +4,8 @@
 BUILDDIR ?= build
 CC ?= cc
 CFLAGS += -Wall -Wextra -Werror
-CFLAGS += -std=gnu99 -I/usr/include/libdrm
-LIBS += -ldrm -lGL
+CFLAGS += -std=gnu99 -I/usr/include/libdrm 
+LIBS += -ldrm -lGL -lcairo
 
 ifeq ($(DEBUG), 1)
 	CONFIG = dbg
@@ -23,7 +23,25 @@ OBJDIR ?= $(BUILDDIR)/$(CONFIG)
 $(OBJDIR)/%.c.o: %.c
 	@mkdir -p $(dir $@)
 	$(COMPILE.c) -c $< -o $@
-	
+
+ENUM_SOURCES = fb_dump.c
+ENUM_OBJS = $(ENUM_SOURCES:%=$(OBJDIR)/%.o)
+ENUM_DEPS = $(ENUM_OBJS:%=%.d)
+-include $(ENUM_DEPS)
+fb_dump: $(OBJDIR)/fb_dump
+$(OBJDIR)/fb_dump: $(ENUM_OBJS)
+	@mkdir -p $(dir $@)
+		$(CC) $^ $(LIBS) -o $@
+
+ENUM_SOURCES = test-drm-prime-dumb-kms.c
+ENUM_OBJS = $(ENUM_SOURCES:%=$(OBJDIR)/%.o)
+ENUM_DEPS = $(ENUM_OBJS:%=%.d)
+-include $(ENUM_DEPS)
+test-drm-prime-dumb-kms: $(OBJDIR)/test-drm-prime-dumb-kms
+$(OBJDIR)/test-drm-prime-dumb-kms: $(ENUM_OBJS)
+	@mkdir -p $(dir $@)
+		$(CC) $^ $(LIBS) -o $@
+
 ENUM_SOURCES = prime-dumb-kms.c
 ENUM_OBJS = $(ENUM_SOURCES:%=$(OBJDIR)/%.o)
 ENUM_DEPS = $(ENUM_OBJS:%=%.d)
