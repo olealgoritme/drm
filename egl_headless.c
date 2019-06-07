@@ -26,7 +26,8 @@
  * https://devblogs.nvidia.com/egl-eye-opengl-visualization-without-x-server/
  */
 
-static int width = 854, height = 240;
+static int width = 1920, height = 540;
+// static int width = 854, height = 240;
 
 typedef struct {
   int width, height;
