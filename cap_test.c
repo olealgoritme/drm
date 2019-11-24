@@ -1,171 +1,111 @@
 /* please refer better example: https://github.com/dvdhrm/docs/tree/master/drm-howto/ */
 
-#define _XOPEN_SOURCE 600
+/* #define _XOPEN_SOURCE 600 */
 
+#define DRM_CAP_DUMB_BUFFER 0x1
 
 #include <stdio.h>
-
 #include <stdlib.h>
-
 #include <string.h>
-
 #include <sys/mman.h>
-
 #include <fcntl.h>
-
 #include <unistd.h>
-
 #include <xf86drm.h>
-
 #include <xf86drmMode.h>
 
-
 static const char *dri_path = "/dev/dri/card0";
-
-
 enum {
-
 	DEPTH = 24,
-
 	BPP = 32,
-
 };
 
 
 struct drm_dev_t {
 
 	uint32_t *buf;
-
 	uint32_t conn_id, enc_id, crtc_id, fb_id;
-
 	uint32_t width, height;
-
 	uint32_t pitch, size, handle;
-
 	drmModeModeInfo mode;
-
 	drmModeCrtc *saved_crtc;
-
 	struct drm_dev_t *next;
 
 };
 
 
-void fatal(char *str)
-
-{
-
+void fatal(char *str) {
 	fprintf(stderr, "%s\n", str);
-
 	exit(EXIT_FAILURE);
-
 }
 
 
-void error(char *str)
-
-{
-
+void error(char *str) {
 	perror(str);
-
 	exit(EXIT_FAILURE);
-
 }
 
 
-int eopen(const char *path, int flag)
-
-{
+int eopen(const char *path, int flag) {
 
 	int fd;
 
-
 	if ((fd = open(path, flag)) < 0) {
-
 		fprintf(stderr, "cannot open \"%s\"\n", path);
-
 		error("open");
-
 	}
-
 	return fd;
-
 }
 
 
-void *emmap(int addr, size_t len, int prot, int flag, int fd, off_t offset)
-
-{
+void *emmap(int addr, ssize_t len, int prot, int flag, int fd, off_t offset) {
 
 	uint32_t *fp;
 
-
 	if ((fp = (uint32_t *) mmap(0, len, prot, flag, fd, offset)) == MAP_FAILED)
-
 		error("mmap");
-
 	return fp;
-
 }
 
 
-int drm_open(const char *path)
-
-{
+int drm_open(const char *path) {
 
 	int fd, flags;
-
 	uint64_t has_dumb;
-
 
 	fd = eopen(path, O_RDWR);
 
 
 	/* set FD_CLOEXEC flag */
 
-	if ((flags = fcntl(fd, F_GETFD)) < 0
-
-		|| fcntl(fd, F_SETFD, flags | FD_CLOEXEC) < 0)
-
+	if ((flags = fcntl(fd, F_GETFD)) < 0 || fcntl(fd, F_SETFD, flags | FD_CLOEXEC) < 0)
 		fatal("fcntl FD_CLOEXEC failed");
-
 
 	/* check capability */
 
 	if (drmGetCap(fd, DRM_CAP_DUMB_BUFFER, &has_dumb) < 0 || has_dumb == 0)
-
 		fatal("drmGetCap DRM_CAP_DUMB_BUFFER failed or doesn't have dumb buffer");
-
 
 	return fd;
 
 }
 
 
-struct drm_dev_t *drm_find_dev(int fd)
-
-{
+struct drm_dev_t *drm_find_dev(int fd) {
 
 	int i;
-
 	struct drm_dev_t *dev = NULL, *dev_head = NULL;
 
 	drmModeRes *res;
-
 	drmModeConnector *conn;
 
 	drmModeEncoder *enc;
 
 
 	if ((res = drmModeGetResources(fd)) == NULL)
-
 		fatal("drmModeGetResources() failed");
 
-
 	/* find all available connectors */
-
 	for (i = 0; i < res->count_connectors; i++) {
-
 		conn = drmModeGetConnector(fd, res->connectors[i]);
 
 
@@ -175,52 +115,36 @@ struct drm_dev_t *drm_find_dev(int fd)
 
 			memset(dev, 0, sizeof(struct drm_dev_t));
 
-
 			dev->conn_id = conn->connector_id;
-
 			dev->enc_id = conn->encoder_id;
-
 			dev->next = NULL;
 
 
 			memcpy(&dev->mode, &conn->modes[0], sizeof(drmModeModeInfo));
-
 			dev->width = conn->modes[0].hdisplay;
-
 			dev->height = conn->modes[0].vdisplay;
 
 
 			/* FIXME: use default encoder/crtc pair */
 
 			if ((enc = drmModeGetEncoder(fd, dev->enc_id)) == NULL)
-
 				fatal("drmModeGetEncoder() faild");
 
 			dev->crtc_id = enc->crtc_id;
-
 			drmModeFreeEncoder(enc);
-
-
 			dev->saved_crtc = NULL;
 
 
 			/* create dev list */
-
 			dev->next = dev_head;
-
 			dev_head = dev;
-
 		}
 
 		drmModeFreeConnector(conn);
-
 	}
 
 	drmModeFreeResources(res);
-
-
 	return dev_head;
-
 }
 
 

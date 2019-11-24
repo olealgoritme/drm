@@ -1,0 +1,7 @@
+<refsect2>
+<title>Example launch line</title>
+|[
+gst-launch-1.0 -v fakedmabufsrc ! "video/x-raw,format=BGRx,width=3440,height=1440" ! vaapipostproc format=nv12 !  vaapih264enc tune=low-power ! filesink location=sample.h264
+]|
+</refsect2>
+ 

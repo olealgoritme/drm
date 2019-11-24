@@ -3,7 +3,7 @@
 
 BUILDDIR ?= build
 CC ?= cc
-CFLAGS += -Wall -Wextra -Werror
+#CFLAGS += -Wall -Wextra -Werror
 CFLAGS += -std=gnu99 -I/usr/include/libdrm 
 LIBS += -ldrm -lGL -lEGL -lX11 -lcairo
 
@@ -23,6 +23,14 @@ OBJDIR ?= $(BUILDDIR)/$(CONFIG)
 $(OBJDIR)/%.c.o: %.c
 	@mkdir -p $(dir $@)
 	$(COMPILE.c) -c $< -o $@
+ENUM_SOURCES = egl_headless2.c
+ENUM_OBJS = $(ENUM_SOURCES:%=$(OBJDIR)/%.o)
+ENUM_DEPS = $(ENUM_OBJS:%=%.d)
+-include $(ENUM_DEPS)
+egl_headless2: $(OBJDIR)/egl_headless2
+$(OBJDIR)/egl_headless2: $(ENUM_OBJS)
+	@mkdir -p $(dir $@)
+		$(CC) $^ $(LIBS) -o $@
 
 ENUM_SOURCES = egl_headless.c
 ENUM_OBJS = $(ENUM_SOURCES:%=$(OBJDIR)/%.o)

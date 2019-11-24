@@ -1,0 +1,622 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ACLOCAL	Makefile	/^ACLOCAL = ${SHELL} \/home\/xuw\/code\/c\/drm\/fakedmabufsrc\/build-aux\/missing aclocal-1.16$/;"	m
+ACLOCAL_M4	Makefile	/^ACLOCAL_M4 = $(top_srcdir)\/aclocal.m4$/;"	m
+AMTAR	Makefile	/^AMTAR = $${TAR-tar}$/;"	m
+AM_DEFAULT_VERBOSITY	Makefile	/^AM_DEFAULT_VERBOSITY = 0$/;"	m
+AM_RECURSIVE_TARGETS	Makefile	/^AM_RECURSIVE_TARGETS = cscope$/;"	m
+AM_V_CC	Makefile	/^AM_V_CC = $(am__v_CC_$(V))$/;"	m
+AM_V_CCLD	Makefile	/^AM_V_CCLD = $(am__v_CCLD_$(V))$/;"	m
+AM_V_GEN	Makefile	/^AM_V_GEN = $(am__v_GEN_$(V))$/;"	m
+AM_V_P	Makefile	/^AM_V_P = $(am__v_P_$(V))$/;"	m
+AM_V_at	Makefile	/^AM_V_at = $(am__v_at_$(V))$/;"	m
+AM_V_lt	Makefile	/^AM_V_lt = $(am__v_lt_$(V))$/;"	m
+AR	Makefile	/^AR = ar$/;"	m
+AUTOCONF	Makefile	/^AUTOCONF = ${SHELL} \/home\/xuw\/code\/c\/drm\/fakedmabufsrc\/build-aux\/missing autoconf$/;"	m
+AUTOHEADER	Makefile	/^AUTOHEADER = ${SHELL} \/home\/xuw\/code\/c\/drm\/fakedmabufsrc\/build-aux\/missing autoheader$/;"	m
+AUTOMAKE	Makefile	/^AUTOMAKE = ${SHELL} \/home\/xuw\/code\/c\/drm\/fakedmabufsrc\/build-aux\/missing automake-1.16$/;"	m
+AWK	Makefile	/^AWK = gawk$/;"	m
+AppData	test/fakedmabuf-stream.c	/^} AppData;$/;"	t	typeref:struct:_CustomData	file:
+CC	Makefile	/^CC = gcc$/;"	m
+CCDEPMODE	Makefile	/^CCDEPMODE = depmode=gcc3$/;"	m
+CCLD	Makefile	/^CCLD = $(CC)$/;"	m
+CFLAGS	Makefile	/^CFLAGS = -g -O2$/;"	m
+COMPILE	Makefile	/^COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \\$/;"	m
+CONFIG_CLEAN_FILES	Makefile	/^CONFIG_CLEAN_FILES =$/;"	m
+CONFIG_CLEAN_VPATH_FILES	Makefile	/^CONFIG_CLEAN_VPATH_FILES =$/;"	m
+CONFIG_HEADER	Makefile	/^CONFIG_HEADER = config.h$/;"	m
+CPP	Makefile	/^CPP = gcc -E$/;"	m
+CPPFLAGS	Makefile	/^CPPFLAGS = $/;"	m
+CSCOPE	Makefile	/^CSCOPE = cscope$/;"	m
+CTAGS	Makefile	/^CTAGS = ctags$/;"	m
+CYGPATH_W	Makefile	/^CYGPATH_W = echo$/;"	m
+CreateProcess	build-aux/ltmain.sh	/^   CreateProcess().  We must quote the arguments since Win32 CreateProcess()$/;"	f
+CreateProcess	libtool	/^   CreateProcess().  We must quote the arguments since Win32 CreateProcess()$/;"	f
+DEFAULT_INCLUDES	Makefile	/^DEFAULT_INCLUDES = -I.$/;"	m
+DEFS	Makefile	/^DEFS = -DHAVE_CONFIG_H$/;"	m
+DEPDIR	Makefile	/^DEPDIR = .deps$/;"	m
+DISTFILES	Makefile	/^DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)$/;"	m
+DIST_ARCHIVES	Makefile	/^DIST_ARCHIVES = $(distdir).tar.gz$/;"	m
+DIST_COMMON	Makefile	/^DIST_COMMON = $(srcdir)\/Makefile.am $(top_srcdir)\/configure \\$/;"	m
+DIST_SOURCES	Makefile	/^DIST_SOURCES = $(libgstfakedmabufsrc_la_SOURCES)$/;"	m
+DIST_TARGETS	Makefile	/^DIST_TARGETS = dist-gzip$/;"	m
+DLLTOOL	Makefile	/^DLLTOOL = false$/;"	m
+DRM_RDWR	gstfakedmabufsrc.c	56;"	d	file:
+DSYMUTIL	Makefile	/^DSYMUTIL = $/;"	m
+DUMPBIN	Makefile	/^DUMPBIN = $/;"	m
+ECHO_C	Makefile	/^ECHO_C = $/;"	m
+ECHO_N	Makefile	/^ECHO_N = -n$/;"	m
+ECHO_T	Makefile	/^ECHO_T = $/;"	m
+EGREP	Makefile	/^EGREP = \/usr\/bin\/grep -E$/;"	m
+ETAGS	Makefile	/^ETAGS = etags$/;"	m
+EXEEXT	Makefile	/^EXEEXT = $/;"	m
+FGREP	Makefile	/^FGREP = \/usr\/bin\/grep -F$/;"	m
+GREP	Makefile	/^GREP = \/usr\/bin\/grep$/;"	m
+GST_ALLOCATORS_CFLAGS	Makefile	/^GST_ALLOCATORS_CFLAGS = -pthread -I\/usr\/include\/gstreamer-1.0 -I\/usr\/include\/glib-2.0 -I\/usr\/lib\/x86_64-linux-gnu\/glib-2.0\/include$/;"	m
+GST_ALLOCATORS_LIBS	Makefile	/^GST_ALLOCATORS_LIBS = -lgstallocators-1.0 -lgstreamer-1.0 -lgobject-2.0 -lglib-2.0$/;"	m
+GST_BASE_CFLAGS	Makefile	/^GST_BASE_CFLAGS = -pthread -I\/usr\/include\/gstreamer-1.0 -I\/usr\/include\/glib-2.0 -I\/usr\/lib\/x86_64-linux-gnu\/glib-2.0\/include$/;"	m
+GST_BASE_LIBS	Makefile	/^GST_BASE_LIBS = -lgstbase-1.0 -lgstreamer-1.0 -lgobject-2.0 -lglib-2.0$/;"	m
+GST_CAT_DEFAULT	gstfakedmabufsrc.c	109;"	d	file:
+GST_CFLAGS	Makefile	/^GST_CFLAGS = -pthread -I\/usr\/include\/gstreamer-1.0 -I\/usr\/include\/glib-2.0 -I\/usr\/lib\/x86_64-linux-gnu\/glib-2.0\/include$/;"	m
+GST_FAKEDMABUFSRC	gstfakedmabufsrc.h	36;"	d
+GST_FAKEDMABUFSRC_CLASS	gstfakedmabufsrc.h	37;"	d
+GST_FAKEDMABUFSRC_FORMATS	gstfakedmabufsrc.c	59;"	d	file:
+GST_FAKEDMABUFSRC_IO_MODE_DMABUF_EXPORT	gstfakedmabufsrc.c	/^  GST_FAKEDMABUFSRC_IO_MODE_DMABUF_EXPORT = 1,$/;"	e	enum:__anon1	file:
+GST_FAKEDMABUFSRC_IO_MODE_DMABUF_IMPORT	gstfakedmabufsrc.c	/^  GST_FAKEDMABUFSRC_IO_MODE_DMABUF_IMPORT = 2,$/;"	e	enum:__anon1	file:
+GST_FAKEDMABUFSRC_IO_MODE_TYPE	gstfakedmabufsrc.c	77;"	d	file:
+GST_IS_FAKEDMABUFSRC	gstfakedmabufsrc.h	38;"	d
+GST_IS_FAKEDMABUFSRC_CLASS	gstfakedmabufsrc.h	39;"	d
+GST_LIBS	Makefile	/^GST_LIBS = -lgstreamer-1.0 -lgobject-2.0 -lglib-2.0$/;"	m
+GST_PACKAGE_ORIGIN	gstfakedmabufsrc.c	435;"	d	file:
+GST_TYPE_FAKEDMABUFSRC	gstfakedmabufsrc.h	35;"	d
+GST_VIDEO_CFLAGS	Makefile	/^GST_VIDEO_CFLAGS = -pthread -I\/usr\/include\/gstreamer-1.0 -I\/usr\/include\/orc-0.4 -I\/usr\/include\/gstreamer-1.0 -I\/usr\/include\/glib-2.0 -I\/usr\/lib\/x86_64-linux-gnu\/glib-2.0\/include$/;"	m
+GST_VIDEO_LIBS	Makefile	/^GST_VIDEO_LIBS = -lgstvideo-1.0 -lgstbase-1.0 -lgstreamer-1.0 -lgobject-2.0 -lglib-2.0$/;"	m
+GZIP_ENV	Makefile	/^GZIP_ENV = --best$/;"	m
+GstFakeDmabufSrc	gstfakedmabufsrc.h	/^typedef struct _GstFakeDmabufSrc GstFakeDmabufSrc;$/;"	t	typeref:struct:_GstFakeDmabufSrc
+GstFakeDmabufSrcClass	gstfakedmabufsrc.h	/^typedef struct _GstFakeDmabufSrcClass GstFakeDmabufSrcClass;$/;"	t	typeref:struct:_GstFakeDmabufSrcClass
+HAVE_DLFCN_H	config.h	5;"	d
+HAVE_INTTYPES_H	config.h	8;"	d
+HAVE_MEMORY_H	config.h	11;"	d
+HAVE_STDINT_H	config.h	14;"	d
+HAVE_STDLIB_H	config.h	17;"	d
+HAVE_STRINGS_H	config.h	20;"	d
+HAVE_STRING_H	config.h	23;"	d
+HAVE_SYS_STAT_H	config.h	26;"	d
+HAVE_SYS_TYPES_H	config.h	29;"	d
+HAVE_UNISTD_H	config.h	32;"	d
+HEADERS	Makefile	/^HEADERS = $(noinst_HEADERS)$/;"	m
+INSTALL	Makefile	/^INSTALL = \/usr\/bin\/install -c$/;"	m
+INSTALL_DATA	Makefile	/^INSTALL_DATA = ${INSTALL} -m 644$/;"	m
+INSTALL_HEADER	Makefile	/^INSTALL_HEADER = $(INSTALL_DATA)$/;"	m
+INSTALL_PROGRAM	Makefile	/^INSTALL_PROGRAM = ${INSTALL}$/;"	m
+INSTALL_SCRIPT	Makefile	/^INSTALL_SCRIPT = ${INSTALL}$/;"	m
+INSTALL_STRIP_PROGRAM	Makefile	/^INSTALL_STRIP_PROGRAM = $(install_sh) -c -s$/;"	m
+KMS_DRM_CFLAGS	Makefile	/^KMS_DRM_CFLAGS = -I\/usr\/include\/libdrm$/;"	m
+KMS_DRM_LIBS	Makefile	/^KMS_DRM_LIBS = -ldrm$/;"	m
+LD	Makefile	/^LD = \/usr\/bin\/ld -m elf_x86_64$/;"	m
+LDFLAGS	Makefile	/^LDFLAGS = $/;"	m
+LIBOBJS	Makefile	/^LIBOBJS = $/;"	m
+LIBS	Makefile	/^LIBS = $/;"	m
+LIBTOOL	Makefile	/^LIBTOOL = $(SHELL) $(top_builddir)\/libtool$/;"	m
+LINK	Makefile	/^LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \\$/;"	m
+LIPO	Makefile	/^LIPO = $/;"	m
+LN_S	Makefile	/^LN_S = ln -s$/;"	m
+LTCOMPILE	Makefile	/^LTCOMPILE = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \\$/;"	m
+LTLIBOBJS	Makefile	/^LTLIBOBJS = $/;"	m
+LTLIBRARIES	Makefile	/^LTLIBRARIES = $(lib_LTLIBRARIES)$/;"	m
+LT_OBJDIR	config.h	35;"	d
+LT_SYS_LIBRARY_PATH	Makefile	/^LT_SYS_LIBRARY_PATH = $/;"	m
+MAKEINFO	Makefile	/^MAKEINFO = ${SHELL} \/home\/xuw\/code\/c\/drm\/fakedmabufsrc\/build-aux\/missing makeinfo$/;"	m
+MANIFEST_TOOL	Makefile	/^MANIFEST_TOOL = :$/;"	m
+MKDIR_P	Makefile	/^MKDIR_P = \/usr\/bin\/mkdir -p$/;"	m
+NM	Makefile	/^NM = \/usr\/bin\/nm -B$/;"	m
+NMEDIT	Makefile	/^NMEDIT = $/;"	m
+NORMAL_INSTALL	Makefile	/^NORMAL_INSTALL = :$/;"	m
+NORMAL_UNINSTALL	Makefile	/^NORMAL_UNINSTALL = :$/;"	m
+OBJDUMP	Makefile	/^OBJDUMP = objdump$/;"	m
+OBJEXT	Makefile	/^OBJEXT = o$/;"	m
+OTOOL	Makefile	/^OTOOL = $/;"	m
+OTOOL64	Makefile	/^OTOOL64 = $/;"	m
+PACKAGE	Makefile	/^PACKAGE = fakedmabufsrc$/;"	m
+PACKAGE	config.h	38;"	d
+PACKAGE	gstfakedmabufsrc.c	429;"	d	file:
+PACKAGE_BUGREPORT	Makefile	/^PACKAGE_BUGREPORT = sreerenjb@gnome.org$/;"	m
+PACKAGE_BUGREPORT	config.h	41;"	d
+PACKAGE_NAME	Makefile	/^PACKAGE_NAME = fakedmabufsrc$/;"	m
+PACKAGE_NAME	config.h	44;"	d
+PACKAGE_NAME	gstfakedmabufsrc.c	432;"	d	file:
+PACKAGE_STRING	Makefile	/^PACKAGE_STRING = fakedmabufsrc 1.0$/;"	m
+PACKAGE_STRING	config.h	47;"	d
+PACKAGE_TARNAME	Makefile	/^PACKAGE_TARNAME = fakedmabufsrc$/;"	m
+PACKAGE_TARNAME	config.h	50;"	d
+PACKAGE_URL	Makefile	/^PACKAGE_URL = $/;"	m
+PACKAGE_URL	config.h	53;"	d
+PACKAGE_VERSION	Makefile	/^PACKAGE_VERSION = 1.0$/;"	m
+PACKAGE_VERSION	config.h	56;"	d
+PATH_SEPARATOR	Makefile	/^PATH_SEPARATOR = :$/;"	m
+PKG_CONFIG	Makefile	/^PKG_CONFIG = \/usr\/bin\/pkg-config$/;"	m
+PKG_CONFIG_LIBDIR	Makefile	/^PKG_CONFIG_LIBDIR = $/;"	m
+PKG_CONFIG_PATH	Makefile	/^PKG_CONFIG_PATH = $/;"	m
+POST_INSTALL	Makefile	/^POST_INSTALL = :$/;"	m
+POST_UNINSTALL	Makefile	/^POST_UNINSTALL = :$/;"	m
+PRE_INSTALL	Makefile	/^PRE_INSTALL = :$/;"	m
+PRE_UNINSTALL	Makefile	/^PRE_UNINSTALL = :$/;"	m
+PROP_0	gstfakedmabufsrc.c	/^  PROP_0,$/;"	e	enum:__anon2	file:
+PROP_IO_MODE	gstfakedmabufsrc.c	/^  PROP_IO_MODE,$/;"	e	enum:__anon2	file:
+PROP_LAST	gstfakedmabufsrc.c	/^  PROP_LAST$/;"	e	enum:__anon2	file:
+RANLIB	Makefile	/^RANLIB = ranlib$/;"	m
+SED	Makefile	/^SED = \/usr\/bin\/sed$/;"	m
+SET_MAKE	Makefile	/^SET_MAKE = $/;"	m
+SHELL	Makefile	/^SHELL = \/bin\/bash$/;"	m
+SOURCES	Makefile	/^SOURCES = $(libgstfakedmabufsrc_la_SOURCES)$/;"	m
+STDC_HEADERS	config.h	59;"	d
+STRIP	Makefile	/^STRIP = strip$/;"	m
+VERSION	Makefile	/^VERSION = 1.0$/;"	m
+VERSION	config.h	62;"	d
+VERSION	gstfakedmabufsrc.c	426;"	d	file:
+_CustomData	test/fakedmabuf-stream.c	/^typedef struct _CustomData$/;"	s	file:
+_GST_FAKEDMABUFSRC_H_	gstfakedmabufsrc.h	25;"	d
+_GstFakeDmabufSrc	gstfakedmabufsrc.h	/^struct _GstFakeDmabufSrc$/;"	s
+_GstFakeDmabufSrcClass	gstfakedmabufsrc.h	/^struct _GstFakeDmabufSrcClass$/;"	s
+_do_init	gstfakedmabufsrc.c	131;"	d	file:
+abs_builddir	Makefile	/^abs_builddir = \/home\/xuw\/code\/c\/drm\/fakedmabufsrc$/;"	m
+abs_srcdir	Makefile	/^abs_srcdir = \/home\/xuw\/code\/c\/drm\/fakedmabufsrc$/;"	m
+abs_top_builddir	Makefile	/^abs_top_builddir = \/home\/xuw\/code\/c\/drm\/fakedmabufsrc$/;"	m
+abs_top_srcdir	Makefile	/^abs_top_srcdir = \/home\/xuw\/code\/c\/drm\/fakedmabufsrc$/;"	m
+ac_ct_AR	Makefile	/^ac_ct_AR = ar$/;"	m
+ac_ct_CC	Makefile	/^ac_ct_CC = gcc$/;"	m
+ac_ct_DUMPBIN	Makefile	/^ac_ct_DUMPBIN = $/;"	m
+ac_fn_c_check_func	configure	/^ac_fn_c_check_func ()$/;"	f
+ac_fn_c_check_header_compile	configure	/^ac_fn_c_check_header_compile ()$/;"	f
+ac_fn_c_try_compile	configure	/^ac_fn_c_try_compile ()$/;"	f
+ac_fn_c_try_cpp	configure	/^ac_fn_c_try_cpp ()$/;"	f
+ac_fn_c_try_link	configure	/^ac_fn_c_try_link ()$/;"	f
+ac_fn_c_try_run	configure	/^ac_fn_c_try_run ()$/;"	f
+aix_post_process_depfile	build-aux/depcomp	/^aix_post_process_depfile ()$/;"	f
+allocator	gstfakedmabufsrc.h	/^  GstAllocator* allocator;$/;"	m	struct:_GstFakeDmabufSrc
+am__CONFIG_DISTCLEAN_FILES	Makefile	/^am__CONFIG_DISTCLEAN_FILES = config.status config.cache config.log \\$/;"	m
+am__DEPENDENCIES_1	Makefile	/^am__DEPENDENCIES_1 =$/;"	m
+am__DIST_COMMON	Makefile	/^am__DIST_COMMON = $(srcdir)\/Makefile.in $(srcdir)\/config.h.in \\$/;"	m
+am__aclocal_m4_deps	Makefile	/^am__aclocal_m4_deps = $(top_srcdir)\/m4\/libtool.m4 \\$/;"	m
+am__base_list	Makefile	/^am__base_list = \\$/;"	m
+am__can_run_installinfo	Makefile	/^am__can_run_installinfo = \\$/;"	m
+am__cd	Makefile	/^am__cd = CDPATH="$${ZSH_VERSION+.}$(PATH_SEPARATOR)" && cd$/;"	m
+am__configure_deps	Makefile	/^am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \\$/;"	m
+am__define_uniq_tagged_files	Makefile	/^am__define_uniq_tagged_files = \\$/;"	m
+am__depfiles_remade	Makefile	/^am__depfiles_remade =  \\$/;"	m
+am__distuninstallcheck_listfiles	Makefile	/^am__distuninstallcheck_listfiles = $(distuninstallcheck_listfiles) \\$/;"	m
+am__include	Makefile	/^am__include = include$/;"	m
+am__install_max	Makefile	/^am__install_max = 40$/;"	m
+am__installdirs	Makefile	/^am__installdirs = "$(DESTDIR)$(libdir)"$/;"	m
+am__is_gnu_make	Makefile	/^am__is_gnu_make = { \\$/;"	m
+am__leading_dot	Makefile	/^am__leading_dot = .$/;"	m
+am__make_dryrun	Makefile	/^am__make_dryrun = (target_option=n; $(am__make_running_with_option))$/;"	m
+am__make_keepgoing	Makefile	/^am__make_keepgoing = (target_option=k; $(am__make_running_with_option))$/;"	m
+am__make_running_with_option	Makefile	/^am__make_running_with_option = \\$/;"	m
+am__maybe_remake_depfiles	Makefile	/^am__maybe_remake_depfiles = depfiles$/;"	m
+am__mv	Makefile	/^am__mv = mv -f$/;"	m
+am__nobase_list	Makefile	/^am__nobase_list = $(am__nobase_strip_setup); \\$/;"	m
+am__nobase_strip	Makefile	/^am__nobase_strip = \\$/;"	m
+am__nobase_strip_setup	Makefile	/^am__nobase_strip_setup = \\$/;"	m
+am__post_remove_distdir	Makefile	/^am__post_remove_distdir = $(am__remove_distdir)$/;"	m
+am__quote	Makefile	/^am__quote = $/;"	m
+am__remove_distdir	Makefile	/^am__remove_distdir = \\$/;"	m
+am__strip_dir	Makefile	/^am__strip_dir = f=`echo $$p | sed -e 's|^.*\/||'`;$/;"	m
+am__tagged_files	Makefile	/^am__tagged_files = $(HEADERS) $(SOURCES) $(TAGS_FILES) \\$/;"	m
+am__tar	Makefile	/^am__tar = $${TAR-tar} chof - "$$tardir"$/;"	m
+am__uninstall_files_from_dir	Makefile	/^am__uninstall_files_from_dir = { \\$/;"	m
+am__uniquify_input	Makefile	/^am__uniquify_input = $(AWK) '\\$/;"	m
+am__untar	Makefile	/^am__untar = $${TAR-tar} xf -$/;"	m
+am__v_CCLD_	Makefile	/^am__v_CCLD_ = $(am__v_CCLD_$(AM_DEFAULT_VERBOSITY))$/;"	m
+am__v_CCLD_0	Makefile	/^am__v_CCLD_0 = @echo "  CCLD    " $@;$/;"	m
+am__v_CCLD_1	Makefile	/^am__v_CCLD_1 = $/;"	m
+am__v_CC_	Makefile	/^am__v_CC_ = $(am__v_CC_$(AM_DEFAULT_VERBOSITY))$/;"	m
+am__v_CC_0	Makefile	/^am__v_CC_0 = @echo "  CC      " $@;$/;"	m
+am__v_CC_1	Makefile	/^am__v_CC_1 = $/;"	m
+am__v_GEN_	Makefile	/^am__v_GEN_ = $(am__v_GEN_$(AM_DEFAULT_VERBOSITY))$/;"	m
+am__v_GEN_0	Makefile	/^am__v_GEN_0 = @echo "  GEN     " $@;$/;"	m
+am__v_GEN_1	Makefile	/^am__v_GEN_1 = $/;"	m
+am__v_P_	Makefile	/^am__v_P_ = $(am__v_P_$(AM_DEFAULT_VERBOSITY))$/;"	m
+am__v_P_0	Makefile	/^am__v_P_0 = false$/;"	m
+am__v_P_1	Makefile	/^am__v_P_1 = :$/;"	m
+am__v_at_	Makefile	/^am__v_at_ = $(am__v_at_$(AM_DEFAULT_VERBOSITY))$/;"	m
+am__v_at_0	Makefile	/^am__v_at_0 = @$/;"	m
+am__v_at_1	Makefile	/^am__v_at_1 = $/;"	m
+am__v_lt_	Makefile	/^am__v_lt_ = $(am__v_lt_$(AM_DEFAULT_VERBOSITY))$/;"	m
+am__v_lt_0	Makefile	/^am__v_lt_0 = --silent$/;"	m
+am__v_lt_1	Makefile	/^am__v_lt_1 = $/;"	m
+am__vpath_adj	Makefile	/^am__vpath_adj = case $$p in \\$/;"	m
+am__vpath_adj_setup	Makefile	/^am__vpath_adj_setup = srcdirstrip=`echo "$(srcdir)" | sed 's|.|.|g'`;$/;"	m
+am_libgstfakedmabufsrc_la_OBJECTS	Makefile	/^am_libgstfakedmabufsrc_la_OBJECTS =  \\$/;"	m
+as_fn_append	config.status	/^  as_fn_append ()$/;"	f
+as_fn_append	configure	/^  as_fn_append ()$/;"	f
+as_fn_arith	config.status	/^  as_fn_arith ()$/;"	f
+as_fn_arith	configure	/^  as_fn_arith ()$/;"	f
+as_fn_error	config.status	/^as_fn_error ()$/;"	f
+as_fn_error	configure	/^as_fn_error ()$/;"	f
+as_fn_executable_p	config.status	/^as_fn_executable_p ()$/;"	f
+as_fn_executable_p	configure	/^as_fn_executable_p ()$/;"	f
+as_fn_exit	config.status	/^as_fn_exit ()$/;"	f
+as_fn_exit	configure	/^as_fn_exit ()$/;"	f
+as_fn_failure	configure	/^as_fn_failure () { as_fn_return 1; }$/;"	f
+as_fn_mkdir_p	config.status	/^as_fn_mkdir_p ()$/;"	f
+as_fn_mkdir_p	configure	/^as_fn_mkdir_p ()$/;"	f
+as_fn_ret_failure	configure	/^as_fn_ret_failure () { return 1; }$/;"	f
+as_fn_ret_success	configure	/^as_fn_ret_success () { return 0; }$/;"	f
+as_fn_set_status	config.status	/^as_fn_set_status ()$/;"	f
+as_fn_set_status	configure	/^as_fn_set_status ()$/;"	f
+as_fn_success	configure	/^as_fn_success () { as_fn_return 0; }$/;"	f
+as_fn_unset	config.status	/^as_fn_unset ()$/;"	f
+as_fn_unset	configure	/^as_fn_unset ()$/;"	f
+base_fakedmabufsrc	gstfakedmabufsrc.h	/^  GstPushSrc base_fakedmabufsrc;$/;"	m	struct:_GstFakeDmabufSrc
+bindir	Makefile	/^bindir = ${exec_prefix}\/bin$/;"	m
+build	Makefile	/^build = x86_64-pc-linux-gnu$/;"	m
+build_alias	Makefile	/^build_alias = $/;"	m
+build_cpu	Makefile	/^build_cpu = x86_64$/;"	m
+build_os	Makefile	/^build_os = linux-gnu$/;"	m
+build_triplet	Makefile	/^build_triplet = x86_64-pc-linux-gnu$/;"	m
+build_vendor	Makefile	/^build_vendor = pc$/;"	m
+builddir	Makefile	/^builddir = .$/;"	m
+bus_call	test/fakedmabuf-stream.c	/^bus_call (GstBus * bus, GstMessage * msg, gpointer data)$/;"	f	file:
+datadir	Makefile	/^datadir = ${datarootdir}$/;"	m
+datarootdir	Makefile	/^datarootdir = ${prefix}\/share$/;"	m
+depcomp	Makefile	/^depcomp = $(SHELL) $(top_srcdir)\/build-aux\/depcomp$/;"	m
+distcleancheck_listfiles	Makefile	/^distcleancheck_listfiles = find . -type f -print$/;"	m
+distdir	Makefile	/^distdir = $(PACKAGE)-$(VERSION)$/;"	m
+distuninstallcheck_listfiles	Makefile	/^distuninstallcheck_listfiles = find . -type f -print$/;"	m
+docdir	Makefile	/^docdir = ${datarootdir}\/doc\/${PACKAGE_TARNAME}$/;"	m
+drmIoctl	gstfakedmabufsrc.c	/^drmIoctl (int fd, unsigned long request, void *arg)$/;"	f
+dvidir	Makefile	/^dvidir = ${docdir}$/;"	m
+exec_prefix	Makefile	/^exec_prefix = ${prefix}$/;"	m
+fd	gstfakedmabufsrc.h	/^  int fd;$/;"	m	struct:_GstFakeDmabufSrc
+func_add_hook	build-aux/ltmain.sh	/^func_add_hook ()$/;"	f
+func_add_hook	libtool	/^func_add_hook ()$/;"	f
+func_append	build-aux/ltmain.sh	/^  func_append ()$/;"	f
+func_append	libtool	/^  func_append ()$/;"	f
+func_append_quoted	build-aux/ltmain.sh	/^  func_append_quoted ()$/;"	f
+func_append_quoted	libtool	/^  func_append_quoted ()$/;"	f
+func_append_uniq	build-aux/ltmain.sh	/^func_append_uniq ()$/;"	f
+func_append_uniq	libtool	/^func_append_uniq ()$/;"	f
+func_arith	build-aux/ltmain.sh	/^  func_arith ()$/;"	f
+func_arith	libtool	/^  func_arith ()$/;"	f
+func_cc_basename	config.status	/^func_cc_basename ()$/;"	f
+func_cc_basename	configure	/^func_cc_basename ()$/;"	f
+func_cc_basename	libtool	/^func_cc_basename ()$/;"	f
+func_check_prog_grep	build-aux/ltmain.sh	/^  func_check_prog_grep ()$/;"	f
+func_check_prog_grep	libtool	/^  func_check_prog_grep ()$/;"	f
+func_check_prog_sed	build-aux/ltmain.sh	/^  func_check_prog_sed ()$/;"	f
+func_check_prog_sed	libtool	/^  func_check_prog_sed ()$/;"	f
+func_check_version_match	build-aux/ltmain.sh	/^func_check_version_match ()$/;"	f
+func_check_version_match	libtool	/^func_check_version_match ()$/;"	f
+func_cl_dashL	build-aux/compile	/^func_cl_dashL ()$/;"	f
+func_cl_dashl	build-aux/compile	/^func_cl_dashl ()$/;"	f
+func_cl_wrapper	build-aux/compile	/^func_cl_wrapper ()$/;"	f
+func_config	build-aux/ltmain.sh	/^func_config ()$/;"	f
+func_config	libtool	/^func_config ()$/;"	f
+func_convert_core_file_wine_to_w32	build-aux/ltmain.sh	/^func_convert_core_file_wine_to_w32 ()$/;"	f
+func_convert_core_file_wine_to_w32	libtool	/^func_convert_core_file_wine_to_w32 ()$/;"	f
+func_convert_core_msys_to_w32	build-aux/ltmain.sh	/^func_convert_core_msys_to_w32 ()$/;"	f
+func_convert_core_msys_to_w32	libtool	/^func_convert_core_msys_to_w32 ()$/;"	f
+func_convert_core_path_wine_to_w32	build-aux/ltmain.sh	/^func_convert_core_path_wine_to_w32 ()$/;"	f
+func_convert_core_path_wine_to_w32	libtool	/^func_convert_core_path_wine_to_w32 ()$/;"	f
+func_convert_file_check	build-aux/ltmain.sh	/^func_convert_file_check ()$/;"	f
+func_convert_file_check	libtool	/^func_convert_file_check ()$/;"	f
+func_convert_file_cygwin_to_w32	build-aux/ltmain.sh	/^func_convert_file_cygwin_to_w32 ()$/;"	f
+func_convert_file_cygwin_to_w32	libtool	/^func_convert_file_cygwin_to_w32 ()$/;"	f
+func_convert_file_msys_to_cygwin	build-aux/ltmain.sh	/^func_convert_file_msys_to_cygwin ()$/;"	f
+func_convert_file_msys_to_cygwin	libtool	/^func_convert_file_msys_to_cygwin ()$/;"	f
+func_convert_file_msys_to_w32	build-aux/ltmain.sh	/^func_convert_file_msys_to_w32 ()$/;"	f
+func_convert_file_msys_to_w32	libtool	/^func_convert_file_msys_to_w32 ()$/;"	f
+func_convert_file_nix_to_cygwin	build-aux/ltmain.sh	/^func_convert_file_nix_to_cygwin ()$/;"	f
+func_convert_file_nix_to_cygwin	libtool	/^func_convert_file_nix_to_cygwin ()$/;"	f
+func_convert_file_nix_to_w32	build-aux/ltmain.sh	/^func_convert_file_nix_to_w32 ()$/;"	f
+func_convert_file_nix_to_w32	libtool	/^func_convert_file_nix_to_w32 ()$/;"	f
+func_convert_file_noop	build-aux/ltmain.sh	/^func_convert_file_noop ()$/;"	f
+func_convert_file_noop	libtool	/^func_convert_file_noop ()$/;"	f
+func_convert_path_check	build-aux/ltmain.sh	/^func_convert_path_check ()$/;"	f
+func_convert_path_check	libtool	/^func_convert_path_check ()$/;"	f
+func_convert_path_cygwin_to_w32	build-aux/ltmain.sh	/^func_convert_path_cygwin_to_w32 ()$/;"	f
+func_convert_path_cygwin_to_w32	libtool	/^func_convert_path_cygwin_to_w32 ()$/;"	f
+func_convert_path_front_back_pathsep	build-aux/ltmain.sh	/^func_convert_path_front_back_pathsep ()$/;"	f
+func_convert_path_front_back_pathsep	libtool	/^func_convert_path_front_back_pathsep ()$/;"	f
+func_convert_path_msys_to_cygwin	build-aux/ltmain.sh	/^func_convert_path_msys_to_cygwin ()$/;"	f
+func_convert_path_msys_to_cygwin	libtool	/^func_convert_path_msys_to_cygwin ()$/;"	f
+func_convert_path_msys_to_w32	build-aux/ltmain.sh	/^func_convert_path_msys_to_w32 ()$/;"	f
+func_convert_path_msys_to_w32	libtool	/^func_convert_path_msys_to_w32 ()$/;"	f
+func_convert_path_nix_to_cygwin	build-aux/ltmain.sh	/^func_convert_path_nix_to_cygwin ()$/;"	f
+func_convert_path_nix_to_cygwin	libtool	/^func_convert_path_nix_to_cygwin ()$/;"	f
+func_convert_path_nix_to_w32	build-aux/ltmain.sh	/^func_convert_path_nix_to_w32 ()$/;"	f
+func_convert_path_nix_to_w32	libtool	/^func_convert_path_nix_to_w32 ()$/;"	f
+func_convert_path_noop	build-aux/ltmain.sh	/^func_convert_path_noop ()$/;"	f
+func_convert_path_noop	libtool	/^func_convert_path_noop ()$/;"	f
+func_cygming_dll_for_implib	build-aux/ltmain.sh	/^func_cygming_dll_for_implib ()$/;"	f
+func_cygming_dll_for_implib	libtool	/^func_cygming_dll_for_implib ()$/;"	f
+func_cygming_dll_for_implib_fallback	build-aux/ltmain.sh	/^func_cygming_dll_for_implib_fallback ()$/;"	f
+func_cygming_dll_for_implib_fallback	libtool	/^func_cygming_dll_for_implib_fallback ()$/;"	f
+func_cygming_dll_for_implib_fallback_core	build-aux/ltmain.sh	/^func_cygming_dll_for_implib_fallback_core ()$/;"	f
+func_cygming_dll_for_implib_fallback_core	libtool	/^func_cygming_dll_for_implib_fallback_core ()$/;"	f
+func_cygming_gnu_implib_p	build-aux/ltmain.sh	/^func_cygming_gnu_implib_p ()$/;"	f
+func_cygming_gnu_implib_p	libtool	/^func_cygming_gnu_implib_p ()$/;"	f
+func_cygming_ms_implib_p	build-aux/ltmain.sh	/^func_cygming_ms_implib_p ()$/;"	f
+func_cygming_ms_implib_p	libtool	/^func_cygming_ms_implib_p ()$/;"	f
+func_cygpath	build-aux/ltmain.sh	/^func_cygpath ()$/;"	f
+func_cygpath	libtool	/^func_cygpath ()$/;"	f
+func_dll_def_p	build-aux/ltmain.sh	/^func_dll_def_p ()$/;"	f
+func_dll_def_p	libtool	/^func_dll_def_p ()$/;"	f
+func_echo	build-aux/ltmain.sh	/^func_echo ()$/;"	f
+func_echo	libtool	/^func_echo ()$/;"	f
+func_echo_all	build-aux/ltmain.sh	/^func_echo_all ()$/;"	f
+func_echo_all	configure	/^func_echo_all ()$/;"	f
+func_echo_all	libtool	/^func_echo_all ()$/;"	f
+func_echo_infix_1	build-aux/ltmain.sh	/^func_echo_infix_1 ()$/;"	f
+func_echo_infix_1	libtool	/^func_echo_infix_1 ()$/;"	f
+func_emit_cwrapperexe_src	build-aux/ltmain.sh	/^func_emit_cwrapperexe_src ()$/;"	f
+func_emit_cwrapperexe_src	libtool	/^func_emit_cwrapperexe_src ()$/;"	f
+func_emit_wrapper	build-aux/ltmain.sh	/^func_emit_wrapper ()$/;"	f
+func_emit_wrapper	libtool	/^func_emit_wrapper ()$/;"	f
+func_enable_tag	build-aux/ltmain.sh	/^func_enable_tag ()$/;"	f
+func_enable_tag	libtool	/^func_enable_tag ()$/;"	f
+func_error	build-aux/ltmain.sh	/^func_error ()$/;"	f
+func_error	libtool	/^func_error ()$/;"	f
+func_exec_program	build-aux/ltmain.sh	/^func_exec_program ()$/;"	f
+func_exec_program	libtool	/^func_exec_program ()$/;"	f
+func_exec_program_core	build-aux/ltmain.sh	/^func_exec_program_core ()$/;"	f
+func_exec_program_core	libtool	/^func_exec_program_core ()$/;"	f
+func_executable_p	build-aux/ltmain.sh	/^func_executable_p ()$/;"	f
+func_executable_p	libtool	/^func_executable_p ()$/;"	f
+func_execute_cmds	build-aux/ltmain.sh	/^func_execute_cmds ()$/;"	f
+func_execute_cmds	libtool	/^func_execute_cmds ()$/;"	f
+func_extract_an_archive	build-aux/ltmain.sh	/^func_extract_an_archive ()$/;"	f
+func_extract_an_archive	libtool	/^func_extract_an_archive ()$/;"	f
+func_extract_archives	build-aux/ltmain.sh	/^func_extract_archives ()$/;"	f
+func_extract_archives	libtool	/^func_extract_archives ()$/;"	f
+func_fallback_echo	build-aux/ltmain.sh	/^func_fallback_echo ()$/;"	f
+func_fallback_echo	config.status	/^func_fallback_echo ()$/;"	f
+func_fallback_echo	configure	/^  func_fallback_echo ()$/;"	f
+func_fallback_echo	configure	/^func_fallback_echo ()$/;"	f
+func_fallback_echo	libtool	/^func_fallback_echo ()$/;"	f
+func_fatal_configuration	build-aux/ltmain.sh	/^func_fatal_configuration ()$/;"	f
+func_fatal_configuration	libtool	/^func_fatal_configuration ()$/;"	f
+func_fatal_error	build-aux/ltmain.sh	/^func_fatal_error ()$/;"	f
+func_fatal_error	libtool	/^func_fatal_error ()$/;"	f
+func_fatal_help	build-aux/ltmain.sh	/^func_fatal_help ()$/;"	f
+func_fatal_help	libtool	/^func_fatal_help ()$/;"	f
+func_features	build-aux/ltmain.sh	/^func_features ()$/;"	f
+func_features	libtool	/^func_features ()$/;"	f
+func_file_conv	build-aux/compile	/^func_file_conv ()$/;"	f
+func_generate_dlsyms	build-aux/ltmain.sh	/^func_generate_dlsyms ()$/;"	f
+func_generate_dlsyms	libtool	/^func_generate_dlsyms ()$/;"	f
+func_generated_by_libtool_p	build-aux/ltmain.sh	/^func_generated_by_libtool_p ()$/;"	f
+func_generated_by_libtool_p	libtool	/^func_generated_by_libtool_p ()$/;"	f
+func_grep	build-aux/ltmain.sh	/^func_grep ()$/;"	f
+func_grep	libtool	/^func_grep ()$/;"	f
+func_help	build-aux/ltmain.sh	/^func_help ()$/;"	f
+func_help	libtool	/^func_help ()$/;"	f
+func_hookable	build-aux/ltmain.sh	/^func_hookable ()$/;"	f
+func_hookable	libtool	/^func_hookable ()$/;"	f
+func_infer_tag	build-aux/ltmain.sh	/^func_infer_tag ()$/;"	f
+func_infer_tag	libtool	/^func_infer_tag ()$/;"	f
+func_init_to_host_path_cmd	build-aux/ltmain.sh	/^func_init_to_host_path_cmd ()$/;"	f
+func_init_to_host_path_cmd	libtool	/^func_init_to_host_path_cmd ()$/;"	f
+func_lalib_p	build-aux/ltmain.sh	/^func_lalib_p ()$/;"	f
+func_lalib_p	libtool	/^func_lalib_p ()$/;"	f
+func_lalib_unsafe_p	build-aux/ltmain.sh	/^func_lalib_unsafe_p ()$/;"	f
+func_lalib_unsafe_p	libtool	/^func_lalib_unsafe_p ()$/;"	f
+func_len	build-aux/ltmain.sh	/^  func_len ()$/;"	f
+func_len	libtool	/^  func_len ()$/;"	f
+func_lo2o	build-aux/ltmain.sh	/^  func_lo2o ()$/;"	f
+func_lo2o	libtool	/^  func_lo2o ()$/;"	f
+func_lt_dump_args	build-aux/ltmain.sh	/^func_lt_dump_args ()$/;"	f
+func_lt_dump_args	libtool	/^func_lt_dump_args ()$/;"	f
+func_lt_ver	build-aux/ltmain.sh	/^func_lt_ver ()$/;"	f
+func_lt_ver	libtool	/^func_lt_ver ()$/;"	f
+func_ltwrapper_executable_p	build-aux/ltmain.sh	/^func_ltwrapper_executable_p ()$/;"	f
+func_ltwrapper_executable_p	libtool	/^func_ltwrapper_executable_p ()$/;"	f
+func_ltwrapper_p	build-aux/ltmain.sh	/^func_ltwrapper_p ()$/;"	f
+func_ltwrapper_p	libtool	/^func_ltwrapper_p ()$/;"	f
+func_ltwrapper_script_p	build-aux/ltmain.sh	/^func_ltwrapper_script_p ()$/;"	f
+func_ltwrapper_script_p	libtool	/^func_ltwrapper_script_p ()$/;"	f
+func_ltwrapper_scriptname	build-aux/ltmain.sh	/^func_ltwrapper_scriptname ()$/;"	f
+func_ltwrapper_scriptname	libtool	/^func_ltwrapper_scriptname ()$/;"	f
+func_missing_arg	build-aux/ltmain.sh	/^func_missing_arg ()$/;"	f
+func_missing_arg	libtool	/^func_missing_arg ()$/;"	f
+func_mkdir_p	build-aux/ltmain.sh	/^func_mkdir_p ()$/;"	f
+func_mkdir_p	libtool	/^func_mkdir_p ()$/;"	f
+func_mktempdir	build-aux/ltmain.sh	/^func_mktempdir ()$/;"	f
+func_mktempdir	libtool	/^func_mktempdir ()$/;"	f
+func_mode_compile	build-aux/ltmain.sh	/^func_mode_compile ()$/;"	f
+func_mode_compile	libtool	/^func_mode_compile ()$/;"	f
+func_mode_execute	build-aux/ltmain.sh	/^func_mode_execute ()$/;"	f
+func_mode_execute	libtool	/^func_mode_execute ()$/;"	f
+func_mode_finish	build-aux/ltmain.sh	/^func_mode_finish ()$/;"	f
+func_mode_finish	libtool	/^func_mode_finish ()$/;"	f
+func_mode_help	build-aux/ltmain.sh	/^func_mode_help ()$/;"	f
+func_mode_help	libtool	/^func_mode_help ()$/;"	f
+func_mode_install	build-aux/ltmain.sh	/^func_mode_install ()$/;"	f
+func_mode_install	libtool	/^func_mode_install ()$/;"	f
+func_mode_link	build-aux/ltmain.sh	/^func_mode_link ()$/;"	f
+func_mode_link	libtool	/^func_mode_link ()$/;"	f
+func_mode_uninstall	build-aux/ltmain.sh	/^func_mode_uninstall ()$/;"	f
+func_mode_uninstall	libtool	/^func_mode_uninstall ()$/;"	f
+func_munge_path_list	config.status	/^func_munge_path_list ()$/;"	f
+func_munge_path_list	configure	/^func_munge_path_list ()$/;"	f
+func_munge_path_list	libtool	/^func_munge_path_list ()$/;"	f
+func_normal_abspath	build-aux/ltmain.sh	/^func_normal_abspath ()$/;"	f
+func_normal_abspath	libtool	/^func_normal_abspath ()$/;"	f
+func_notquiet	build-aux/ltmain.sh	/^func_notquiet ()$/;"	f
+func_notquiet	libtool	/^func_notquiet ()$/;"	f
+func_options	build-aux/ltmain.sh	/^func_options ()$/;"	f
+func_options	libtool	/^func_options ()$/;"	f
+func_options_finish	build-aux/ltmain.sh	/^func_options_finish ()$/;"	f
+func_options_finish	libtool	/^func_options_finish ()$/;"	f
+func_options_prep	build-aux/ltmain.sh	/^func_options_prep ()$/;"	f
+func_options_prep	libtool	/^func_options_prep ()$/;"	f
+func_parse_lt_options	build-aux/ltmain.sh	/^func_parse_lt_options ()$/;"	f
+func_parse_lt_options	libtool	/^func_parse_lt_options ()$/;"	f
+func_parse_options	build-aux/ltmain.sh	/^func_parse_options ()$/;"	f
+func_parse_options	libtool	/^func_parse_options ()$/;"	f
+func_path_progs	build-aux/ltmain.sh	/^func_path_progs ()$/;"	f
+func_path_progs	libtool	/^func_path_progs ()$/;"	f
+func_quote_for_eval	build-aux/ltmain.sh	/^func_quote_for_eval ()$/;"	f
+func_quote_for_eval	libtool	/^func_quote_for_eval ()$/;"	f
+func_quote_for_expand	build-aux/ltmain.sh	/^func_quote_for_expand ()$/;"	f
+func_quote_for_expand	libtool	/^func_quote_for_expand ()$/;"	f
+func_relative_path	build-aux/ltmain.sh	/^func_relative_path ()$/;"	f
+func_relative_path	libtool	/^func_relative_path ()$/;"	f
+func_remove_hook	build-aux/ltmain.sh	/^func_remove_hook ()$/;"	f
+func_remove_hook	libtool	/^func_remove_hook ()$/;"	f
+func_replace_sysroot	build-aux/ltmain.sh	/^func_replace_sysroot ()$/;"	f
+func_replace_sysroot	libtool	/^func_replace_sysroot ()$/;"	f
+func_require_term_colors	build-aux/ltmain.sh	/^func_require_term_colors ()$/;"	f
+func_require_term_colors	libtool	/^func_require_term_colors ()$/;"	f
+func_resolve_sysroot	build-aux/ltmain.sh	/^func_resolve_sysroot ()$/;"	f
+func_resolve_sysroot	libtool	/^func_resolve_sysroot ()$/;"	f
+func_run_hooks	build-aux/ltmain.sh	/^func_run_hooks ()$/;"	f
+func_run_hooks	libtool	/^func_run_hooks ()$/;"	f
+func_show_eval	build-aux/ltmain.sh	/^func_show_eval ()$/;"	f
+func_show_eval	libtool	/^func_show_eval ()$/;"	f
+func_show_eval_locale	build-aux/ltmain.sh	/^func_show_eval_locale ()$/;"	f
+func_show_eval_locale	libtool	/^func_show_eval_locale ()$/;"	f
+func_sort_ver	build-aux/ltmain.sh	/^func_sort_ver ()$/;"	f
+func_sort_ver	libtool	/^func_sort_ver ()$/;"	f
+func_source	build-aux/ltmain.sh	/^func_source ()$/;"	f
+func_source	libtool	/^func_source ()$/;"	f
+func_split_equals	build-aux/ltmain.sh	/^  func_split_equals ()$/;"	f
+func_split_equals	libtool	/^  func_split_equals ()$/;"	f
+func_split_short_opt	build-aux/ltmain.sh	/^  func_split_short_opt ()$/;"	f
+func_split_short_opt	libtool	/^  func_split_short_opt ()$/;"	f
+func_stripname	build-aux/ltmain.sh	/^  func_stripname ()$/;"	f
+func_stripname	libtool	/^  func_stripname ()$/;"	f
+func_suncc_cstd_abi	build-aux/ltmain.sh	/^func_suncc_cstd_abi ()$/;"	f
+func_suncc_cstd_abi	libtool	/^func_suncc_cstd_abi ()$/;"	f
+func_to_host_file	build-aux/ltmain.sh	/^func_to_host_file ()$/;"	f
+func_to_host_file	libtool	/^func_to_host_file ()$/;"	f
+func_to_host_path	build-aux/ltmain.sh	/^func_to_host_path ()$/;"	f
+func_to_host_path	libtool	/^func_to_host_path ()$/;"	f
+func_to_tool_file	build-aux/ltmain.sh	/^func_to_tool_file ()$/;"	f
+func_to_tool_file	libtool	/^func_to_tool_file ()$/;"	f
+func_tr_sh	build-aux/ltmain.sh	/^func_tr_sh ()$/;"	f
+func_tr_sh	libtool	/^func_tr_sh ()$/;"	f
+func_usage	build-aux/ltmain.sh	/^func_usage ()$/;"	f
+func_usage	libtool	/^func_usage ()$/;"	f
+func_usage_message	build-aux/ltmain.sh	/^func_usage_message ()$/;"	f
+func_usage_message	libtool	/^func_usage_message ()$/;"	f
+func_validate_options	build-aux/ltmain.sh	/^func_validate_options ()$/;"	f
+func_validate_options	libtool	/^func_validate_options ()$/;"	f
+func_verbose	build-aux/ltmain.sh	/^func_verbose ()$/;"	f
+func_verbose	libtool	/^func_verbose ()$/;"	f
+func_version	build-aux/ltmain.sh	/^func_version ()$/;"	f
+func_version	libtool	/^func_version ()$/;"	f
+func_warn_and_continue	build-aux/ltmain.sh	/^func_warn_and_continue ()$/;"	f
+func_warn_and_continue	libtool	/^func_warn_and_continue ()$/;"	f
+func_warning	build-aux/ltmain.sh	/^func_warning ()$/;"	f
+func_warning	libtool	/^func_warning ()$/;"	f
+func_win32_import_lib_p	build-aux/ltmain.sh	/^func_win32_import_lib_p ()$/;"	f
+func_win32_import_lib_p	libtool	/^func_win32_import_lib_p ()$/;"	f
+func_win32_libid	build-aux/ltmain.sh	/^func_win32_libid ()$/;"	f
+func_win32_libid	libtool	/^func_win32_libid ()$/;"	f
+func_write_libtool_object	build-aux/ltmain.sh	/^func_write_libtool_object ()$/;"	f
+func_write_libtool_object	libtool	/^func_write_libtool_object ()$/;"	f
+func_xform	build-aux/ltmain.sh	/^  func_xform ()$/;"	f
+func_xform	libtool	/^  func_xform ()$/;"	f
+give_advice	build-aux/missing	/^give_advice ()$/;"	f
+gst_fakedmabuf_src_caps_str	gstfakedmabufsrc.c	/^static const char gst_fakedmabuf_src_caps_str[] = "video\/x-raw,"$/;"	v	file:
+gst_fakedmabufsrc_class_init	gstfakedmabufsrc.c	/^gst_fakedmabufsrc_class_init (GstFakeDmabufSrcClass * klass)$/;"	f	file:
+gst_fakedmabufsrc_create	gstfakedmabufsrc.c	/^gst_fakedmabufsrc_create (GstPushSrc * psrc, GstBuffer ** outbuf)$/;"	f	file:
+gst_fakedmabufsrc_debug	gstfakedmabufsrc.c	/^GST_DEBUG_CATEGORY_STATIC (gst_fakedmabufsrc_debug);$/;"	v
+gst_fakedmabufsrc_finalize	gstfakedmabufsrc.c	/^gst_fakedmabufsrc_finalize (GObject * object)$/;"	f	file:
+gst_fakedmabufsrc_get_property	gstfakedmabufsrc.c	/^gst_fakedmabufsrc_get_property (GObject * object, guint property_id,$/;"	f
+gst_fakedmabufsrc_init	gstfakedmabufsrc.c	/^gst_fakedmabufsrc_init (GstFakeDmabufSrc * fakedmabufsrc)$/;"	f	file:
+gst_fakedmabufsrc_io_mode_get_type	gstfakedmabufsrc.c	/^gst_fakedmabufsrc_io_mode_get_type (void)$/;"	f	file:
+gst_fakedmabufsrc_is_seekable	gstfakedmabufsrc.c	/^gst_fakedmabufsrc_is_seekable (GstBaseSrc * basesrc)$/;"	f	file:
+gst_fakedmabufsrc_parent_class	gstfakedmabufsrc.c	133;"	d	file:
+gst_fakedmabufsrc_set_property	gstfakedmabufsrc.c	/^gst_fakedmabufsrc_set_property (GObject * object, guint property_id,$/;"	f
+gst_fakedmabufsrc_setcaps	gstfakedmabufsrc.c	/^gst_fakedmabufsrc_setcaps (GstBaseSrc * bsrc, GstCaps * caps)$/;"	f	file:
+gst_fakedmabufsrc_start	gstfakedmabufsrc.c	/^gst_fakedmabufsrc_start (GstBaseSrc * src)$/;"	f	file:
+gst_fakedmabufsrc_stop	gstfakedmabufsrc.c	/^gst_fakedmabufsrc_stop (GstBaseSrc * src)$/;"	f	file:
+handle_keyboard	test/fakedmabuf-stream.c	/^handle_keyboard (GIOChannel * source, GIOCondition cond, AppData * data)$/;"	f	file:
+host	Makefile	/^host = x86_64-pc-linux-gnu$/;"	m
+host_alias	Makefile	/^host_alias = $/;"	m
+host_cpu	Makefile	/^host_cpu = x86_64$/;"	m
+host_os	Makefile	/^host_os = linux-gnu$/;"	m
+host_triplet	Makefile	/^host_triplet = x86_64-pc-linux-gnu$/;"	m
+host_vendor	Makefile	/^host_vendor = pc$/;"	m
+htmldir	Makefile	/^htmldir = ${docdir}$/;"	m
+includedir	Makefile	/^includedir = ${prefix}\/include$/;"	m
+info	gstfakedmabufsrc.h	/^  GstVideoInfo info;$/;"	m	struct:_GstFakeDmabufSrc
+infodir	Makefile	/^infodir = ${datarootdir}\/info$/;"	m
+install_sh	Makefile	/^install_sh = ${SHELL} \/home\/xuw\/code\/c\/drm\/fakedmabufsrc\/build-aux\/install-sh$/;"	m
+install_sh_DATA	Makefile	/^install_sh_DATA = $(install_sh) -c -m 644$/;"	m
+install_sh_PROGRAM	Makefile	/^install_sh_PROGRAM = $(install_sh) -c$/;"	m
+install_sh_SCRIPT	Makefile	/^install_sh_SCRIPT = $(install_sh) -c$/;"	m
+io_mode	gstfakedmabufsrc.h	/^  int io_mode;$/;"	m	struct:_GstFakeDmabufSrc
+lib_LTLIBRARIES	Makefile	/^lib_LTLIBRARIES = libgstfakedmabufsrc.la$/;"	m
+libdir	Makefile	/^libdir = ${exec_prefix}\/lib\/gstreamer-1.0$/;"	m
+libexecdir	Makefile	/^libexecdir = ${exec_prefix}\/libexec$/;"	m
+libgstfakedmabufsrc_la_CFLAGS	Makefile	/^libgstfakedmabufsrc_la_CFLAGS = \\$/;"	m
+libgstfakedmabufsrc_la_DEPENDENCIES	Makefile	/^libgstfakedmabufsrc_la_DEPENDENCIES = $(am__DEPENDENCIES_1) \\$/;"	m
+libgstfakedmabufsrc_la_LIBADD	Makefile	/^libgstfakedmabufsrc_la_LIBADD = \\$/;"	m
+libgstfakedmabufsrc_la_LINK	Makefile	/^libgstfakedmabufsrc_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \\$/;"	m
+libgstfakedmabufsrc_la_OBJECTS	Makefile	/^libgstfakedmabufsrc_la_OBJECTS = $(am_libgstfakedmabufsrc_la_OBJECTS)$/;"	m
+libgstfakedmabufsrc_la_SOURCES	Makefile	/^libgstfakedmabufsrc_la_SOURCES = gstfakedmabufsrc.c$/;"	m
+libtool_options_prep	build-aux/ltmain.sh	/^libtool_options_prep ()$/;"	f
+libtool_options_prep	libtool	/^libtool_options_prep ()$/;"	f
+libtool_parse_options	build-aux/ltmain.sh	/^libtool_parse_options ()$/;"	f
+libtool_parse_options	libtool	/^libtool_parse_options ()$/;"	f
+libtool_validate_options	build-aux/ltmain.sh	/^libtool_validate_options ()$/;"	f
+libtool_validate_options	libtool	/^libtool_validate_options ()$/;"	f
+localedir	Makefile	/^localedir = ${datarootdir}\/locale$/;"	m
+localstatedir	Makefile	/^localstatedir = ${prefix}\/var$/;"	m
+loop	test/fakedmabuf-stream.c	/^  GMainLoop *loop;$/;"	m	struct:_CustomData	file:
+main	build-aux/config.guess	/^		main()$/;"	f
+main	build-aux/config.guess	/^	main ()$/;"	f
+main	test/fakedmabuf-stream.c	/^main (int argc, char *argv[])$/;"	f
+make_dummy_depfile	build-aux/depcomp	/^make_dummy_depfile ()$/;"	f
+mandir	Makefile	/^mandir = ${datarootdir}\/man$/;"	m
+mkdir_p	Makefile	/^mkdir_p = $(MKDIR_P)$/;"	m
+mkinstalldirs	Makefile	/^mkinstalldirs = $(install_sh) -d$/;"	m
+noinst_HEADERS	Makefile	/^noinst_HEADERS = gstfakedmabufsrc.h$/;"	m
+oldincludedir	Makefile	/^oldincludedir = \/usr\/include$/;"	m
+parent_class	gstfakedmabufsrc.h	/^  GstPushSrcClass parent_class;$/;"	m	struct:_GstFakeDmabufSrcClass
+pdfdir	Makefile	/^pdfdir = ${docdir}$/;"	m
+pipeline	test/fakedmabuf-stream.c	/^  GstElement *pipeline;$/;"	m	struct:_CustomData	file:
+pkgdatadir	Makefile	/^pkgdatadir = $(datadir)\/fakedmabufsrc$/;"	m
+pkgincludedir	Makefile	/^pkgincludedir = $(includedir)\/fakedmabufsrc$/;"	m
+pkglibdir	Makefile	/^pkglibdir = $(libdir)\/fakedmabufsrc$/;"	m
+pkglibexecdir	Makefile	/^pkglibexecdir = $(libexecdir)\/fakedmabufsrc$/;"	m
+plugin_init	gstfakedmabufsrc.c	/^plugin_init (GstPlugin * plugin)$/;"	f	file:
+prefix	Makefile	/^prefix = \/usr\/local$/;"	m
+program_details	build-aux/missing	/^program_details ()$/;"	f
+program_transform_name	Makefile	/^program_transform_name = s,x,x,$/;"	m
+prototypes	configure	/^   function prototypes and stuff, but not '\\xHH' hex character constants.$/;"	f
+psdir	Makefile	/^psdir = ${docdir}$/;"	m
+runstatedir	Makefile	/^runstatedir = ${localstatedir}\/run$/;"	m
+sbindir	Makefile	/^sbindir = ${exec_prefix}\/sbin$/;"	m
+send_eos_event	test/fakedmabuf-stream.c	/^send_eos_event (AppData * data)$/;"	f	file:
+set_base_from	build-aux/depcomp	/^set_base_from ()$/;"	f
+set_dir_from	build-aux/depcomp	/^set_dir_from ()$/;"	f
+sharedstatedir	Makefile	/^sharedstatedir = ${prefix}\/com$/;"	m
+srcdir	Makefile	/^srcdir = .$/;"	m
+srctemplate	gstfakedmabufsrc.c	/^static GstStaticPadTemplate srctemplate = GST_STATIC_PAD_TEMPLATE ("src",$/;"	v	file:
+subdir	Makefile	/^subdir = .$/;"	m
+sysconfdir	Makefile	/^sysconfdir = ${prefix}\/etc$/;"	m
+tardir	Makefile	/^	tardir=$(distdir) && $(am__tar) | BZIP2=$${BZIP2--9} bzip2 -c >$(distdir).tar.bz2$/;"	m
+tardir	Makefile	/^	tardir=$(distdir) && $(am__tar) | XZ_OPT=$${XZ_OPT--e} xz -c >$(distdir).tar.xz$/;"	m
+tardir	Makefile	/^	tardir=$(distdir) && $(am__tar) | compress -c >$(distdir).tar.Z$/;"	m
+tardir	Makefile	/^	tardir=$(distdir) && $(am__tar) | eval GZIP= gzip $(GZIP_ENV) -c >$(distdir).tar.gz$/;"	m
+tardir	Makefile	/^	tardir=$(distdir) && $(am__tar) | lzip -c $${LZIP_OPT--9} >$(distdir).tar.lz$/;"	m
+target	Makefile	/^target = x86_64-pc-linux-gnu$/;"	m
+target_alias	Makefile	/^target_alias = $/;"	m
+target_cpu	Makefile	/^target_cpu = x86_64$/;"	m
+target_os	Makefile	/^target_os = linux-gnu$/;"	m
+target_triplet	Makefile	/^target_triplet = x86_64-pc-linux-gnu$/;"	m
+target_vendor	Makefile	/^target_vendor = pc$/;"	m
+top_build_prefix	Makefile	/^top_build_prefix = $/;"	m
+top_builddir	Makefile	/^top_builddir = .$/;"	m
+top_distdir	Makefile	/^top_distdir = $(distdir)$/;"	m
+top_srcdir	Makefile	/^top_srcdir = .$/;"	m
+transform	Makefile	/^transform = $(program_transform_name)$/;"	m

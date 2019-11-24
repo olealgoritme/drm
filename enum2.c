@@ -1,11 +1,35 @@
 //#!cc -Werror -std=c99 -I/usr/include/libdrm -ldrm enum.c -o enum && ./enum /dev/dri/card0
 #include <xf86drm.h>
 #include <xf86drmMode.h>
+#include <X11/Xlib.h>
 #include <stdio.h>
 #include <unistd.h>
 #include <fcntl.h>
-
+#include "get_x11_res.h"
 #define MSG(fmt, ...) printf(fmt "\n", ##__VA_ARGS__)
+
+int getScreenSize(int *w, int *h) {
+
+ Display* dsp;
+ Screen* scr;
+
+ dsp = XOpenDisplay(NULL);
+ if (!dsp) {
+  fprintf(stderr, "Failed to open default display.\n");
+  return -1;
+ }
+
+ scr = DefaultScreenOfDisplay(dsp);
+ if (!scr) {
+  fprintf(stderr, "Failed to obtain the default screen of given display.\n");
+  return -1;
+ }
+
+ *w = scr->width;
+ *h = scr->height;
+ XCloseDisplay(dsp);
+ return 0;
+}
 
 void enumerateModeResources(int fd, const drmModeResPtr res) {
 	MSG("\tcount_fbs = %d", res->count_fbs);
@@ -42,12 +66,16 @@ void enumerateModeResources(int fd, const drmModeResPtr res) {
 	MSG("\theight: %u .. %u", res->min_height, res->max_height);
 }
 
-int main(int argc, const char *argv[]) {
+
+int getFbId(int scrW, int scrH) {
+
+    int magicFbId = 0;
+
 	const int available = drmAvailable();
 	if (!available)
 		return 1;
 
-	const char *card = (argc > 1) ? argv[1] : "/dev/dri/card0";
+	const char *card = "/dev/dri/card0";
 
 	const int fd = open(card, O_RDONLY);
 	MSG("open = %d", fd);
@@ -148,9 +176,10 @@ int main(int argc, const char *argv[]) {
 			continue;
 		}
 
-		int width=3840;
-        if(width == fb->width) {
-           printf("got fucking match!");
+        if(scrW == fb->width && scrH == fb->height) {
+           MSG("FB ID: match!: %#x", fbs[i]);
+            magicFbId = fbs[i];
+            return magicFbId;
         }
         MSG("\t\twidth=%u height=%u pitch=%u bpp=%u depth=%u handle=%#x",
 			fb->width, fb->height, fb->pitch, fb->bpp, fb->depth, fb->handle);
@@ -159,4 +188,18 @@ int main(int argc, const char *argv[]) {
 	}
 
 	close(fd);
+    return 0;
+}
+
+
+
+int main() {
+
+ int width, height;
+ int fbId;
+ getScreenSize(&width, &height);
+ fbId = getFbId(width, height);
+
+ printf("got fb ID: %#x", fbId);
+ return 0;
 }

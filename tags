@@ -1,0 +1,934 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ACLOCAL	fakedmabufsrc/Makefile	/^ACLOCAL = ${SHELL} \/home\/xuw\/code\/c\/drm\/fakedmabufsrc\/build-aux\/missing aclocal-1.16$/;"	m
+ACLOCAL_M4	fakedmabufsrc/Makefile	/^ACLOCAL_M4 = $(top_srcdir)\/aclocal.m4$/;"	m
+ALIGN_ON_POW2	prime-dumb-kms.c	34;"	d	file:
+ALIGN_ON_POW2	test-drm-prime-dumb-kms.c	32;"	d	file:
+AMTAR	fakedmabufsrc/Makefile	/^AMTAR = $${TAR-tar}$/;"	m
+AM_DEFAULT_VERBOSITY	fakedmabufsrc/Makefile	/^AM_DEFAULT_VERBOSITY = 0$/;"	m
+AM_RECURSIVE_TARGETS	fakedmabufsrc/Makefile	/^AM_RECURSIVE_TARGETS = cscope$/;"	m
+AM_V_CC	fakedmabufsrc/Makefile	/^AM_V_CC = $(am__v_CC_$(V))$/;"	m
+AM_V_CCLD	fakedmabufsrc/Makefile	/^AM_V_CCLD = $(am__v_CCLD_$(V))$/;"	m
+AM_V_GEN	fakedmabufsrc/Makefile	/^AM_V_GEN = $(am__v_GEN_$(V))$/;"	m
+AM_V_P	fakedmabufsrc/Makefile	/^AM_V_P = $(am__v_P_$(V))$/;"	m
+AM_V_at	fakedmabufsrc/Makefile	/^AM_V_at = $(am__v_at_$(V))$/;"	m
+AM_V_lt	fakedmabufsrc/Makefile	/^AM_V_lt = $(am__v_lt_$(V))$/;"	m
+AR	fakedmabufsrc/Makefile	/^AR = ar$/;"	m
+ARRAY_SIZE	test-drm-prime-dumb-kms.c	34;"	d	file:
+ASSERT	egl_headless.c	19;"	d	file:
+ASSERT	egl_headless2.c	26;"	d	file:
+ASSERT	grab2.c	28;"	d	file:
+ASSERT	kmsgrab.c	26;"	d	file:
+ASSERT	test2.c	23;"	d	file:
+AUTOCONF	fakedmabufsrc/Makefile	/^AUTOCONF = ${SHELL} \/home\/xuw\/code\/c\/drm\/fakedmabufsrc\/build-aux\/missing autoconf$/;"	m
+AUTOHEADER	fakedmabufsrc/Makefile	/^AUTOHEADER = ${SHELL} \/home\/xuw\/code\/c\/drm\/fakedmabufsrc\/build-aux\/missing autoheader$/;"	m
+AUTOMAKE	fakedmabufsrc/Makefile	/^AUTOMAKE = ${SHELL} \/home\/xuw\/code\/c\/drm\/fakedmabufsrc\/build-aux\/missing automake-1.16$/;"	m
+AWK	fakedmabufsrc/Makefile	/^AWK = gawk$/;"	m
+AppData	fakedmabufsrc/test/fakedmabuf-stream.c	/^} AppData;$/;"	t	typeref:struct:_CustomData	file:
+BPP	cap_test.c	/^	BPP = 32,$/;"	e	enum:__anon1	file:
+BUILDDIR	Makefile	/^BUILDDIR ?= build$/;"	m
+CC	Makefile	/^CC ?= cc$/;"	m
+CC	fakedmabufsrc/Makefile	/^CC = gcc$/;"	m
+CCDEPMODE	fakedmabufsrc/Makefile	/^CCDEPMODE = depmode=gcc3$/;"	m
+CCLD	fakedmabufsrc/Makefile	/^CCLD = $(CC)$/;"	m
+CFLAGS	fakedmabufsrc/Makefile	/^CFLAGS = -g -O2$/;"	m
+COMPILE	fakedmabufsrc/Makefile	/^COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \\$/;"	m
+COMPILE.c	Makefile	/^COMPILE.c = $(CC) -std=gnu99 $(CFLAGS) $(DEPFLAGS) -MT $@ -MF $@.d$/;"	m
+CONFIG	Makefile	/^	CONFIG = dbg$/;"	m
+CONFIG	Makefile	/^	CONFIG = rel$/;"	m
+CONFIG_CLEAN_FILES	fakedmabufsrc/Makefile	/^CONFIG_CLEAN_FILES =$/;"	m
+CONFIG_CLEAN_VPATH_FILES	fakedmabufsrc/Makefile	/^CONFIG_CLEAN_VPATH_FILES =$/;"	m
+CONFIG_HEADER	fakedmabufsrc/Makefile	/^CONFIG_HEADER = config.h$/;"	m
+CPP	fakedmabufsrc/Makefile	/^CPP = gcc -E$/;"	m
+CPPFLAGS	fakedmabufsrc/Makefile	/^CPPFLAGS = $/;"	m
+CSCOPE	fakedmabufsrc/Makefile	/^CSCOPE = cscope$/;"	m
+CTAGS	fakedmabufsrc/Makefile	/^CTAGS = ctags$/;"	m
+CYGPATH_W	fakedmabufsrc/Makefile	/^CYGPATH_W = echo$/;"	m
+CreateProcess	fakedmabufsrc/build-aux/ltmain.sh	/^   CreateProcess().  We must quote the arguments since Win32 CreateProcess()$/;"	f
+CreateProcess	fakedmabufsrc/libtool	/^   CreateProcess().  We must quote the arguments since Win32 CreateProcess()$/;"	f
+DEFAULT_INCLUDES	fakedmabufsrc/Makefile	/^DEFAULT_INCLUDES = -I.$/;"	m
+DEFINE_DRM_GEM_FOPS	drm_gem.h	309;"	d
+DEFS	fakedmabufsrc/Makefile	/^DEFS = -DHAVE_CONFIG_H$/;"	m
+DEPDIR	fakedmabufsrc/Makefile	/^DEPDIR = .deps$/;"	m
+DEPFLAGS	Makefile	/^DEPFLAGS = -MMD -MP$/;"	m
+DEPTH	cap_test.c	/^	DEPTH = 24,$/;"	e	enum:__anon1	file:
+DISTFILES	fakedmabufsrc/Makefile	/^DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)$/;"	m
+DIST_ARCHIVES	fakedmabufsrc/Makefile	/^DIST_ARCHIVES = $(distdir).tar.gz$/;"	m
+DIST_COMMON	fakedmabufsrc/Makefile	/^DIST_COMMON = $(srcdir)\/Makefile.am $(top_srcdir)\/configure \\$/;"	m
+DIST_SOURCES	fakedmabufsrc/Makefile	/^DIST_SOURCES = $(libgstfakedmabufsrc_la_SOURCES)$/;"	m
+DIST_TARGETS	fakedmabufsrc/Makefile	/^DIST_TARGETS = dist-gzip$/;"	m
+DLLTOOL	fakedmabufsrc/Makefile	/^DLLTOOL = false$/;"	m
+DRMSEND_DEPS	Makefile	/^DRMSEND_DEPS = $(DRMSEND_OBJS:%=%.d)$/;"	m
+DRMSEND_OBJS	Makefile	/^DRMSEND_OBJS = $(DRMSEND_SOURCES:%=$(OBJDIR)\/%.o)$/;"	m
+DRMSEND_SOURCES	Makefile	/^DRMSEND_SOURCES = drmsend.c$/;"	m
+DRM_CAP_DUMB_BUFFER	cap_test.c	5;"	d	file:
+DRM_RDWR	fakedmabufsrc/gstfakedmabufsrc.c	56;"	d	file:
+DSYMUTIL	fakedmabufsrc/Makefile	/^DSYMUTIL = $/;"	m
+DUMPBIN	fakedmabufsrc/Makefile	/^DUMPBIN = $/;"	m
+DmaBuf	egl_headless.c	/^} DmaBuf;$/;"	t	typeref:struct:__anon9	file:
+DmaBuf	egl_headless2.c	/^} DmaBuf;$/;"	t	typeref:struct:__anon2	file:
+DmaBuf	grab2.c	/^} DmaBuf;$/;"	t	typeref:struct:__anon8	file:
+DmaBuf	kmsgrab.c	/^} DmaBuf;$/;"	t	typeref:struct:__anon6	file:
+DmaBuf	test2.c	/^} DmaBuf;$/;"	t	typeref:struct:__anon5	file:
+DmaBufMetadata	drmsend.c	/^} DmaBufMetadata;$/;"	t	typeref:struct:__anon7	file:
+ECHO_C	fakedmabufsrc/Makefile	/^ECHO_C = $/;"	m
+ECHO_N	fakedmabufsrc/Makefile	/^ECHO_N = -n$/;"	m
+ECHO_T	fakedmabufsrc/Makefile	/^ECHO_T = $/;"	m
+EGREP	fakedmabufsrc/Makefile	/^EGREP = \/usr\/bin\/grep -E$/;"	m
+ENUM_DEPS	Makefile	/^ENUM_DEPS = $(ENUM_OBJS:%=%.d)$/;"	m
+ENUM_OBJS	Makefile	/^ENUM_OBJS = $(ENUM_SOURCES:%=$(OBJDIR)\/%.o)$/;"	m
+ENUM_SOURCES	Makefile	/^ENUM_SOURCES = egl_headless.c$/;"	m
+ENUM_SOURCES	Makefile	/^ENUM_SOURCES = egl_headless2.c$/;"	m
+ENUM_SOURCES	Makefile	/^ENUM_SOURCES = enum.c$/;"	m
+ENUM_SOURCES	Makefile	/^ENUM_SOURCES = fb_dump.c$/;"	m
+ENUM_SOURCES	Makefile	/^ENUM_SOURCES = prime-dumb-kms.c$/;"	m
+ENUM_SOURCES	Makefile	/^ENUM_SOURCES = test-drm-prime-dumb-kms.c$/;"	m
+ETAGS	fakedmabufsrc/Makefile	/^ETAGS = etags$/;"	m
+EXEEXT	fakedmabufsrc/Makefile	/^EXEEXT = $/;"	m
+FGREP	fakedmabufsrc/Makefile	/^FGREP = \/usr\/bin\/grep -F$/;"	m
+GL_GLEXT_PROTOTYPES	egl_headless.c	4;"	d	file:
+GL_GLEXT_PROTOTYPES	egl_headless2.c	4;"	d	file:
+GL_GLEXT_PROTOTYPES	grab2.c	4;"	d	file:
+GL_GLEXT_PROTOTYPES	kmsgrab.c	4;"	d	file:
+GL_GLEXT_PROTOTYPES	test2.c	4;"	d	file:
+GRAB_DEPS	Makefile	/^GRAB_DEPS = $(GRAB_OBJS:%=%.d)$/;"	m
+GRAB_OBJS	Makefile	/^GRAB_OBJS = $(GRAB_SOURCES:%=$(OBJDIR)\/%.o)$/;"	m
+GRAB_SOURCES	Makefile	/^GRAB_SOURCES = grab.c$/;"	m
+GREP	fakedmabufsrc/Makefile	/^GREP = \/usr\/bin\/grep$/;"	m
+GST_ALLOCATORS_CFLAGS	fakedmabufsrc/Makefile	/^GST_ALLOCATORS_CFLAGS = -pthread -I\/usr\/include\/gstreamer-1.0 -I\/usr\/include\/glib-2.0 -I\/usr\/lib\/x86_64-linux-gnu\/glib-2.0\/include$/;"	m
+GST_ALLOCATORS_LIBS	fakedmabufsrc/Makefile	/^GST_ALLOCATORS_LIBS = -lgstallocators-1.0 -lgstreamer-1.0 -lgobject-2.0 -lglib-2.0$/;"	m
+GST_BASE_CFLAGS	fakedmabufsrc/Makefile	/^GST_BASE_CFLAGS = -pthread -I\/usr\/include\/gstreamer-1.0 -I\/usr\/include\/glib-2.0 -I\/usr\/lib\/x86_64-linux-gnu\/glib-2.0\/include$/;"	m
+GST_BASE_LIBS	fakedmabufsrc/Makefile	/^GST_BASE_LIBS = -lgstbase-1.0 -lgstreamer-1.0 -lgobject-2.0 -lglib-2.0$/;"	m
+GST_CAT_DEFAULT	fakedmabufsrc/gstfakedmabufsrc.c	109;"	d	file:
+GST_CFLAGS	fakedmabufsrc/Makefile	/^GST_CFLAGS = -pthread -I\/usr\/include\/gstreamer-1.0 -I\/usr\/include\/glib-2.0 -I\/usr\/lib\/x86_64-linux-gnu\/glib-2.0\/include$/;"	m
+GST_FAKEDMABUFSRC	fakedmabufsrc/gstfakedmabufsrc.h	36;"	d
+GST_FAKEDMABUFSRC_CLASS	fakedmabufsrc/gstfakedmabufsrc.h	37;"	d
+GST_FAKEDMABUFSRC_FORMATS	fakedmabufsrc/gstfakedmabufsrc.c	59;"	d	file:
+GST_FAKEDMABUFSRC_IO_MODE_DMABUF_EXPORT	fakedmabufsrc/gstfakedmabufsrc.c	/^  GST_FAKEDMABUFSRC_IO_MODE_DMABUF_EXPORT = 1,$/;"	e	enum:__anon3	file:
+GST_FAKEDMABUFSRC_IO_MODE_DMABUF_IMPORT	fakedmabufsrc/gstfakedmabufsrc.c	/^  GST_FAKEDMABUFSRC_IO_MODE_DMABUF_IMPORT = 2,$/;"	e	enum:__anon3	file:
+GST_FAKEDMABUFSRC_IO_MODE_TYPE	fakedmabufsrc/gstfakedmabufsrc.c	77;"	d	file:
+GST_IS_FAKEDMABUFSRC	fakedmabufsrc/gstfakedmabufsrc.h	38;"	d
+GST_IS_FAKEDMABUFSRC_CLASS	fakedmabufsrc/gstfakedmabufsrc.h	39;"	d
+GST_LIBS	fakedmabufsrc/Makefile	/^GST_LIBS = -lgstreamer-1.0 -lgobject-2.0 -lglib-2.0$/;"	m
+GST_PACKAGE_ORIGIN	fakedmabufsrc/gstfakedmabufsrc.c	435;"	d	file:
+GST_TYPE_FAKEDMABUFSRC	fakedmabufsrc/gstfakedmabufsrc.h	35;"	d
+GST_VIDEO_CFLAGS	fakedmabufsrc/Makefile	/^GST_VIDEO_CFLAGS = -pthread -I\/usr\/include\/gstreamer-1.0 -I\/usr\/include\/orc-0.4 -I\/usr\/include\/gstreamer-1.0 -I\/usr\/include\/glib-2.0 -I\/usr\/lib\/x86_64-linux-gnu\/glib-2.0\/include$/;"	m
+GST_VIDEO_LIBS	fakedmabufsrc/Makefile	/^GST_VIDEO_LIBS = -lgstvideo-1.0 -lgstbase-1.0 -lgstreamer-1.0 -lgobject-2.0 -lglib-2.0$/;"	m
+GZIP_ENV	fakedmabufsrc/Makefile	/^GZIP_ENV = --best$/;"	m
+GstFakeDmabufSrc	fakedmabufsrc/gstfakedmabufsrc.h	/^typedef struct _GstFakeDmabufSrc GstFakeDmabufSrc;$/;"	t	typeref:struct:_GstFakeDmabufSrc
+GstFakeDmabufSrcClass	fakedmabufsrc/gstfakedmabufsrc.h	/^typedef struct _GstFakeDmabufSrcClass GstFakeDmabufSrcClass;$/;"	t	typeref:struct:_GstFakeDmabufSrcClass
+HAVE_DLFCN_H	fakedmabufsrc/config.h	5;"	d
+HAVE_INTTYPES_H	fakedmabufsrc/config.h	8;"	d
+HAVE_MEMORY_H	fakedmabufsrc/config.h	11;"	d
+HAVE_STDINT_H	fakedmabufsrc/config.h	14;"	d
+HAVE_STDLIB_H	fakedmabufsrc/config.h	17;"	d
+HAVE_STRINGS_H	fakedmabufsrc/config.h	20;"	d
+HAVE_STRING_H	fakedmabufsrc/config.h	23;"	d
+HAVE_SYS_STAT_H	fakedmabufsrc/config.h	26;"	d
+HAVE_SYS_TYPES_H	fakedmabufsrc/config.h	29;"	d
+HAVE_UNISTD_H	fakedmabufsrc/config.h	32;"	d
+HEADERS	fakedmabufsrc/Makefile	/^HEADERS = $(noinst_HEADERS)$/;"	m
+INSTALL	fakedmabufsrc/Makefile	/^INSTALL = \/usr\/bin\/install -c$/;"	m
+INSTALL_DATA	fakedmabufsrc/Makefile	/^INSTALL_DATA = ${INSTALL} -m 644$/;"	m
+INSTALL_HEADER	fakedmabufsrc/Makefile	/^INSTALL_HEADER = $(INSTALL_DATA)$/;"	m
+INSTALL_PROGRAM	fakedmabufsrc/Makefile	/^INSTALL_PROGRAM = ${INSTALL}$/;"	m
+INSTALL_SCRIPT	fakedmabufsrc/Makefile	/^INSTALL_SCRIPT = ${INSTALL}$/;"	m
+INSTALL_STRIP_PROGRAM	fakedmabufsrc/Makefile	/^INSTALL_STRIP_PROGRAM = $(install_sh) -c -s$/;"	m
+KMSGRAB_DEPS	Makefile	/^KMSGRAB_DEPS = $(KMSGRAB_OBJS:%=%.d)$/;"	m
+KMSGRAB_OBJS	Makefile	/^KMSGRAB_OBJS = $(KMSGRAB_SOURCES:%=$(OBJDIR)\/%.o)$/;"	m
+KMSGRAB_SOURCES	Makefile	/^KMSGRAB_SOURCES = kmsgrab.c$/;"	m
+KMS_DRM_CFLAGS	fakedmabufsrc/Makefile	/^KMS_DRM_CFLAGS = -I\/usr\/include\/libdrm$/;"	m
+KMS_DRM_LIBS	fakedmabufsrc/Makefile	/^KMS_DRM_LIBS = -ldrm$/;"	m
+LD	fakedmabufsrc/Makefile	/^LD = \/usr\/bin\/ld -m elf_x86_64$/;"	m
+LDFLAGS	fakedmabufsrc/Makefile	/^LDFLAGS = $/;"	m
+LIBOBJS	fakedmabufsrc/Makefile	/^LIBOBJS = $/;"	m
+LIBS	fakedmabufsrc/Makefile	/^LIBS = $/;"	m
+LIBTOOL	fakedmabufsrc/Makefile	/^LIBTOOL = $(SHELL) $(top_builddir)\/libtool$/;"	m
+LINK	fakedmabufsrc/Makefile	/^LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \\$/;"	m
+LIPO	fakedmabufsrc/Makefile	/^LIPO = $/;"	m
+LN_S	fakedmabufsrc/Makefile	/^LN_S = ln -s$/;"	m
+LOG	prime-dumb-kms.c	30;"	d	file:
+LOG	test-drm-prime-dumb-kms.c	26;"	d	file:
+LTCOMPILE	fakedmabufsrc/Makefile	/^LTCOMPILE = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \\$/;"	m
+LTLIBOBJS	fakedmabufsrc/Makefile	/^LTLIBOBJS = $/;"	m
+LTLIBRARIES	fakedmabufsrc/Makefile	/^LTLIBRARIES = $(lib_LTLIBRARIES)$/;"	m
+LT_OBJDIR	fakedmabufsrc/config.h	35;"	d
+LT_SYS_LIBRARY_PATH	fakedmabufsrc/Makefile	/^LT_SYS_LIBRARY_PATH = $/;"	m
+MAKEINFO	fakedmabufsrc/Makefile	/^MAKEINFO = ${SHELL} \/home\/xuw\/code\/c\/drm\/fakedmabufsrc\/build-aux\/missing makeinfo$/;"	m
+MANIFEST_TOOL	fakedmabufsrc/Makefile	/^MANIFEST_TOOL = :$/;"	m
+MAX_FBS	egl_headless2.c	24;"	d	file:
+MAX_FBS	enum.c	99;"	d	file:
+MAX_FBS	enum2.c	127;"	d	file:
+MAX_FBS	test2.c	29;"	d	file:
+MKDIR_P	fakedmabufsrc/Makefile	/^MKDIR_P = \/usr\/bin\/mkdir -p$/;"	m
+MSG	drmsend.c	16;"	d	file:
+MSG	egl_headless.c	17;"	d	file:
+MSG	egl_headless2.c	22;"	d	file:
+MSG	enum.c	8;"	d	file:
+MSG	enum2.c	9;"	d	file:
+MSG	grab2.c	26;"	d	file:
+MSG	kmsgrab.c	24;"	d	file:
+MSG	test.c	14;"	d	file:
+MSG	test2.c	21;"	d	file:
+NM	fakedmabufsrc/Makefile	/^NM = \/usr\/bin\/nm -B$/;"	m
+NMEDIT	fakedmabufsrc/Makefile	/^NMEDIT = $/;"	m
+NORMAL_INSTALL	fakedmabufsrc/Makefile	/^NORMAL_INSTALL = :$/;"	m
+NORMAL_UNINSTALL	fakedmabufsrc/Makefile	/^NORMAL_UNINSTALL = :$/;"	m
+OBJDIR	Makefile	/^OBJDIR ?= $(BUILDDIR)\/$(CONFIG)$/;"	m
+OBJDUMP	fakedmabufsrc/Makefile	/^OBJDUMP = objdump$/;"	m
+OBJEXT	fakedmabufsrc/Makefile	/^OBJEXT = o$/;"	m
+OTOOL	fakedmabufsrc/Makefile	/^OTOOL = $/;"	m
+OTOOL64	fakedmabufsrc/Makefile	/^OTOOL64 = $/;"	m
+OUTPUT_HEIGHT	egl_headless2.c	20;"	d	file:
+OUTPUT_WIDTH	egl_headless2.c	19;"	d	file:
+PACKAGE	fakedmabufsrc/Makefile	/^PACKAGE = fakedmabufsrc$/;"	m
+PACKAGE	fakedmabufsrc/config.h	38;"	d
+PACKAGE	fakedmabufsrc/gstfakedmabufsrc.c	429;"	d	file:
+PACKAGE_BUGREPORT	fakedmabufsrc/Makefile	/^PACKAGE_BUGREPORT = sreerenjb@gnome.org$/;"	m
+PACKAGE_BUGREPORT	fakedmabufsrc/config.h	41;"	d
+PACKAGE_NAME	fakedmabufsrc/Makefile	/^PACKAGE_NAME = fakedmabufsrc$/;"	m
+PACKAGE_NAME	fakedmabufsrc/config.h	44;"	d
+PACKAGE_NAME	fakedmabufsrc/gstfakedmabufsrc.c	432;"	d	file:
+PACKAGE_STRING	fakedmabufsrc/Makefile	/^PACKAGE_STRING = fakedmabufsrc 1.0$/;"	m
+PACKAGE_STRING	fakedmabufsrc/config.h	47;"	d
+PACKAGE_TARNAME	fakedmabufsrc/Makefile	/^PACKAGE_TARNAME = fakedmabufsrc$/;"	m
+PACKAGE_TARNAME	fakedmabufsrc/config.h	50;"	d
+PACKAGE_URL	fakedmabufsrc/Makefile	/^PACKAGE_URL = $/;"	m
+PACKAGE_URL	fakedmabufsrc/config.h	53;"	d
+PACKAGE_VERSION	fakedmabufsrc/Makefile	/^PACKAGE_VERSION = 1.0$/;"	m
+PACKAGE_VERSION	fakedmabufsrc/config.h	56;"	d
+PATH_MAX	read.c	14;"	d	file:
+PATH_SEPARATOR	fakedmabufsrc/Makefile	/^PATH_SEPARATOR = :$/;"	m
+PKG_CONFIG	fakedmabufsrc/Makefile	/^PKG_CONFIG = \/usr\/bin\/pkg-config$/;"	m
+PKG_CONFIG_LIBDIR	fakedmabufsrc/Makefile	/^PKG_CONFIG_LIBDIR = $/;"	m
+PKG_CONFIG_PATH	fakedmabufsrc/Makefile	/^PKG_CONFIG_PATH = $/;"	m
+POST_INSTALL	fakedmabufsrc/Makefile	/^POST_INSTALL = :$/;"	m
+POST_UNINSTALL	fakedmabufsrc/Makefile	/^POST_UNINSTALL = :$/;"	m
+PRE_INSTALL	fakedmabufsrc/Makefile	/^PRE_INSTALL = :$/;"	m
+PRE_UNINSTALL	fakedmabufsrc/Makefile	/^PRE_UNINSTALL = :$/;"	m
+PROP_0	fakedmabufsrc/gstfakedmabufsrc.c	/^  PROP_0,$/;"	e	enum:__anon4	file:
+PROP_IO_MODE	fakedmabufsrc/gstfakedmabufsrc.c	/^  PROP_IO_MODE,$/;"	e	enum:__anon4	file:
+PROP_LAST	fakedmabufsrc/gstfakedmabufsrc.c	/^  PROP_LAST$/;"	e	enum:__anon4	file:
+RANLIB	fakedmabufsrc/Makefile	/^RANLIB = ranlib$/;"	m
+SED	fakedmabufsrc/Makefile	/^SED = \/usr\/bin\/sed$/;"	m
+SET_MAKE	fakedmabufsrc/Makefile	/^SET_MAKE = $/;"	m
+SHELL	fakedmabufsrc/Makefile	/^SHELL = \/bin\/bash$/;"	m
+SOURCES	fakedmabufsrc/Makefile	/^SOURCES = $(libgstfakedmabufsrc_la_SOURCES)$/;"	m
+STDC_HEADERS	fakedmabufsrc/config.h	59;"	d
+STRIP	fakedmabufsrc/Makefile	/^STRIP = strip$/;"	m
+TEST_DEPS	Makefile	/^TEST_DEPS = $(TEST_OBJS:%=%.d)$/;"	m
+TEST_OBJS	Makefile	/^TEST_OBJS = $(TEST_SOURCES:%=$(OBJDIR)\/%.o)$/;"	m
+TEST_SOURCES	Makefile	/^TEST_SOURCES = test2.c$/;"	m
+VERSION	fakedmabufsrc/Makefile	/^VERSION = 1.0$/;"	m
+VERSION	fakedmabufsrc/config.h	62;"	d
+VERSION	fakedmabufsrc/gstfakedmabufsrc.c	426;"	d	file:
+X11_FLAG_GC_BG	read.c	205;"	d	file:
+X11_FLAG_GC_EXPOSE	read.c	210;"	d	file:
+X11_FLAG_GC_FG	read.c	206;"	d	file:
+X11_FLAG_GC_FONT	read.c	209;"	d	file:
+X11_FLAG_GC_FUNC	read.c	203;"	d	file:
+X11_FLAG_GC_LINE_STYLE	read.c	208;"	d	file:
+X11_FLAG_GC_LINE_WIDTH	read.c	207;"	d	file:
+X11_FLAG_GC_PLANE	read.c	204;"	d	file:
+X11_FLAG_WIN_BG_COLOR	read.c	234;"	d	file:
+X11_FLAG_WIN_BG_IMG	read.c	233;"	d	file:
+X11_FLAG_WIN_BORDER_COLOR	read.c	236;"	d	file:
+X11_FLAG_WIN_BORDER_IMG	read.c	235;"	d	file:
+X11_FLAG_WIN_EVENT	read.c	237;"	d	file:
+X11_IMG_FORMAT_MONO	read.c	277;"	d	file:
+X11_IMG_FORMAT_XY	read.c	278;"	d	file:
+X11_IMG_FORMAT_Z	read.c	279;"	d	file:
+X11_OP_REQ_CREATE_GC	read.c	20;"	d	file:
+X11_OP_REQ_CREATE_PIX	read.c	19;"	d	file:
+X11_OP_REQ_CREATE_WINDOW	read.c	17;"	d	file:
+X11_OP_REQ_MAP_WINDOW	read.c	18;"	d	file:
+X11_OP_REQ_PUT_IMG	read.c	21;"	d	file:
+_CustomData	fakedmabufsrc/test/fakedmabuf-stream.c	/^typedef struct _CustomData$/;"	s	file:
+_GNU_SOURCE	fb_dump.c	29;"	d	file:
+_GNU_SOURCE	intel_framebuffer_dump.c	29;"	d	file:
+_GST_FAKEDMABUFSRC_H_	fakedmabufsrc/gstfakedmabufsrc.h	25;"	d
+_GstFakeDmabufSrc	fakedmabufsrc/gstfakedmabufsrc.h	/^struct _GstFakeDmabufSrc$/;"	s
+_GstFakeDmabufSrcClass	fakedmabufsrc/gstfakedmabufsrc.h	/^struct _GstFakeDmabufSrcClass$/;"	s
+__DRM_GEM_H__	drm_gem.h	2;"	d
+__drm_gem_object_put	drm_gem.h	/^static inline void __drm_gem_object_put(struct drm_gem_object *obj) {$/;"	f
+_do_init	fakedmabufsrc/gstfakedmabufsrc.c	131;"	d	file:
+_resv	drm_gem.h	/^  struct reservation_object _resv;$/;"	m	struct:drm_gem_object	typeref:struct:drm_gem_object::reservation_object
+abs_builddir	fakedmabufsrc/Makefile	/^abs_builddir = \/home\/xuw\/code\/c\/drm\/fakedmabufsrc$/;"	m
+abs_srcdir	fakedmabufsrc/Makefile	/^abs_srcdir = \/home\/xuw\/code\/c\/drm\/fakedmabufsrc$/;"	m
+abs_top_builddir	fakedmabufsrc/Makefile	/^abs_top_builddir = \/home\/xuw\/code\/c\/drm\/fakedmabufsrc$/;"	m
+abs_top_srcdir	fakedmabufsrc/Makefile	/^abs_top_srcdir = \/home\/xuw\/code\/c\/drm\/fakedmabufsrc$/;"	m
+ac_ct_AR	fakedmabufsrc/Makefile	/^ac_ct_AR = ar$/;"	m
+ac_ct_CC	fakedmabufsrc/Makefile	/^ac_ct_CC = gcc$/;"	m
+ac_ct_DUMPBIN	fakedmabufsrc/Makefile	/^ac_ct_DUMPBIN = $/;"	m
+ac_fn_c_check_func	fakedmabufsrc/configure	/^ac_fn_c_check_func ()$/;"	f
+ac_fn_c_check_header_compile	fakedmabufsrc/configure	/^ac_fn_c_check_header_compile ()$/;"	f
+ac_fn_c_try_compile	fakedmabufsrc/configure	/^ac_fn_c_try_compile ()$/;"	f
+ac_fn_c_try_cpp	fakedmabufsrc/configure	/^ac_fn_c_try_cpp ()$/;"	f
+ac_fn_c_try_link	fakedmabufsrc/configure	/^ac_fn_c_try_link ()$/;"	f
+ac_fn_c_try_run	fakedmabufsrc/configure	/^ac_fn_c_try_run ()$/;"	f
+aix_post_process_depfile	fakedmabufsrc/build-aux/depcomp	/^aix_post_process_depfile ()$/;"	f
+allocator	fakedmabufsrc/gstfakedmabufsrc.h	/^  GstAllocator* allocator;$/;"	m	struct:_GstFakeDmabufSrc
+am__CONFIG_DISTCLEAN_FILES	fakedmabufsrc/Makefile	/^am__CONFIG_DISTCLEAN_FILES = config.status config.cache config.log \\$/;"	m
+am__DEPENDENCIES_1	fakedmabufsrc/Makefile	/^am__DEPENDENCIES_1 =$/;"	m
+am__DIST_COMMON	fakedmabufsrc/Makefile	/^am__DIST_COMMON = $(srcdir)\/Makefile.in $(srcdir)\/config.h.in \\$/;"	m
+am__aclocal_m4_deps	fakedmabufsrc/Makefile	/^am__aclocal_m4_deps = $(top_srcdir)\/m4\/libtool.m4 \\$/;"	m
+am__base_list	fakedmabufsrc/Makefile	/^am__base_list = \\$/;"	m
+am__can_run_installinfo	fakedmabufsrc/Makefile	/^am__can_run_installinfo = \\$/;"	m
+am__cd	fakedmabufsrc/Makefile	/^am__cd = CDPATH="$${ZSH_VERSION+.}$(PATH_SEPARATOR)" && cd$/;"	m
+am__configure_deps	fakedmabufsrc/Makefile	/^am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \\$/;"	m
+am__define_uniq_tagged_files	fakedmabufsrc/Makefile	/^am__define_uniq_tagged_files = \\$/;"	m
+am__depfiles_remade	fakedmabufsrc/Makefile	/^am__depfiles_remade =  \\$/;"	m
+am__distuninstallcheck_listfiles	fakedmabufsrc/Makefile	/^am__distuninstallcheck_listfiles = $(distuninstallcheck_listfiles) \\$/;"	m
+am__include	fakedmabufsrc/Makefile	/^am__include = include$/;"	m
+am__install_max	fakedmabufsrc/Makefile	/^am__install_max = 40$/;"	m
+am__installdirs	fakedmabufsrc/Makefile	/^am__installdirs = "$(DESTDIR)$(libdir)"$/;"	m
+am__is_gnu_make	fakedmabufsrc/Makefile	/^am__is_gnu_make = { \\$/;"	m
+am__leading_dot	fakedmabufsrc/Makefile	/^am__leading_dot = .$/;"	m
+am__make_dryrun	fakedmabufsrc/Makefile	/^am__make_dryrun = (target_option=n; $(am__make_running_with_option))$/;"	m
+am__make_keepgoing	fakedmabufsrc/Makefile	/^am__make_keepgoing = (target_option=k; $(am__make_running_with_option))$/;"	m
+am__make_running_with_option	fakedmabufsrc/Makefile	/^am__make_running_with_option = \\$/;"	m
+am__maybe_remake_depfiles	fakedmabufsrc/Makefile	/^am__maybe_remake_depfiles = depfiles$/;"	m
+am__mv	fakedmabufsrc/Makefile	/^am__mv = mv -f$/;"	m
+am__nobase_list	fakedmabufsrc/Makefile	/^am__nobase_list = $(am__nobase_strip_setup); \\$/;"	m
+am__nobase_strip	fakedmabufsrc/Makefile	/^am__nobase_strip = \\$/;"	m
+am__nobase_strip_setup	fakedmabufsrc/Makefile	/^am__nobase_strip_setup = \\$/;"	m
+am__post_remove_distdir	fakedmabufsrc/Makefile	/^am__post_remove_distdir = $(am__remove_distdir)$/;"	m
+am__quote	fakedmabufsrc/Makefile	/^am__quote = $/;"	m
+am__remove_distdir	fakedmabufsrc/Makefile	/^am__remove_distdir = \\$/;"	m
+am__strip_dir	fakedmabufsrc/Makefile	/^am__strip_dir = f=`echo $$p | sed -e 's|^.*\/||'`;$/;"	m
+am__tagged_files	fakedmabufsrc/Makefile	/^am__tagged_files = $(HEADERS) $(SOURCES) $(TAGS_FILES) \\$/;"	m
+am__tar	fakedmabufsrc/Makefile	/^am__tar = $${TAR-tar} chof - "$$tardir"$/;"	m
+am__uninstall_files_from_dir	fakedmabufsrc/Makefile	/^am__uninstall_files_from_dir = { \\$/;"	m
+am__uniquify_input	fakedmabufsrc/Makefile	/^am__uniquify_input = $(AWK) '\\$/;"	m
+am__untar	fakedmabufsrc/Makefile	/^am__untar = $${TAR-tar} xf -$/;"	m
+am__v_CCLD_	fakedmabufsrc/Makefile	/^am__v_CCLD_ = $(am__v_CCLD_$(AM_DEFAULT_VERBOSITY))$/;"	m
+am__v_CCLD_0	fakedmabufsrc/Makefile	/^am__v_CCLD_0 = @echo "  CCLD    " $@;$/;"	m
+am__v_CCLD_1	fakedmabufsrc/Makefile	/^am__v_CCLD_1 = $/;"	m
+am__v_CC_	fakedmabufsrc/Makefile	/^am__v_CC_ = $(am__v_CC_$(AM_DEFAULT_VERBOSITY))$/;"	m
+am__v_CC_0	fakedmabufsrc/Makefile	/^am__v_CC_0 = @echo "  CC      " $@;$/;"	m
+am__v_CC_1	fakedmabufsrc/Makefile	/^am__v_CC_1 = $/;"	m
+am__v_GEN_	fakedmabufsrc/Makefile	/^am__v_GEN_ = $(am__v_GEN_$(AM_DEFAULT_VERBOSITY))$/;"	m
+am__v_GEN_0	fakedmabufsrc/Makefile	/^am__v_GEN_0 = @echo "  GEN     " $@;$/;"	m
+am__v_GEN_1	fakedmabufsrc/Makefile	/^am__v_GEN_1 = $/;"	m
+am__v_P_	fakedmabufsrc/Makefile	/^am__v_P_ = $(am__v_P_$(AM_DEFAULT_VERBOSITY))$/;"	m
+am__v_P_0	fakedmabufsrc/Makefile	/^am__v_P_0 = false$/;"	m
+am__v_P_1	fakedmabufsrc/Makefile	/^am__v_P_1 = :$/;"	m
+am__v_at_	fakedmabufsrc/Makefile	/^am__v_at_ = $(am__v_at_$(AM_DEFAULT_VERBOSITY))$/;"	m
+am__v_at_0	fakedmabufsrc/Makefile	/^am__v_at_0 = @$/;"	m
+am__v_at_1	fakedmabufsrc/Makefile	/^am__v_at_1 = $/;"	m
+am__v_lt_	fakedmabufsrc/Makefile	/^am__v_lt_ = $(am__v_lt_$(AM_DEFAULT_VERBOSITY))$/;"	m
+am__v_lt_0	fakedmabufsrc/Makefile	/^am__v_lt_0 = --silent$/;"	m
+am__v_lt_1	fakedmabufsrc/Makefile	/^am__v_lt_1 = $/;"	m
+am__vpath_adj	fakedmabufsrc/Makefile	/^am__vpath_adj = case $$p in \\$/;"	m
+am__vpath_adj_setup	fakedmabufsrc/Makefile	/^am__vpath_adj_setup = srcdirstrip=`echo "$(srcdir)" | sed 's|.|.|g'`;$/;"	m
+am_libgstfakedmabufsrc_la_OBJECTS	fakedmabufsrc/Makefile	/^am_libgstfakedmabufsrc_la_OBJECTS =  \\$/;"	m
+as_fn_append	fakedmabufsrc/config.status	/^  as_fn_append ()$/;"	f
+as_fn_append	fakedmabufsrc/configure	/^  as_fn_append ()$/;"	f
+as_fn_arith	fakedmabufsrc/config.status	/^  as_fn_arith ()$/;"	f
+as_fn_arith	fakedmabufsrc/configure	/^  as_fn_arith ()$/;"	f
+as_fn_error	fakedmabufsrc/config.status	/^as_fn_error ()$/;"	f
+as_fn_error	fakedmabufsrc/configure	/^as_fn_error ()$/;"	f
+as_fn_executable_p	fakedmabufsrc/config.status	/^as_fn_executable_p ()$/;"	f
+as_fn_executable_p	fakedmabufsrc/configure	/^as_fn_executable_p ()$/;"	f
+as_fn_exit	fakedmabufsrc/config.status	/^as_fn_exit ()$/;"	f
+as_fn_exit	fakedmabufsrc/configure	/^as_fn_exit ()$/;"	f
+as_fn_failure	fakedmabufsrc/configure	/^as_fn_failure () { as_fn_return 1; }$/;"	f
+as_fn_mkdir_p	fakedmabufsrc/config.status	/^as_fn_mkdir_p ()$/;"	f
+as_fn_mkdir_p	fakedmabufsrc/configure	/^as_fn_mkdir_p ()$/;"	f
+as_fn_ret_failure	fakedmabufsrc/configure	/^as_fn_ret_failure () { return 1; }$/;"	f
+as_fn_ret_success	fakedmabufsrc/configure	/^as_fn_ret_success () { return 0; }$/;"	f
+as_fn_set_status	fakedmabufsrc/config.status	/^as_fn_set_status ()$/;"	f
+as_fn_set_status	fakedmabufsrc/configure	/^as_fn_set_status ()$/;"	f
+as_fn_success	fakedmabufsrc/configure	/^as_fn_success () { as_fn_return 0; }$/;"	f
+as_fn_unset	fakedmabufsrc/config.status	/^as_fn_unset ()$/;"	f
+as_fn_unset	fakedmabufsrc/configure	/^as_fn_unset ()$/;"	f
+auth_data	read.c	/^			auth_data;$/;"	m	struct:x11_conn_req	file:
+auth_proto	read.c	/^	uint16_t auth_proto,$/;"	m	struct:x11_conn_req	file:
+backing_store	read.c	/^	uint8_t backing_store;$/;"	m	struct:x11_root_window	file:
+base_fakedmabufsrc	fakedmabufsrc/gstfakedmabufsrc.h	/^  GstPushSrc base_fakedmabufsrc;$/;"	m	struct:_GstFakeDmabufSrc
+bindir	fakedmabufsrc/Makefile	/^bindir = ${exec_prefix}\/bin$/;"	m
+bit_name_fn	test-drm-prime-dumb-kms.c	35;"	d	file:
+bitmap_order	read.c	/^	uint8_t bitmap_order;$/;"	m	struct:x11_conn_setup	file:
+bits	read.c	/^	uint8_t bits;$/;"	m	struct:x11_visual	file:
+black	read.c	/^			black;$/;"	m	struct:x11_root_window	file:
+bpp	read.c	/^	uint8_t bpp;$/;"	m	struct:x11_pixmap_format	file:
+buf	cap_test.c	/^	uint32_t *buf;$/;"	m	struct:drm_dev_t	file:
+build	fakedmabufsrc/Makefile	/^build = x86_64-pc-linux-gnu$/;"	m
+build_alias	fakedmabufsrc/Makefile	/^build_alias = $/;"	m
+build_cpu	fakedmabufsrc/Makefile	/^build_cpu = x86_64$/;"	m
+build_os	fakedmabufsrc/Makefile	/^build_os = linux-gnu$/;"	m
+build_triplet	fakedmabufsrc/Makefile	/^build_triplet = x86_64-pc-linux-gnu$/;"	m
+build_vendor	fakedmabufsrc/Makefile	/^build_vendor = pc$/;"	m
+builddir	fakedmabufsrc/Makefile	/^builddir = .$/;"	m
+bus_call	fakedmabufsrc/test/fakedmabuf-stream.c	/^bus_call (GstBus * bus, GstMessage * msg, gpointer data)$/;"	f	file:
+close	drm_gem.h	/^  void (*close)(struct drm_gem_object *obj, struct drm_file *file);$/;"	m	struct:drm_gem_object_funcs
+code	read.c	/^	uint8_t code;$/;"	m	struct:x11_error	file:
+colormap	read.c	/^	uint32_t colormap;$/;"	m	struct:x11_root_window	file:
+colormap_entries	read.c	/^	uint16_t colormap_entries;$/;"	m	struct:x11_visual	file:
+configAttribs	egl_headless.c	/^static const EGLint configAttribs[] = {EGL_SURFACE_TYPE,$/;"	v	file:
+configAttribs	egl_headless2.c	/^static const EGLint configAttribs[] = {EGL_SURFACE_TYPE,$/;"	v	file:
+conn_id	cap_test.c	/^	uint32_t conn_id, enc_id, crtc_id, fb_id;$/;"	m	struct:drm_dev_t	file:
+count_bits	read.c	/^int count_bits(uint32_t n)$/;"	f
+crtc_id	cap_test.c	/^	uint32_t conn_id, enc_id, crtc_id, fb_id;$/;"	m	struct:drm_dev_t	file:
+datadir	fakedmabufsrc/Makefile	/^datadir = ${datarootdir}$/;"	m
+datarootdir	fakedmabufsrc/Makefile	/^datarootdir = ${prefix}\/share$/;"	m
+depcomp	fakedmabufsrc/Makefile	/^depcomp = $(SHELL) $(top_srcdir)\/build-aux\/depcomp$/;"	m
+depth	read.c	/^	struct x11_depth *depth;$/;"	m	struct:x11_connection	typeref:struct:x11_connection::x11_depth	file:
+depth	read.c	/^	uint8_t depth;$/;"	m	struct:x11_depth	file:
+depth	read.c	/^	uint8_t depth;$/;"	m	struct:x11_pixmap_format	file:
+depth	read.c	/^	uint8_t depth;$/;"	m	struct:x11_root_window	file:
+depths	read.c	/^	uint8_t depths;$/;"	m	struct:x11_root_window	file:
+dev	drm_gem.h	/^  struct drm_device *dev;$/;"	m	struct:drm_gem_object	typeref:struct:drm_gem_object::drm_device
+distcleancheck_listfiles	fakedmabufsrc/Makefile	/^distcleancheck_listfiles = find . -type f -print$/;"	m
+distdir	fakedmabufsrc/Makefile	/^distdir = $(PACKAGE)-$(VERSION)$/;"	m
+distuninstallcheck_listfiles	fakedmabufsrc/Makefile	/^distuninstallcheck_listfiles = find . -type f -print$/;"	m
+dma_buf	drm_gem.h	/^  struct dma_buf *dma_buf;$/;"	m	struct:drm_gem_object	typeref:struct:drm_gem_object::dma_buf
+docdir	fakedmabufsrc/Makefile	/^docdir = ${datarootdir}\/doc\/${PACKAGE_TARNAME}$/;"	m
+dri_path	cap_test.c	/^static const char *dri_path = "\/dev\/dri\/card0";$/;"	v	file:
+drmIoctl	fakedmabufsrc/gstfakedmabufsrc.c	/^drmIoctl (int fd, unsigned long request, void *arg)$/;"	f
+drm_destroy	cap_test.c	/^void drm_destroy(int fd, struct drm_dev_t *dev_head)$/;"	f
+drm_dev_t	cap_test.c	/^struct drm_dev_t {$/;"	s	file:
+drm_find_dev	cap_test.c	/^struct drm_dev_t *drm_find_dev(int fd) {$/;"	f
+drm_gem_object	drm_gem.h	/^struct drm_gem_object {$/;"	s
+drm_gem_object_funcs	drm_gem.h	/^struct drm_gem_object_funcs {$/;"	s
+drm_gem_object_get	drm_gem.h	/^static inline void drm_gem_object_get(struct drm_gem_object *obj) {$/;"	f
+drm_open	cap_test.c	/^int drm_open(const char *path) {$/;"	f
+drm_setup_fb	cap_test.c	/^void drm_setup_fb(int fd, struct drm_dev_t *dev)$/;"	f
+dump_mode	test-drm-prime-dumb-kms.c	/^static void dump_mode(drmModeModeInfo *mode)$/;"	f	file:
+dvidir	fakedmabufsrc/Makefile	/^dvidir = ${docdir}$/;"	m
+emmap	cap_test.c	/^void *emmap(int addr, ssize_t len, int prot, int flag, int fd, off_t offset) {$/;"	f
+enc_id	cap_test.c	/^	uint32_t conn_id, enc_id, crtc_id, fb_id;$/;"	m	struct:drm_dev_t	file:
+enumerateModeResources	enum.c	/^void enumerateModeResources(int fd, const drmModeResPtr res) {$/;"	f
+enumerateModeResources	enum2.c	/^void enumerateModeResources(int fd, const drmModeResPtr res) {$/;"	f
+enumerateModeResources	test2.c	/^ssize_t enumerateModeResources(int fd, const drmModeResPtr res) {$/;"	f
+eopen	cap_test.c	/^int eopen(const char *path, int flag) {$/;"	f
+error	cap_test.c	/^void error(char *str) {$/;"	f
+error	read.c	/^void error(char *msg, int len)$/;"	f
+exec_prefix	fakedmabufsrc/Makefile	/^exec_prefix = ${prefix}$/;"	m
+export	drm_gem.h	/^  struct dma_buf *(*export)(struct drm_gem_object *obj, int flags);$/;"	m	struct:drm_gem_object_funcs	typeref:struct:drm_gem_object_funcs::export
+fatal	cap_test.c	/^void fatal(char *str) {$/;"	f
+fb_id	cap_test.c	/^	uint32_t conn_id, enc_id, crtc_id, fb_id;$/;"	m	struct:drm_dev_t	file:
+fd	egl_headless.c	/^  int fd;$/;"	m	struct:__anon9	file:
+fd	egl_headless2.c	/^  int fd;$/;"	m	struct:__anon2	file:
+fd	fakedmabufsrc/gstfakedmabufsrc.h	/^  int fd;$/;"	m	struct:_GstFakeDmabufSrc
+fd	grab2.c	/^	int fd;$/;"	m	struct:__anon8	file:
+fd	kmsgrab.c	/^  int fd;$/;"	m	struct:__anon6	file:
+fd	test2.c	/^  int fd;$/;"	m	struct:__anon5	file:
+filp	drm_gem.h	/^  struct file *filp;$/;"	m	struct:drm_gem_object	typeref:struct:drm_gem_object::file
+format	read.c	/^	struct x11_pixmap_format *format;$/;"	m	struct:x11_connection	typeref:struct:x11_connection::x11_pixmap_format	file:
+formats	read.c	/^	uint8_t formats;$/;"	m	struct:x11_conn_setup	file:
+fourcc	drmsend.c	/^	uint32_t fourcc;$/;"	m	struct:__anon7	file:
+fourcc	egl_headless.c	/^  uint32_t fourcc;$/;"	m	struct:__anon9	file:
+fourcc	egl_headless2.c	/^  uint32_t fourcc;$/;"	m	struct:__anon2	file:
+fourcc	grab2.c	/^	uint32_t fourcc;$/;"	m	struct:__anon8	file:
+fourcc	kmsgrab.c	/^  uint32_t fourcc;$/;"	m	struct:__anon6	file:
+fourcc	test2.c	/^  uint32_t fourcc;$/;"	m	struct:__anon5	file:
+free	drm_gem.h	/^  void (*free)(struct drm_gem_object *obj);$/;"	m	struct:drm_gem_object_funcs
+func_add_hook	fakedmabufsrc/build-aux/ltmain.sh	/^func_add_hook ()$/;"	f
+func_add_hook	fakedmabufsrc/libtool	/^func_add_hook ()$/;"	f
+func_append	fakedmabufsrc/build-aux/ltmain.sh	/^  func_append ()$/;"	f
+func_append	fakedmabufsrc/libtool	/^  func_append ()$/;"	f
+func_append_quoted	fakedmabufsrc/build-aux/ltmain.sh	/^  func_append_quoted ()$/;"	f
+func_append_quoted	fakedmabufsrc/libtool	/^  func_append_quoted ()$/;"	f
+func_append_uniq	fakedmabufsrc/build-aux/ltmain.sh	/^func_append_uniq ()$/;"	f
+func_append_uniq	fakedmabufsrc/libtool	/^func_append_uniq ()$/;"	f
+func_arith	fakedmabufsrc/build-aux/ltmain.sh	/^  func_arith ()$/;"	f
+func_arith	fakedmabufsrc/libtool	/^  func_arith ()$/;"	f
+func_cc_basename	fakedmabufsrc/config.status	/^func_cc_basename ()$/;"	f
+func_cc_basename	fakedmabufsrc/configure	/^func_cc_basename ()$/;"	f
+func_cc_basename	fakedmabufsrc/libtool	/^func_cc_basename ()$/;"	f
+func_check_prog_grep	fakedmabufsrc/build-aux/ltmain.sh	/^  func_check_prog_grep ()$/;"	f
+func_check_prog_grep	fakedmabufsrc/libtool	/^  func_check_prog_grep ()$/;"	f
+func_check_prog_sed	fakedmabufsrc/build-aux/ltmain.sh	/^  func_check_prog_sed ()$/;"	f
+func_check_prog_sed	fakedmabufsrc/libtool	/^  func_check_prog_sed ()$/;"	f
+func_check_version_match	fakedmabufsrc/build-aux/ltmain.sh	/^func_check_version_match ()$/;"	f
+func_check_version_match	fakedmabufsrc/libtool	/^func_check_version_match ()$/;"	f
+func_cl_dashL	fakedmabufsrc/build-aux/compile	/^func_cl_dashL ()$/;"	f
+func_cl_dashl	fakedmabufsrc/build-aux/compile	/^func_cl_dashl ()$/;"	f
+func_cl_wrapper	fakedmabufsrc/build-aux/compile	/^func_cl_wrapper ()$/;"	f
+func_config	fakedmabufsrc/build-aux/ltmain.sh	/^func_config ()$/;"	f
+func_config	fakedmabufsrc/libtool	/^func_config ()$/;"	f
+func_convert_core_file_wine_to_w32	fakedmabufsrc/build-aux/ltmain.sh	/^func_convert_core_file_wine_to_w32 ()$/;"	f
+func_convert_core_file_wine_to_w32	fakedmabufsrc/libtool	/^func_convert_core_file_wine_to_w32 ()$/;"	f
+func_convert_core_msys_to_w32	fakedmabufsrc/build-aux/ltmain.sh	/^func_convert_core_msys_to_w32 ()$/;"	f
+func_convert_core_msys_to_w32	fakedmabufsrc/libtool	/^func_convert_core_msys_to_w32 ()$/;"	f
+func_convert_core_path_wine_to_w32	fakedmabufsrc/build-aux/ltmain.sh	/^func_convert_core_path_wine_to_w32 ()$/;"	f
+func_convert_core_path_wine_to_w32	fakedmabufsrc/libtool	/^func_convert_core_path_wine_to_w32 ()$/;"	f
+func_convert_file_check	fakedmabufsrc/build-aux/ltmain.sh	/^func_convert_file_check ()$/;"	f
+func_convert_file_check	fakedmabufsrc/libtool	/^func_convert_file_check ()$/;"	f
+func_convert_file_cygwin_to_w32	fakedmabufsrc/build-aux/ltmain.sh	/^func_convert_file_cygwin_to_w32 ()$/;"	f
+func_convert_file_cygwin_to_w32	fakedmabufsrc/libtool	/^func_convert_file_cygwin_to_w32 ()$/;"	f
+func_convert_file_msys_to_cygwin	fakedmabufsrc/build-aux/ltmain.sh	/^func_convert_file_msys_to_cygwin ()$/;"	f
+func_convert_file_msys_to_cygwin	fakedmabufsrc/libtool	/^func_convert_file_msys_to_cygwin ()$/;"	f
+func_convert_file_msys_to_w32	fakedmabufsrc/build-aux/ltmain.sh	/^func_convert_file_msys_to_w32 ()$/;"	f
+func_convert_file_msys_to_w32	fakedmabufsrc/libtool	/^func_convert_file_msys_to_w32 ()$/;"	f
+func_convert_file_nix_to_cygwin	fakedmabufsrc/build-aux/ltmain.sh	/^func_convert_file_nix_to_cygwin ()$/;"	f
+func_convert_file_nix_to_cygwin	fakedmabufsrc/libtool	/^func_convert_file_nix_to_cygwin ()$/;"	f
+func_convert_file_nix_to_w32	fakedmabufsrc/build-aux/ltmain.sh	/^func_convert_file_nix_to_w32 ()$/;"	f
+func_convert_file_nix_to_w32	fakedmabufsrc/libtool	/^func_convert_file_nix_to_w32 ()$/;"	f
+func_convert_file_noop	fakedmabufsrc/build-aux/ltmain.sh	/^func_convert_file_noop ()$/;"	f
+func_convert_file_noop	fakedmabufsrc/libtool	/^func_convert_file_noop ()$/;"	f
+func_convert_path_check	fakedmabufsrc/build-aux/ltmain.sh	/^func_convert_path_check ()$/;"	f
+func_convert_path_check	fakedmabufsrc/libtool	/^func_convert_path_check ()$/;"	f
+func_convert_path_cygwin_to_w32	fakedmabufsrc/build-aux/ltmain.sh	/^func_convert_path_cygwin_to_w32 ()$/;"	f
+func_convert_path_cygwin_to_w32	fakedmabufsrc/libtool	/^func_convert_path_cygwin_to_w32 ()$/;"	f
+func_convert_path_front_back_pathsep	fakedmabufsrc/build-aux/ltmain.sh	/^func_convert_path_front_back_pathsep ()$/;"	f
+func_convert_path_front_back_pathsep	fakedmabufsrc/libtool	/^func_convert_path_front_back_pathsep ()$/;"	f
+func_convert_path_msys_to_cygwin	fakedmabufsrc/build-aux/ltmain.sh	/^func_convert_path_msys_to_cygwin ()$/;"	f
+func_convert_path_msys_to_cygwin	fakedmabufsrc/libtool	/^func_convert_path_msys_to_cygwin ()$/;"	f
+func_convert_path_msys_to_w32	fakedmabufsrc/build-aux/ltmain.sh	/^func_convert_path_msys_to_w32 ()$/;"	f
+func_convert_path_msys_to_w32	fakedmabufsrc/libtool	/^func_convert_path_msys_to_w32 ()$/;"	f
+func_convert_path_nix_to_cygwin	fakedmabufsrc/build-aux/ltmain.sh	/^func_convert_path_nix_to_cygwin ()$/;"	f
+func_convert_path_nix_to_cygwin	fakedmabufsrc/libtool	/^func_convert_path_nix_to_cygwin ()$/;"	f
+func_convert_path_nix_to_w32	fakedmabufsrc/build-aux/ltmain.sh	/^func_convert_path_nix_to_w32 ()$/;"	f
+func_convert_path_nix_to_w32	fakedmabufsrc/libtool	/^func_convert_path_nix_to_w32 ()$/;"	f
+func_convert_path_noop	fakedmabufsrc/build-aux/ltmain.sh	/^func_convert_path_noop ()$/;"	f
+func_convert_path_noop	fakedmabufsrc/libtool	/^func_convert_path_noop ()$/;"	f
+func_cygming_dll_for_implib	fakedmabufsrc/build-aux/ltmain.sh	/^func_cygming_dll_for_implib ()$/;"	f
+func_cygming_dll_for_implib	fakedmabufsrc/libtool	/^func_cygming_dll_for_implib ()$/;"	f
+func_cygming_dll_for_implib_fallback	fakedmabufsrc/build-aux/ltmain.sh	/^func_cygming_dll_for_implib_fallback ()$/;"	f
+func_cygming_dll_for_implib_fallback	fakedmabufsrc/libtool	/^func_cygming_dll_for_implib_fallback ()$/;"	f
+func_cygming_dll_for_implib_fallback_core	fakedmabufsrc/build-aux/ltmain.sh	/^func_cygming_dll_for_implib_fallback_core ()$/;"	f
+func_cygming_dll_for_implib_fallback_core	fakedmabufsrc/libtool	/^func_cygming_dll_for_implib_fallback_core ()$/;"	f
+func_cygming_gnu_implib_p	fakedmabufsrc/build-aux/ltmain.sh	/^func_cygming_gnu_implib_p ()$/;"	f
+func_cygming_gnu_implib_p	fakedmabufsrc/libtool	/^func_cygming_gnu_implib_p ()$/;"	f
+func_cygming_ms_implib_p	fakedmabufsrc/build-aux/ltmain.sh	/^func_cygming_ms_implib_p ()$/;"	f
+func_cygming_ms_implib_p	fakedmabufsrc/libtool	/^func_cygming_ms_implib_p ()$/;"	f
+func_cygpath	fakedmabufsrc/build-aux/ltmain.sh	/^func_cygpath ()$/;"	f
+func_cygpath	fakedmabufsrc/libtool	/^func_cygpath ()$/;"	f
+func_dll_def_p	fakedmabufsrc/build-aux/ltmain.sh	/^func_dll_def_p ()$/;"	f
+func_dll_def_p	fakedmabufsrc/libtool	/^func_dll_def_p ()$/;"	f
+func_echo	fakedmabufsrc/build-aux/ltmain.sh	/^func_echo ()$/;"	f
+func_echo	fakedmabufsrc/libtool	/^func_echo ()$/;"	f
+func_echo_all	fakedmabufsrc/build-aux/ltmain.sh	/^func_echo_all ()$/;"	f
+func_echo_all	fakedmabufsrc/configure	/^func_echo_all ()$/;"	f
+func_echo_all	fakedmabufsrc/libtool	/^func_echo_all ()$/;"	f
+func_echo_infix_1	fakedmabufsrc/build-aux/ltmain.sh	/^func_echo_infix_1 ()$/;"	f
+func_echo_infix_1	fakedmabufsrc/libtool	/^func_echo_infix_1 ()$/;"	f
+func_emit_cwrapperexe_src	fakedmabufsrc/build-aux/ltmain.sh	/^func_emit_cwrapperexe_src ()$/;"	f
+func_emit_cwrapperexe_src	fakedmabufsrc/libtool	/^func_emit_cwrapperexe_src ()$/;"	f
+func_emit_wrapper	fakedmabufsrc/build-aux/ltmain.sh	/^func_emit_wrapper ()$/;"	f
+func_emit_wrapper	fakedmabufsrc/libtool	/^func_emit_wrapper ()$/;"	f
+func_enable_tag	fakedmabufsrc/build-aux/ltmain.sh	/^func_enable_tag ()$/;"	f
+func_enable_tag	fakedmabufsrc/libtool	/^func_enable_tag ()$/;"	f
+func_error	fakedmabufsrc/build-aux/ltmain.sh	/^func_error ()$/;"	f
+func_error	fakedmabufsrc/libtool	/^func_error ()$/;"	f
+func_exec_program	fakedmabufsrc/build-aux/ltmain.sh	/^func_exec_program ()$/;"	f
+func_exec_program	fakedmabufsrc/libtool	/^func_exec_program ()$/;"	f
+func_exec_program_core	fakedmabufsrc/build-aux/ltmain.sh	/^func_exec_program_core ()$/;"	f
+func_exec_program_core	fakedmabufsrc/libtool	/^func_exec_program_core ()$/;"	f
+func_executable_p	fakedmabufsrc/build-aux/ltmain.sh	/^func_executable_p ()$/;"	f
+func_executable_p	fakedmabufsrc/libtool	/^func_executable_p ()$/;"	f
+func_execute_cmds	fakedmabufsrc/build-aux/ltmain.sh	/^func_execute_cmds ()$/;"	f
+func_execute_cmds	fakedmabufsrc/libtool	/^func_execute_cmds ()$/;"	f
+func_extract_an_archive	fakedmabufsrc/build-aux/ltmain.sh	/^func_extract_an_archive ()$/;"	f
+func_extract_an_archive	fakedmabufsrc/libtool	/^func_extract_an_archive ()$/;"	f
+func_extract_archives	fakedmabufsrc/build-aux/ltmain.sh	/^func_extract_archives ()$/;"	f
+func_extract_archives	fakedmabufsrc/libtool	/^func_extract_archives ()$/;"	f
+func_fallback_echo	fakedmabufsrc/build-aux/ltmain.sh	/^func_fallback_echo ()$/;"	f
+func_fallback_echo	fakedmabufsrc/config.status	/^func_fallback_echo ()$/;"	f
+func_fallback_echo	fakedmabufsrc/configure	/^  func_fallback_echo ()$/;"	f
+func_fallback_echo	fakedmabufsrc/configure	/^func_fallback_echo ()$/;"	f
+func_fallback_echo	fakedmabufsrc/libtool	/^func_fallback_echo ()$/;"	f
+func_fatal_configuration	fakedmabufsrc/build-aux/ltmain.sh	/^func_fatal_configuration ()$/;"	f
+func_fatal_configuration	fakedmabufsrc/libtool	/^func_fatal_configuration ()$/;"	f
+func_fatal_error	fakedmabufsrc/build-aux/ltmain.sh	/^func_fatal_error ()$/;"	f
+func_fatal_error	fakedmabufsrc/libtool	/^func_fatal_error ()$/;"	f
+func_fatal_help	fakedmabufsrc/build-aux/ltmain.sh	/^func_fatal_help ()$/;"	f
+func_fatal_help	fakedmabufsrc/libtool	/^func_fatal_help ()$/;"	f
+func_features	fakedmabufsrc/build-aux/ltmain.sh	/^func_features ()$/;"	f
+func_features	fakedmabufsrc/libtool	/^func_features ()$/;"	f
+func_file_conv	fakedmabufsrc/build-aux/compile	/^func_file_conv ()$/;"	f
+func_generate_dlsyms	fakedmabufsrc/build-aux/ltmain.sh	/^func_generate_dlsyms ()$/;"	f
+func_generate_dlsyms	fakedmabufsrc/libtool	/^func_generate_dlsyms ()$/;"	f
+func_generated_by_libtool_p	fakedmabufsrc/build-aux/ltmain.sh	/^func_generated_by_libtool_p ()$/;"	f
+func_generated_by_libtool_p	fakedmabufsrc/libtool	/^func_generated_by_libtool_p ()$/;"	f
+func_grep	fakedmabufsrc/build-aux/ltmain.sh	/^func_grep ()$/;"	f
+func_grep	fakedmabufsrc/libtool	/^func_grep ()$/;"	f
+func_help	fakedmabufsrc/build-aux/ltmain.sh	/^func_help ()$/;"	f
+func_help	fakedmabufsrc/libtool	/^func_help ()$/;"	f
+func_hookable	fakedmabufsrc/build-aux/ltmain.sh	/^func_hookable ()$/;"	f
+func_hookable	fakedmabufsrc/libtool	/^func_hookable ()$/;"	f
+func_infer_tag	fakedmabufsrc/build-aux/ltmain.sh	/^func_infer_tag ()$/;"	f
+func_infer_tag	fakedmabufsrc/libtool	/^func_infer_tag ()$/;"	f
+func_init_to_host_path_cmd	fakedmabufsrc/build-aux/ltmain.sh	/^func_init_to_host_path_cmd ()$/;"	f
+func_init_to_host_path_cmd	fakedmabufsrc/libtool	/^func_init_to_host_path_cmd ()$/;"	f
+func_lalib_p	fakedmabufsrc/build-aux/ltmain.sh	/^func_lalib_p ()$/;"	f
+func_lalib_p	fakedmabufsrc/libtool	/^func_lalib_p ()$/;"	f
+func_lalib_unsafe_p	fakedmabufsrc/build-aux/ltmain.sh	/^func_lalib_unsafe_p ()$/;"	f
+func_lalib_unsafe_p	fakedmabufsrc/libtool	/^func_lalib_unsafe_p ()$/;"	f
+func_len	fakedmabufsrc/build-aux/ltmain.sh	/^  func_len ()$/;"	f
+func_len	fakedmabufsrc/libtool	/^  func_len ()$/;"	f
+func_lo2o	fakedmabufsrc/build-aux/ltmain.sh	/^  func_lo2o ()$/;"	f
+func_lo2o	fakedmabufsrc/libtool	/^  func_lo2o ()$/;"	f
+func_lt_dump_args	fakedmabufsrc/build-aux/ltmain.sh	/^func_lt_dump_args ()$/;"	f
+func_lt_dump_args	fakedmabufsrc/libtool	/^func_lt_dump_args ()$/;"	f
+func_lt_ver	fakedmabufsrc/build-aux/ltmain.sh	/^func_lt_ver ()$/;"	f
+func_lt_ver	fakedmabufsrc/libtool	/^func_lt_ver ()$/;"	f
+func_ltwrapper_executable_p	fakedmabufsrc/build-aux/ltmain.sh	/^func_ltwrapper_executable_p ()$/;"	f
+func_ltwrapper_executable_p	fakedmabufsrc/libtool	/^func_ltwrapper_executable_p ()$/;"	f
+func_ltwrapper_p	fakedmabufsrc/build-aux/ltmain.sh	/^func_ltwrapper_p ()$/;"	f
+func_ltwrapper_p	fakedmabufsrc/libtool	/^func_ltwrapper_p ()$/;"	f
+func_ltwrapper_script_p	fakedmabufsrc/build-aux/ltmain.sh	/^func_ltwrapper_script_p ()$/;"	f
+func_ltwrapper_script_p	fakedmabufsrc/libtool	/^func_ltwrapper_script_p ()$/;"	f
+func_ltwrapper_scriptname	fakedmabufsrc/build-aux/ltmain.sh	/^func_ltwrapper_scriptname ()$/;"	f
+func_ltwrapper_scriptname	fakedmabufsrc/libtool	/^func_ltwrapper_scriptname ()$/;"	f
+func_missing_arg	fakedmabufsrc/build-aux/ltmain.sh	/^func_missing_arg ()$/;"	f
+func_missing_arg	fakedmabufsrc/libtool	/^func_missing_arg ()$/;"	f
+func_mkdir_p	fakedmabufsrc/build-aux/ltmain.sh	/^func_mkdir_p ()$/;"	f
+func_mkdir_p	fakedmabufsrc/libtool	/^func_mkdir_p ()$/;"	f
+func_mktempdir	fakedmabufsrc/build-aux/ltmain.sh	/^func_mktempdir ()$/;"	f
+func_mktempdir	fakedmabufsrc/libtool	/^func_mktempdir ()$/;"	f
+func_mode_compile	fakedmabufsrc/build-aux/ltmain.sh	/^func_mode_compile ()$/;"	f
+func_mode_compile	fakedmabufsrc/libtool	/^func_mode_compile ()$/;"	f
+func_mode_execute	fakedmabufsrc/build-aux/ltmain.sh	/^func_mode_execute ()$/;"	f
+func_mode_execute	fakedmabufsrc/libtool	/^func_mode_execute ()$/;"	f
+func_mode_finish	fakedmabufsrc/build-aux/ltmain.sh	/^func_mode_finish ()$/;"	f
+func_mode_finish	fakedmabufsrc/libtool	/^func_mode_finish ()$/;"	f
+func_mode_help	fakedmabufsrc/build-aux/ltmain.sh	/^func_mode_help ()$/;"	f
+func_mode_help	fakedmabufsrc/libtool	/^func_mode_help ()$/;"	f
+func_mode_install	fakedmabufsrc/build-aux/ltmain.sh	/^func_mode_install ()$/;"	f
+func_mode_install	fakedmabufsrc/libtool	/^func_mode_install ()$/;"	f
+func_mode_link	fakedmabufsrc/build-aux/ltmain.sh	/^func_mode_link ()$/;"	f
+func_mode_link	fakedmabufsrc/libtool	/^func_mode_link ()$/;"	f
+func_mode_uninstall	fakedmabufsrc/build-aux/ltmain.sh	/^func_mode_uninstall ()$/;"	f
+func_mode_uninstall	fakedmabufsrc/libtool	/^func_mode_uninstall ()$/;"	f
+func_munge_path_list	fakedmabufsrc/config.status	/^func_munge_path_list ()$/;"	f
+func_munge_path_list	fakedmabufsrc/configure	/^func_munge_path_list ()$/;"	f
+func_munge_path_list	fakedmabufsrc/libtool	/^func_munge_path_list ()$/;"	f
+func_normal_abspath	fakedmabufsrc/build-aux/ltmain.sh	/^func_normal_abspath ()$/;"	f
+func_normal_abspath	fakedmabufsrc/libtool	/^func_normal_abspath ()$/;"	f
+func_notquiet	fakedmabufsrc/build-aux/ltmain.sh	/^func_notquiet ()$/;"	f
+func_notquiet	fakedmabufsrc/libtool	/^func_notquiet ()$/;"	f
+func_options	fakedmabufsrc/build-aux/ltmain.sh	/^func_options ()$/;"	f
+func_options	fakedmabufsrc/libtool	/^func_options ()$/;"	f
+func_options_finish	fakedmabufsrc/build-aux/ltmain.sh	/^func_options_finish ()$/;"	f
+func_options_finish	fakedmabufsrc/libtool	/^func_options_finish ()$/;"	f
+func_options_prep	fakedmabufsrc/build-aux/ltmain.sh	/^func_options_prep ()$/;"	f
+func_options_prep	fakedmabufsrc/libtool	/^func_options_prep ()$/;"	f
+func_parse_lt_options	fakedmabufsrc/build-aux/ltmain.sh	/^func_parse_lt_options ()$/;"	f
+func_parse_lt_options	fakedmabufsrc/libtool	/^func_parse_lt_options ()$/;"	f
+func_parse_options	fakedmabufsrc/build-aux/ltmain.sh	/^func_parse_options ()$/;"	f
+func_parse_options	fakedmabufsrc/libtool	/^func_parse_options ()$/;"	f
+func_path_progs	fakedmabufsrc/build-aux/ltmain.sh	/^func_path_progs ()$/;"	f
+func_path_progs	fakedmabufsrc/libtool	/^func_path_progs ()$/;"	f
+func_quote_for_eval	fakedmabufsrc/build-aux/ltmain.sh	/^func_quote_for_eval ()$/;"	f
+func_quote_for_eval	fakedmabufsrc/libtool	/^func_quote_for_eval ()$/;"	f
+func_quote_for_expand	fakedmabufsrc/build-aux/ltmain.sh	/^func_quote_for_expand ()$/;"	f
+func_quote_for_expand	fakedmabufsrc/libtool	/^func_quote_for_expand ()$/;"	f
+func_relative_path	fakedmabufsrc/build-aux/ltmain.sh	/^func_relative_path ()$/;"	f
+func_relative_path	fakedmabufsrc/libtool	/^func_relative_path ()$/;"	f
+func_remove_hook	fakedmabufsrc/build-aux/ltmain.sh	/^func_remove_hook ()$/;"	f
+func_remove_hook	fakedmabufsrc/libtool	/^func_remove_hook ()$/;"	f
+func_replace_sysroot	fakedmabufsrc/build-aux/ltmain.sh	/^func_replace_sysroot ()$/;"	f
+func_replace_sysroot	fakedmabufsrc/libtool	/^func_replace_sysroot ()$/;"	f
+func_require_term_colors	fakedmabufsrc/build-aux/ltmain.sh	/^func_require_term_colors ()$/;"	f
+func_require_term_colors	fakedmabufsrc/libtool	/^func_require_term_colors ()$/;"	f
+func_resolve_sysroot	fakedmabufsrc/build-aux/ltmain.sh	/^func_resolve_sysroot ()$/;"	f
+func_resolve_sysroot	fakedmabufsrc/libtool	/^func_resolve_sysroot ()$/;"	f
+func_run_hooks	fakedmabufsrc/build-aux/ltmain.sh	/^func_run_hooks ()$/;"	f
+func_run_hooks	fakedmabufsrc/libtool	/^func_run_hooks ()$/;"	f
+func_show_eval	fakedmabufsrc/build-aux/ltmain.sh	/^func_show_eval ()$/;"	f
+func_show_eval	fakedmabufsrc/libtool	/^func_show_eval ()$/;"	f
+func_show_eval_locale	fakedmabufsrc/build-aux/ltmain.sh	/^func_show_eval_locale ()$/;"	f
+func_show_eval_locale	fakedmabufsrc/libtool	/^func_show_eval_locale ()$/;"	f
+func_sort_ver	fakedmabufsrc/build-aux/ltmain.sh	/^func_sort_ver ()$/;"	f
+func_sort_ver	fakedmabufsrc/libtool	/^func_sort_ver ()$/;"	f
+func_source	fakedmabufsrc/build-aux/ltmain.sh	/^func_source ()$/;"	f
+func_source	fakedmabufsrc/libtool	/^func_source ()$/;"	f
+func_split_equals	fakedmabufsrc/build-aux/ltmain.sh	/^  func_split_equals ()$/;"	f
+func_split_equals	fakedmabufsrc/libtool	/^  func_split_equals ()$/;"	f
+func_split_short_opt	fakedmabufsrc/build-aux/ltmain.sh	/^  func_split_short_opt ()$/;"	f
+func_split_short_opt	fakedmabufsrc/libtool	/^  func_split_short_opt ()$/;"	f
+func_stripname	fakedmabufsrc/build-aux/ltmain.sh	/^  func_stripname ()$/;"	f
+func_stripname	fakedmabufsrc/libtool	/^  func_stripname ()$/;"	f
+func_suncc_cstd_abi	fakedmabufsrc/build-aux/ltmain.sh	/^func_suncc_cstd_abi ()$/;"	f
+func_suncc_cstd_abi	fakedmabufsrc/libtool	/^func_suncc_cstd_abi ()$/;"	f
+func_to_host_file	fakedmabufsrc/build-aux/ltmain.sh	/^func_to_host_file ()$/;"	f
+func_to_host_file	fakedmabufsrc/libtool	/^func_to_host_file ()$/;"	f
+func_to_host_path	fakedmabufsrc/build-aux/ltmain.sh	/^func_to_host_path ()$/;"	f
+func_to_host_path	fakedmabufsrc/libtool	/^func_to_host_path ()$/;"	f
+func_to_tool_file	fakedmabufsrc/build-aux/ltmain.sh	/^func_to_tool_file ()$/;"	f
+func_to_tool_file	fakedmabufsrc/libtool	/^func_to_tool_file ()$/;"	f
+func_tr_sh	fakedmabufsrc/build-aux/ltmain.sh	/^func_tr_sh ()$/;"	f
+func_tr_sh	fakedmabufsrc/libtool	/^func_tr_sh ()$/;"	f
+func_usage	fakedmabufsrc/build-aux/ltmain.sh	/^func_usage ()$/;"	f
+func_usage	fakedmabufsrc/libtool	/^func_usage ()$/;"	f
+func_usage_message	fakedmabufsrc/build-aux/ltmain.sh	/^func_usage_message ()$/;"	f
+func_usage_message	fakedmabufsrc/libtool	/^func_usage_message ()$/;"	f
+func_validate_options	fakedmabufsrc/build-aux/ltmain.sh	/^func_validate_options ()$/;"	f
+func_validate_options	fakedmabufsrc/libtool	/^func_validate_options ()$/;"	f
+func_verbose	fakedmabufsrc/build-aux/ltmain.sh	/^func_verbose ()$/;"	f
+func_verbose	fakedmabufsrc/libtool	/^func_verbose ()$/;"	f
+func_version	fakedmabufsrc/build-aux/ltmain.sh	/^func_version ()$/;"	f
+func_version	fakedmabufsrc/libtool	/^func_version ()$/;"	f
+func_warn_and_continue	fakedmabufsrc/build-aux/ltmain.sh	/^func_warn_and_continue ()$/;"	f
+func_warn_and_continue	fakedmabufsrc/libtool	/^func_warn_and_continue ()$/;"	f
+func_warning	fakedmabufsrc/build-aux/ltmain.sh	/^func_warning ()$/;"	f
+func_warning	fakedmabufsrc/libtool	/^func_warning ()$/;"	f
+func_win32_import_lib_p	fakedmabufsrc/build-aux/ltmain.sh	/^func_win32_import_lib_p ()$/;"	f
+func_win32_import_lib_p	fakedmabufsrc/libtool	/^func_win32_import_lib_p ()$/;"	f
+func_win32_libid	fakedmabufsrc/build-aux/ltmain.sh	/^func_win32_libid ()$/;"	f
+func_win32_libid	fakedmabufsrc/libtool	/^func_win32_libid ()$/;"	f
+func_write_libtool_object	fakedmabufsrc/build-aux/ltmain.sh	/^func_write_libtool_object ()$/;"	f
+func_write_libtool_object	fakedmabufsrc/libtool	/^func_write_libtool_object ()$/;"	f
+func_xform	fakedmabufsrc/build-aux/ltmain.sh	/^  func_xform ()$/;"	f
+func_xform	fakedmabufsrc/libtool	/^  func_xform ()$/;"	f
+funcs	drm_gem.h	/^  const struct drm_gem_object_funcs *funcs;$/;"	m	struct:drm_gem_object	typeref:struct:drm_gem_object::drm_gem_object_funcs
+getFbId	egl_headless2.c	/^uint32_t getFbId(int scrW, int scrH) {$/;"	f
+getFbId	enum2.c	/^int getFbId(int scrW, int scrH) {$/;"	f
+getScreenSize	egl_headless2.c	/^int getScreenSize(int *w, int *h) {$/;"	f
+getScreenSize	enum2.c	/^int getScreenSize(int *w, int *h) {$/;"	f
+get_screen_size	get_x11_res.c	/^int get_screen_size(int *w, int *h) {$/;"	f
+get_sg_table	drm_gem.h	/^  struct sg_table *(*get_sg_table)(struct drm_gem_object *obj);$/;"	m	struct:drm_gem_object_funcs	typeref:struct:drm_gem_object_funcs::get_sg_table
+give_advice	fakedmabufsrc/build-aux/missing	/^give_advice ()$/;"	f
+group	read.c	/^	uint8_t group;$/;"	m	struct:x11_visual	file:
+gst_fakedmabuf_src_caps_str	fakedmabufsrc/gstfakedmabufsrc.c	/^static const char gst_fakedmabuf_src_caps_str[] = "video\/x-raw,"$/;"	v	file:
+gst_fakedmabufsrc_class_init	fakedmabufsrc/gstfakedmabufsrc.c	/^gst_fakedmabufsrc_class_init (GstFakeDmabufSrcClass * klass)$/;"	f	file:
+gst_fakedmabufsrc_create	fakedmabufsrc/gstfakedmabufsrc.c	/^gst_fakedmabufsrc_create (GstPushSrc * psrc, GstBuffer ** outbuf)$/;"	f	file:
+gst_fakedmabufsrc_debug	fakedmabufsrc/gstfakedmabufsrc.c	/^GST_DEBUG_CATEGORY_STATIC (gst_fakedmabufsrc_debug);$/;"	v
+gst_fakedmabufsrc_finalize	fakedmabufsrc/gstfakedmabufsrc.c	/^gst_fakedmabufsrc_finalize (GObject * object)$/;"	f	file:
+gst_fakedmabufsrc_get_property	fakedmabufsrc/gstfakedmabufsrc.c	/^gst_fakedmabufsrc_get_property (GObject * object, guint property_id,$/;"	f
+gst_fakedmabufsrc_init	fakedmabufsrc/gstfakedmabufsrc.c	/^gst_fakedmabufsrc_init (GstFakeDmabufSrc * fakedmabufsrc)$/;"	f	file:
+gst_fakedmabufsrc_io_mode_get_type	fakedmabufsrc/gstfakedmabufsrc.c	/^gst_fakedmabufsrc_io_mode_get_type (void)$/;"	f	file:
+gst_fakedmabufsrc_is_seekable	fakedmabufsrc/gstfakedmabufsrc.c	/^gst_fakedmabufsrc_is_seekable (GstBaseSrc * basesrc)$/;"	f	file:
+gst_fakedmabufsrc_parent_class	fakedmabufsrc/gstfakedmabufsrc.c	133;"	d	file:
+gst_fakedmabufsrc_set_property	fakedmabufsrc/gstfakedmabufsrc.c	/^gst_fakedmabufsrc_set_property (GObject * object, guint property_id,$/;"	f
+gst_fakedmabufsrc_setcaps	fakedmabufsrc/gstfakedmabufsrc.c	/^gst_fakedmabufsrc_setcaps (GstBaseSrc * bsrc, GstCaps * caps)$/;"	f	file:
+gst_fakedmabufsrc_start	fakedmabufsrc/gstfakedmabufsrc.c	/^gst_fakedmabufsrc_start (GstBaseSrc * src)$/;"	f	file:
+gst_fakedmabufsrc_stop	fakedmabufsrc/gstfakedmabufsrc.c	/^gst_fakedmabufsrc_stop (GstBaseSrc * src)$/;"	f	file:
+handle	cap_test.c	/^	uint32_t pitch, size, handle;$/;"	m	struct:drm_dev_t	file:
+handle_count	drm_gem.h	/^  unsigned handle_count;$/;"	m	struct:drm_gem_object
+handle_keyboard	fakedmabufsrc/test/fakedmabuf-stream.c	/^handle_keyboard (GIOChannel * source, GIOCondition cond, AppData * data)$/;"	f	file:
+header	read.c	/^	struct x11_conn_reply header;$/;"	m	struct:x11_connection	typeref:struct:x11_connection::x11_conn_reply	file:
+height	cap_test.c	/^	uint32_t width, height;$/;"	m	struct:drm_dev_t	file:
+height	drmsend.c	/^	int width, height;$/;"	m	struct:__anon7	file:
+height	egl_headless.c	/^  int width, height;$/;"	m	struct:__anon9	file:
+height	egl_headless.c	/^static int width = 1920, height = 540;$/;"	v	file:
+height	egl_headless2.c	/^  int width, height;$/;"	m	struct:__anon2	file:
+height	grab2.c	/^	int width, height;$/;"	m	struct:__anon8	file:
+height	grab2.c	/^static int width = 1280, height = 720;$/;"	v	file:
+height	kmsgrab.c	/^  int width, height;$/;"	m	struct:__anon6	file:
+height	kmsgrab.c	/^static int width = 2560, height = 720;$/;"	v	file:
+height	read.c	/^			height;$/;"	m	struct:x11_root_window	file:
+height	test2.c	/^  int width, height;$/;"	m	struct:__anon5	file:
+height	test2.c	/^static int width = 854, height = 240;$/;"	v	file:
+height_mm	read.c	/^			height_mm;$/;"	m	struct:x11_root_window	file:
+host	fakedmabufsrc/Makefile	/^host = x86_64-pc-linux-gnu$/;"	m
+host_alias	fakedmabufsrc/Makefile	/^host_alias = $/;"	m
+host_cpu	fakedmabufsrc/Makefile	/^host_cpu = x86_64$/;"	m
+host_os	fakedmabufsrc/Makefile	/^host_os = linux-gnu$/;"	m
+host_triplet	fakedmabufsrc/Makefile	/^host_triplet = x86_64-pc-linux-gnu$/;"	m
+host_vendor	fakedmabufsrc/Makefile	/^host_vendor = pc$/;"	m
+htmldir	fakedmabufsrc/Makefile	/^htmldir = ${docdir}$/;"	m
+id	read.c	/^	uint32_t id;$/;"	m	struct:x11_error	file:
+id	read.c	/^	uint32_t id;$/;"	m	struct:x11_root_window	file:
+id_base	read.c	/^	uint32_t id_base,$/;"	m	struct:x11_conn_setup	file:
+id_mask	read.c	/^			id_mask;$/;"	m	struct:x11_conn_setup	file:
+image_order	read.c	/^	uint8_t image_order;$/;"	m	struct:x11_conn_setup	file:
+import_attach	drm_gem.h	/^  struct dma_buf_attachment *import_attach;$/;"	m	struct:drm_gem_object	typeref:struct:drm_gem_object::dma_buf_attachment
+includedir	fakedmabufsrc/Makefile	/^includedir = ${prefix}\/include$/;"	m
+info	fakedmabufsrc/gstfakedmabufsrc.h	/^  GstVideoInfo info;$/;"	m	struct:_GstFakeDmabufSrc
+infodir	fakedmabufsrc/Makefile	/^infodir = ${datarootdir}\/info$/;"	m
+input_mask	read.c	/^	uint32_t input_mask;   $/;"	m	struct:x11_root_window	file:
+install_sh	fakedmabufsrc/Makefile	/^install_sh = ${SHELL} \/home\/xuw\/code\/c\/drm\/fakedmabufsrc\/build-aux\/install-sh$/;"	m
+install_sh_DATA	fakedmabufsrc/Makefile	/^install_sh_DATA = $(install_sh) -c -m 644$/;"	m
+install_sh_PROGRAM	fakedmabufsrc/Makefile	/^install_sh_PROGRAM = $(install_sh) -c$/;"	m
+install_sh_SCRIPT	fakedmabufsrc/Makefile	/^install_sh_SCRIPT = $(install_sh) -c$/;"	m
+io_mode	fakedmabufsrc/gstfakedmabufsrc.h	/^  int io_mode;$/;"	m	struct:_GstFakeDmabufSrc
+keycode_max	read.c	/^			keycode_max;$/;"	m	struct:x11_conn_setup	file:
+keycode_min	read.c	/^	uint8_t keycode_min,$/;"	m	struct:x11_conn_setup	file:
+length	read.c	/^	uint16_t length;$/;"	m	struct:x11_conn_reply	file:
+lib_LTLIBRARIES	fakedmabufsrc/Makefile	/^lib_LTLIBRARIES = libgstfakedmabufsrc.la$/;"	m
+libdir	fakedmabufsrc/Makefile	/^libdir = ${exec_prefix}\/lib\/gstreamer-1.0$/;"	m
+libexecdir	fakedmabufsrc/Makefile	/^libexecdir = ${exec_prefix}\/libexec$/;"	m
+libgstfakedmabufsrc_la_CFLAGS	fakedmabufsrc/Makefile	/^libgstfakedmabufsrc_la_CFLAGS = \\$/;"	m
+libgstfakedmabufsrc_la_DEPENDENCIES	fakedmabufsrc/Makefile	/^libgstfakedmabufsrc_la_DEPENDENCIES = $(am__DEPENDENCIES_1) \\$/;"	m
+libgstfakedmabufsrc_la_LIBADD	fakedmabufsrc/Makefile	/^libgstfakedmabufsrc_la_LIBADD = \\$/;"	m
+libgstfakedmabufsrc_la_LINK	fakedmabufsrc/Makefile	/^libgstfakedmabufsrc_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \\$/;"	m
+libgstfakedmabufsrc_la_OBJECTS	fakedmabufsrc/Makefile	/^libgstfakedmabufsrc_la_OBJECTS = $(am_libgstfakedmabufsrc_la_OBJECTS)$/;"	m
+libgstfakedmabufsrc_la_SOURCES	fakedmabufsrc/Makefile	/^libgstfakedmabufsrc_la_SOURCES = gstfakedmabufsrc.c$/;"	m
+libtool_options_prep	fakedmabufsrc/build-aux/ltmain.sh	/^libtool_options_prep ()$/;"	f
+libtool_options_prep	fakedmabufsrc/libtool	/^libtool_options_prep ()$/;"	f
+libtool_parse_options	fakedmabufsrc/build-aux/ltmain.sh	/^libtool_parse_options ()$/;"	f
+libtool_parse_options	fakedmabufsrc/libtool	/^libtool_parse_options ()$/;"	f
+libtool_validate_options	fakedmabufsrc/build-aux/ltmain.sh	/^libtool_validate_options ()$/;"	f
+libtool_validate_options	fakedmabufsrc/libtool	/^libtool_validate_options ()$/;"	f
+localedir	fakedmabufsrc/Makefile	/^localedir = ${datarootdir}\/locale$/;"	m
+localstatedir	fakedmabufsrc/Makefile	/^localstatedir = ${prefix}\/var$/;"	m
+loop	fakedmabufsrc/test/fakedmabuf-stream.c	/^  GMainLoop *loop;$/;"	m	struct:_CustomData	file:
+main	cap_test.c	/^int main()$/;"	f
+main	drmsend.c	/^int main(int argc, const char *argv[]) {$/;"	f
+main	egl_headless.c	/^int main(int argc, const char *argv[]) {$/;"	f
+main	egl_headless2.c	/^int main() {$/;"	f
+main	enum.c	/^int main(int argc, const char *argv[]) {$/;"	f
+main	enum2.c	/^int main() {$/;"	f
+main	fakedmabufsrc/build-aux/config.guess	/^		main()$/;"	f
+main	fakedmabufsrc/build-aux/config.guess	/^	main ()$/;"	f
+main	fakedmabufsrc/test/fakedmabuf-stream.c	/^main (int argc, char *argv[])$/;"	f
+main	fb_dump.c	/^int main(int argc, char **argv) {$/;"	f
+main	get_x11_res.c	/^int main() {$/;"	f
+main	grab.c	/^int main()$/;"	f
+main	grab2.c	/^int main(int argc, const char *argv[]) {$/;"	f
+main	intel_framebuffer_dump.c	/^int main(int argc, char **argv)$/;"	f
+main	kmsgrab.c	/^int main(int argc, const char *argv[]) {$/;"	f
+main	prime-dumb-kms.c	/^int main() {$/;"	f
+main	read.c	/^int main(int argc, char **argv)$/;"	f
+main	test-drm-prime-dumb-kms.c	/^int main()$/;"	f
+main	test.c	/^int main(int argc, char *argv[]) {$/;"	f
+main	test2.c	/^int main(int argc, const char *argv[]) {$/;"	f
+major	read.c	/^	uint16_t major,$/;"	m	struct:x11_conn_reply	file:
+major	read.c	/^	uint16_t major,$/;"	m	struct:x11_conn_req	file:
+make_dummy_depfile	fakedmabufsrc/build-aux/depcomp	/^make_dummy_depfile ()$/;"	f
+mandir	fakedmabufsrc/Makefile	/^mandir = ${datarootdir}\/man$/;"	m
+maps_max	read.c	/^			maps_max;$/;"	m	struct:x11_root_window	file:
+maps_min	read.c	/^	uint16_t maps_min,$/;"	m	struct:x11_root_window	file:
+mask_blue	read.c	/^			mask_blue;$/;"	m	struct:x11_visual	file:
+mask_green	read.c	/^			mask_green,$/;"	m	struct:x11_visual	file:
+mask_red	read.c	/^	uint32_t mask_red,$/;"	m	struct:x11_visual	file:
+minor	read.c	/^			minor;$/;"	m	struct:x11_conn_reply	file:
+minor	read.c	/^			minor;$/;"	m	struct:x11_conn_req	file:
+mkdir_p	fakedmabufsrc/Makefile	/^mkdir_p = $(MKDIR_P)$/;"	m
+mkinstalldirs	fakedmabufsrc/Makefile	/^mkinstalldirs = $(install_sh) -d$/;"	m
+mode	cap_test.c	/^	drmModeModeInfo mode;$/;"	m	struct:drm_dev_t	file:
+mode_flag_names	test-drm-prime-dumb-kms.c	/^static const char *mode_flag_names[] = {$/;"	v	file:
+mode_type_names	test-drm-prime-dumb-kms.c	/^static const char *mode_type_names[] = {$/;"	v	file:
+motion_buffer_size	read.c	/^	uint32_t motion_buffer_size;$/;"	m	struct:x11_conn_setup	file:
+name	drm_gem.h	/^  int name;$/;"	m	struct:drm_gem_object
+next	cap_test.c	/^	struct drm_dev_t *next;$/;"	m	struct:drm_dev_t	typeref:struct:drm_dev_t::drm_dev_t	file:
+noinst_HEADERS	fakedmabufsrc/Makefile	/^noinst_HEADERS = gstfakedmabufsrc.h$/;"	m
+offset	drmsend.c	/^	int offset, pitch;$/;"	m	struct:__anon7	file:
+offset	egl_headless.c	/^  int offset, pitch;$/;"	m	struct:__anon9	file:
+offset	egl_headless2.c	/^  int offset, pitch;$/;"	m	struct:__anon2	file:
+offset	grab2.c	/^	int offset, pitch;$/;"	m	struct:__anon8	file:
+offset	kmsgrab.c	/^  int offset, pitch;$/;"	m	struct:__anon6	file:
+offset	test2.c	/^  int offset, pitch;$/;"	m	struct:__anon5	file:
+oldincludedir	fakedmabufsrc/Makefile	/^oldincludedir = \/usr\/include$/;"	m
+op_major	read.c	/^	uint16_t op_major;$/;"	m	struct:x11_error	file:
+op_minor	read.c	/^	uint8_t op_minor;$/;"	m	struct:x11_error	file:
+open	drm_gem.h	/^  int (*open)(struct drm_gem_object *obj, struct drm_file *file);$/;"	m	struct:drm_gem_object_funcs
+order	read.c	/^	uint8_t order;$/;"	m	struct:x11_conn_req	file:
+pad	read.c	/^	uint32_t pad;$/;"	m	struct:x11_conn_setup	file:
+pad	read.c	/^	uint32_t pad;$/;"	m	struct:x11_visual	file:
+pad	read.c	/^	uint8_t pad[21];$/;"	m	struct:x11_error	file:
+pad1	read.c	/^	uint8_t pad1;$/;"	m	struct:x11_conn_reply	file:
+pad1	read.c	/^	uint8_t pad1;$/;"	m	struct:x11_conn_req	file:
+pad1	read.c	/^	uint8_t pad1;$/;"	m	struct:x11_depth	file:
+pad1	read.c	/^	uint8_t pad1;$/;"	m	struct:x11_pixmap_format	file:
+pad2	read.c	/^	uint16_t pad2;$/;"	m	struct:x11_conn_req	file:
+pad2	read.c	/^	uint32_t pad2;$/;"	m	struct:x11_depth	file:
+pad2	read.c	/^	uint32_t pad2;$/;"	m	struct:x11_pixmap_format	file:
+parent_class	fakedmabufsrc/gstfakedmabufsrc.h	/^  GstPushSrcClass parent_class;$/;"	m	struct:_GstFakeDmabufSrcClass
+pdfdir	fakedmabufsrc/Makefile	/^pdfdir = ${docdir}$/;"	m
+pin	drm_gem.h	/^  int (*pin)(struct drm_gem_object *obj);$/;"	m	struct:drm_gem_object_funcs
+pipeline	fakedmabufsrc/test/fakedmabuf-stream.c	/^  GstElement *pipeline;$/;"	m	struct:_CustomData	file:
+pitch	cap_test.c	/^	uint32_t pitch, size, handle;$/;"	m	struct:drm_dev_t	file:
+pitch	drmsend.c	/^	int offset, pitch;$/;"	m	struct:__anon7	file:
+pitch	egl_headless.c	/^  int offset, pitch;$/;"	m	struct:__anon9	file:
+pitch	egl_headless2.c	/^  int offset, pitch;$/;"	m	struct:__anon2	file:
+pitch	grab2.c	/^	int offset, pitch;$/;"	m	struct:__anon8	file:
+pitch	kmsgrab.c	/^  int offset, pitch;$/;"	m	struct:__anon6	file:
+pitch	test2.c	/^  int offset, pitch;$/;"	m	struct:__anon5	file:
+pkgdatadir	fakedmabufsrc/Makefile	/^pkgdatadir = $(datadir)\/fakedmabufsrc$/;"	m
+pkgincludedir	fakedmabufsrc/Makefile	/^pkgincludedir = $(includedir)\/fakedmabufsrc$/;"	m
+pkglibdir	fakedmabufsrc/Makefile	/^pkglibdir = $(libdir)\/fakedmabufsrc$/;"	m
+pkglibexecdir	fakedmabufsrc/Makefile	/^pkglibexecdir = $(libexecdir)\/fakedmabufsrc$/;"	m
+plugin_init	fakedmabufsrc/gstfakedmabufsrc.c	/^plugin_init (GstPlugin * plugin)$/;"	f	file:
+prefix	fakedmabufsrc/Makefile	/^prefix = \/usr\/local$/;"	m
+printUsage	drmsend.c	/^void printUsage(const char *name) {$/;"	f
+print_info	drm_gem.h	/^  void (*print_info)(struct drm_printer *p, unsigned int indent,$/;"	m	struct:drm_gem_object_funcs
+program_details	fakedmabufsrc/build-aux/missing	/^program_details ()$/;"	f
+program_transform_name	fakedmabufsrc/Makefile	/^program_transform_name = s,x,x,$/;"	m
+prototypes	fakedmabufsrc/configure	/^   function prototypes and stuff, but not '\\xHH' hex character constants.$/;"	f
+psdir	fakedmabufsrc/Makefile	/^psdir = ${docdir}$/;"	m
+refcount	drm_gem.h	/^  struct kref refcount;$/;"	m	struct:drm_gem_object	typeref:struct:drm_gem_object::kref
+release	read.c	/^	uint32_t release;$/;"	m	struct:x11_conn_setup	file:
+request_max	read.c	/^	uint16_t request_max;$/;"	m	struct:x11_conn_setup	file:
+resv	drm_gem.h	/^  struct reservation_object *resv;$/;"	m	struct:drm_gem_object	typeref:struct:drm_gem_object::reservation_object
+root	read.c	/^	struct x11_root_window *root;$/;"	m	struct:x11_connection	typeref:struct:x11_connection::x11_root_window	file:
+root_visual_id	read.c	/^	uint32_t root_visual_id;$/;"	m	struct:x11_root_window	file:
+roots	read.c	/^	uint8_t roots;$/;"	m	struct:x11_conn_setup	file:
+runEGL	grab2.c	/^void runEGL(const DmaBuf *img) {$/;"	f
+runEGL	kmsgrab.c	/^void runEGL(const DmaBuf *img) {$/;"	f
+runEGL	test2.c	/^void runEGL(const DmaBuf *img) {$/;"	f
+runstatedir	fakedmabufsrc/Makefile	/^runstatedir = ${localstatedir}\/run$/;"	m
+save_unders	read.c	/^	uint8_t save_unders;$/;"	m	struct:x11_root_window	file:
+saved_crtc	cap_test.c	/^	drmModeCrtc *saved_crtc;$/;"	m	struct:drm_dev_t	file:
+sbindir	fakedmabufsrc/Makefile	/^sbindir = ${exec_prefix}\/sbin$/;"	m
+scanline_pad	read.c	/^			scanline_pad;$/;"	m	struct:x11_conn_setup	file:
+scanline_pad	read.c	/^	uint8_t scanline_pad;$/;"	m	struct:x11_pixmap_format	file:
+scanline_unit	read.c	/^	uint8_t scanline_unit,$/;"	m	struct:x11_conn_setup	file:
+send_eos_event	fakedmabufsrc/test/fakedmabuf-stream.c	/^send_eos_event (AppData * data)$/;"	f	file:
+seq	read.c	/^	uint16_t seq;$/;"	m	struct:x11_error	file:
+set_base_from	fakedmabufsrc/build-aux/depcomp	/^set_base_from ()$/;"	f
+set_dir_from	fakedmabufsrc/build-aux/depcomp	/^set_dir_from ()$/;"	f
+setup	read.c	/^	struct x11_conn_setup *setup;$/;"	m	struct:x11_connection	typeref:struct:x11_connection::x11_conn_setup	file:
+sharedstatedir	fakedmabufsrc/Makefile	/^sharedstatedir = ${prefix}\/com$/;"	m
+size	cap_test.c	/^	uint32_t pitch, size, handle;$/;"	m	struct:drm_dev_t	file:
+size	drm_gem.h	/^  size_t size;$/;"	m	struct:drm_gem_object
+srcdir	fakedmabufsrc/Makefile	/^srcdir = .$/;"	m
+srctemplate	fakedmabufsrc/gstfakedmabufsrc.c	/^static GstStaticPadTemplate srctemplate = GST_STATIC_PAD_TEMPLATE ("src",$/;"	v	file:
+strcopy	read.c	/^int strcopy(char *dest, const char *src, char end)$/;"	f
+strncopy	read.c	/^char *strncopy(char *dest, const char *src, size_t n)$/;"	f
+subdir	fakedmabufsrc/Makefile	/^subdir = .$/;"	m
+success	read.c	/^	uint8_t success;$/;"	m	struct:x11_conn_reply	file:
+success	read.c	/^	uint8_t success;$/;"	m	struct:x11_error	file:
+sysconfdir	fakedmabufsrc/Makefile	/^sysconfdir = ${prefix}\/etc$/;"	m
+tardir	fakedmabufsrc/Makefile	/^	tardir=$(distdir) && $(am__tar) | BZIP2=$${BZIP2--9} bzip2 -c >$(distdir).tar.bz2$/;"	m
+tardir	fakedmabufsrc/Makefile	/^	tardir=$(distdir) && $(am__tar) | XZ_OPT=$${XZ_OPT--e} xz -c >$(distdir).tar.xz$/;"	m
+tardir	fakedmabufsrc/Makefile	/^	tardir=$(distdir) && $(am__tar) | compress -c >$(distdir).tar.Z$/;"	m
+tardir	fakedmabufsrc/Makefile	/^	tardir=$(distdir) && $(am__tar) | eval GZIP= gzip $(GZIP_ENV) -c >$(distdir).tar.gz$/;"	m
+tardir	fakedmabufsrc/Makefile	/^	tardir=$(distdir) && $(am__tar) | lzip -c $${LZIP_OPT--9} >$(distdir).tar.lz$/;"	m
+target	fakedmabufsrc/Makefile	/^target = x86_64-pc-linux-gnu$/;"	m
+target_alias	fakedmabufsrc/Makefile	/^target_alias = $/;"	m
+target_cpu	fakedmabufsrc/Makefile	/^target_cpu = x86_64$/;"	m
+target_os	fakedmabufsrc/Makefile	/^target_os = linux-gnu$/;"	m
+target_triplet	fakedmabufsrc/Makefile	/^target_triplet = x86_64-pc-linux-gnu$/;"	m
+target_vendor	fakedmabufsrc/Makefile	/^target_vendor = pc$/;"	m
+tcp_start_server	drmsend.c	/^int tcp_start_server() {$/;"	f
+top_build_prefix	fakedmabufsrc/Makefile	/^top_build_prefix = $/;"	m
+top_builddir	fakedmabufsrc/Makefile	/^top_builddir = .$/;"	m
+top_distdir	fakedmabufsrc/Makefile	/^top_distdir = $(distdir)$/;"	m
+top_srcdir	fakedmabufsrc/Makefile	/^top_srcdir = .$/;"	m
+transform	fakedmabufsrc/Makefile	/^transform = $(program_transform_name)$/;"	m
+unpin	drm_gem.h	/^  void (*unpin)(struct drm_gem_object *obj);$/;"	m	struct:drm_gem_object_funcs
+vendor_length	read.c	/^	uint16_t vendor_length;$/;"	m	struct:x11_conn_setup	file:
+visual	read.c	/^	struct x11_visual *visual;$/;"	m	struct:x11_connection	typeref:struct:x11_connection::x11_visual	file:
+visuals	read.c	/^	uint16_t visuals;$/;"	m	struct:x11_depth	file:
+vm_ops	drm_gem.h	/^  const struct vm_operations_struct *vm_ops;$/;"	m	struct:drm_gem_object_funcs	typeref:struct:drm_gem_object_funcs::vm_operations_struct
+vma_node	drm_gem.h	/^  struct drm_vma_offset_node vma_node;$/;"	m	struct:drm_gem_object	typeref:struct:drm_gem_object::drm_vma_offset_node
+vmap	drm_gem.h	/^  void *(*vmap)(struct drm_gem_object *obj);$/;"	m	struct:drm_gem_object_funcs
+vunmap	drm_gem.h	/^  void (*vunmap)(struct drm_gem_object *obj, void *vaddr);$/;"	m	struct:drm_gem_object_funcs
+white	read.c	/^	uint32_t white,$/;"	m	struct:x11_root_window	file:
+width	cap_test.c	/^	uint32_t width, height;$/;"	m	struct:drm_dev_t	file:
+width	drmsend.c	/^	int width, height;$/;"	m	struct:__anon7	file:
+width	egl_headless.c	/^  int width, height;$/;"	m	struct:__anon9	file:
+width	egl_headless.c	/^static int width = 1920, height = 540;$/;"	v	file:
+width	egl_headless2.c	/^  int width, height;$/;"	m	struct:__anon2	file:
+width	grab2.c	/^	int width, height;$/;"	m	struct:__anon8	file:
+width	grab2.c	/^static int width = 1280, height = 720;$/;"	v	file:
+width	kmsgrab.c	/^  int width, height;$/;"	m	struct:__anon6	file:
+width	kmsgrab.c	/^static int width = 2560, height = 720;$/;"	v	file:
+width	read.c	/^	uint16_t width,$/;"	m	struct:x11_root_window	file:
+width	test2.c	/^  int width, height;$/;"	m	struct:__anon5	file:
+width	test2.c	/^static int width = 854, height = 240;$/;"	v	file:
+width_mm	read.c	/^	uint16_t width_mm,$/;"	m	struct:x11_root_window	file:
+x11_conn_reply	read.c	/^struct x11_conn_reply$/;"	s	file:
+x11_conn_req	read.c	/^struct x11_conn_req$/;"	s	file:
+x11_conn_setup	read.c	/^struct x11_conn_setup$/;"	s	file:
+x11_connection	read.c	/^struct x11_connection$/;"	s	file:
+x11_create_gc	read.c	/^void x11_create_gc(int sock, struct x11_connection *conn, uint32_t id, uint32_t target, uint32_t flags, uint32_t *list)$/;"	f
+x11_create_win	read.c	/^void x11_create_win(int sock, struct x11_connection *conn, uint32_t id, uint32_t parent,$/;"	f
+x11_depth	read.c	/^struct x11_depth$/;"	s	file:
+x11_error	read.c	/^struct x11_error$/;"	s	file:
+x11_generate_id	read.c	/^uint32_t x11_generate_id(struct x11_connection *conn)$/;"	f
+x11_handshake	read.c	/^int x11_handshake(int sock, struct x11_connection *conn)$/;"	f
+x11_map_window	read.c	/^void x11_map_window(int sock, struct x11_connection *conn, uint32_t id)$/;"	f
+x11_pixmap_format	read.c	/^struct x11_pixmap_format$/;"	s	file:
+x11_put_img	read.c	/^void x11_put_img(int sock, struct x11_connection *conn, uint8_t format, uint32_t target, uint32_t gc,$/;"	f
+x11_root_window	read.c	/^struct x11_root_window$/;"	s	file:
+x11_visual	read.c	/^struct x11_visual$/;"	s	file:
