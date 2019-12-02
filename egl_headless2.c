@@ -1,10 +1,10 @@
 #include <EGL/egl.h>
 #include <EGL/eglext.h>
-#include <X11/Xlib.h>
+
 #define GL_GLEXT_PROTOTYPES
 #include <GL/gl.h>
 #include <GL/glext.h>
-#include <cairo/cairo.h>
+
 #include <libdrm/drm_fourcc.h>
 #include <xf86drm.h>
 #include <xf86drmMode.h>
@@ -187,21 +187,26 @@ int main() {
   // Trying to match screen size with fbid
   getScreenSize(&scrW, &scrH);
   fb_id = getFbId(scrW, scrH);
-  MSG("Trying fb id: %#x", fb_id);
-  
+
+  // Get framebuffer (based on card and fb id)
   fb = drmModeGetFB(drm_fd, fb_id);
 
   if (!fb) {
     MSG("Cant open fb id: %#x", fb_id);
+    exit(-1);
   }
 
   if (!fb->handle) {
-    MSG("Can't get framebuffer handle. Run either with sudo, or put user in "
-        "video group");
+    MSG("Can't get framebuffer handle. Ask root.");
     exit(-1);
   }
 
   int ret = drmPrimeHandleToFD(drm_fd, fb->handle, 0, &dma_buf_fd);
+  if (ret < 0) {
+    MSG("Can't convert prime handle to fd");
+    exit(-1);
+  }
+
 
   dmaBuf->width = fb->width;
   dmaBuf->height = fb->height;
@@ -228,7 +233,7 @@ int main() {
   XVisualInfo *vinfo = NULL;
   XVisualInfo xvisual_info = {0};
   int num_visuals;
-  eglGetConfigAttrib(eglDpy, eglCfg, EGL_NATIVE_VISUAL_ID, (EGLint *)&xvisual_info.visualid);
+  eglGetConfigAttrib(eglDpy, eglCfg, EGL_NATIVE_VISUAL_ID, (EGLint *) &xvisual_info.visualid);
   vinfo = XGetVisualInfo(xdisp, VisualScreenMask | VisualIDMask, &xvisual_info, &num_visuals);
   XSetWindowAttributes winattrs = {0};
   winattrs.event_mask = KeyPressMask | KeyReleaseMask | ButtonPressMask | ButtonReleaseMask | PointerMotionMask | ExposureMask | VisibilityChangeMask | StructureNotifyMask;

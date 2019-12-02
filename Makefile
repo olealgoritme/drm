@@ -3,9 +3,10 @@
 
 BUILDDIR ?= build
 CC ?= cc
-#CFLAGS += -Wall -Wextra -Werror
+CFLAGS += -Wall -Wextra 
+#-Werror
 CFLAGS += -std=gnu99 -I/usr/include/libdrm 
-LIBS += -ldrm -lGL -lEGL -lX11 -lcairo
+CFLAGS += -ldrm -lGL -lEGL -lX11 -lcairo
 
 ifeq ($(DEBUG), 1)
 	CONFIG = dbg
@@ -84,7 +85,7 @@ GRAB_DEPS = $(GRAB_OBJS:%=%.d)
 grab: $(OBJDIR)/grab
 $(OBJDIR)/grab: $(GRAB_OBJS)
 	@mkdir -p $(dir $@)
-	$(CC) $^ $(LIBS) -lEGL -lX11 -o $@
+	$(CC) $^ $(LIBS) -o $@
 
 TEST_SOURCES = test2.c
 TEST_OBJS = $(TEST_SOURCES:%=$(OBJDIR)/%.o)
@@ -93,7 +94,7 @@ TEST_DEPS = $(TEST_OBJS:%=%.d)
 test2: $(OBJDIR)/test2
 $(OBJDIR)/test2: $(TEST_OBJS)
 	@mkdir -p $(dir $@)
-	$(CC) $^ $(LIBS) -lEGL -lX11 -o $@
+	$(CC) $^ $(LIBS) -o $@
 
 
 KMSGRAB_SOURCES = kmsgrab.c
@@ -103,7 +104,7 @@ KMSGRAB_DEPS = $(KMSGRAB_OBJS:%=%.d)
 kmsgrab: $(OBJDIR)/kmsgrab
 $(OBJDIR)/kmsgrab: $(KMSGRAB_OBJS)
 	@mkdir -p $(dir $@)
-	$(CC) $^ $(LIBS) -lEGL -lX11 -o $@
+	$(CC) $^ $(LIBS) -o $@
 
 DRMSEND_SOURCES = drmsend.c
 DRMSEND_OBJS = $(DRMSEND_SOURCES:%=$(OBJDIR)/%.o)
@@ -112,4 +113,4 @@ DRMSEND_DEPS = $(DRMSEND_OBJS:%=%.d)
 drmsend: $(OBJDIR)/drmsend
 $(OBJDIR)/drmsend: $(DRMSEND_OBJS)
 	@mkdir -p $(dir $@)
-	$(CC) $^ $(LIBS) -lEGL -lX11 -o $@
+	$(CC) $^ $(LIBS) -o $@
