@@ -4,22 +4,27 @@
 #define GL_GLEXT_PROTOTYPES
 #include <GL/gl.h>
 #include <GL/glext.h>
-#include <cairo/cairo.h>
 #include <libdrm/drm_fourcc.h>
 #include <xf86drm.h>
 #include <xf86drmMode.h>
 
+
+#include <string.h>
 #include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <X11/Xlib.h>
 
-#include <string.h>
-#include <sys/shm.h>
-#include <sys/ipc.h>
-#include <sys/mman.h>
-#include <sys/stat.h>
+#include <netdb.h>
+#include <errno.h>
+#include <arpa/inet.h> 
+#include <sys/socket.h>
+#include <sys/types.h>
+#include <netinet/in.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <sys/un.h>
 
 #define OUTPUT_WIDTH 1920
 #define OUTPUT_HEIGHT 540
@@ -53,7 +58,7 @@ static const EGLint configAttribs[] = {EGL_SURFACE_TYPE,
                                        EGL_OPENGL_BIT,
                                        EGL_NONE};
 
-static void runEGL(DmaBuf *dmaBuf) {
+void runEGL(const DmaBuf *dmaBuf) {
 
   // 1. Initialize EGL
   // CREATE EGL CONTEXT WITHOUT DISPLAY (just to get context)
@@ -136,7 +141,7 @@ static void runEGL(DmaBuf *dmaBuf) {
         case XK_Escape:
         case XK_q:
           eglTerminate(eglDpy);
-          return 0;
+          return;
         }
       }
     }
@@ -150,29 +155,93 @@ static void runEGL(DmaBuf *dmaBuf) {
 
 int main(int argc, const char *argv[]) {
 
-    if(argc < 2) {
-        MSG("Need argument [socket | hostname]");
+	if (argc < 2) {
+		MSG("Usage: %s hostname", argv[0]);
+		return 1;
+	}
+
+    struct sockaddr_in serv_addr; 
+
+    
+	int sockfd = socket(AF_INET, SOCK_STREAM, 0);
+
+      memset(&serv_addr, '0', sizeof(serv_addr));
+
+    serv_addr.sin_family = AF_INET;
+    serv_addr.sin_port = htons(atoi(argv[2]));
+
+
+    
+    if(inet_pton(AF_INET, argv[1], &serv_addr.sin_addr)<=0)
+    {
+        printf("\n inet_pton error occured\n");
         return 1;
-    } else if (argv[1] == "socket") {
-       if(argv[2] != NULL) {
-          MSG("Should connect");
-          return 0;
-       } else {
-          MSG("need socket hostname");
-          return 0;
-       }
+    }
+
+    if( connect(sockfd, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) < 0)
+    {
+       printf("\n Error : Connect Failed \n");
+       return 1;
     } 
-  DmaBuf *dmaBuf;
-  dmaBuf = (DmaBuf *) malloc(sizeof(DmaBuf));
+    
 
-    // Trying to ready from shmem device 
-    int shmID;
-    char *shmdev = "/drmxuw";
-    void *addr;
-    shmID = shm_open(shmdev, O_RDONLY, S_IRUSR | S_IWUSR);
-    addr = mmap(NULL, SH_MEM_SIZE, PROT_READ, MAP_SHARED, shmID, 0);
-    memcpy(dmaBuf, addr, sizeof(dmaBuf));
-    runEGL(dmaBuf);
+    MSG("connected");
 
-  return 0;
+	DmaBuf img = {0};
+
+		struct msghdr msg = {0};
+
+		struct iovec io = {
+			.iov_base = &img,
+			.iov_len = sizeof(img),
+		};
+        msg.msg_name = &serv_addr;
+        msg.msg_namelen = sizeof(struct sockaddr_in);
+		msg.msg_iov = &io;
+		msg.msg_iovlen = 1;
+
+		char cmsg_buf[CMSG_SPACE(sizeof(img.fd))];
+		msg.msg_control = cmsg_buf;
+		msg.msg_controllen = sizeof(cmsg_buf);
+		struct cmsghdr *cmsg = CMSG_FIRSTHDR(&msg);
+		cmsg->cmsg_level = SOL_SOCKET;
+		cmsg->cmsg_type = SCM_RIGHTS;
+		cmsg->cmsg_len = CMSG_LEN(sizeof(img.fd));
+
+		MSG("recvmsg");
+		ssize_t recvd = recvmsg(sockfd, &msg, 0);
+		if (recvd <= 0) {
+			perror("cannot recvmsg");
+			goto cleanup;
+		}
+
+		MSG("Received %d", (int)recvd);
+
+		if (io.iov_len == sizeof(img) - sizeof(img.fd)) {
+			MSG("Received metadata size mismatch: %d received, %d expected",
+				(int)io.iov_len, (int)sizeof(img) - (int)sizeof(img.fd));
+			goto cleanup;
+		}
+
+		if (cmsg->cmsg_len != CMSG_LEN(sizeof(img.fd))) {
+			MSG("Received fd size mismatch: %d received, %d expected",
+				(int)cmsg->cmsg_len, (int)CMSG_LEN(sizeof(img.fd)));
+			goto cleanup;
+		}
+
+		memcpy(&img.fd, CMSG_DATA(cmsg), sizeof(img.fd));
+
+	close(sockfd);
+	sockfd = -1;
+
+	MSG("Received width=%d height=%d pitch=%u fourcc=%#x fd=%d",
+		img.width, img.height, img.pitch, img.fourcc, img.fd);
+
+	runEGL(&img);
+
+cleanup:
+	if (sockfd >= 0)
+		close(sockfd);
+	return 0;
+
 }

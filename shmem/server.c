@@ -14,7 +14,7 @@
 int main(int argc, char *argv[]) {
 
     int shmID;
-    char *shmdev = "/xewmem";
+    char *shmdev = "/drmxuw";
     void *addr;
 
     pid_t pid;

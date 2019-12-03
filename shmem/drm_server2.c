@@ -11,6 +11,13 @@
 #include <xf86drm.h>
 #include <xf86drmMode.h>
 #include <X11/Xlib.h>
+
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <sys/un.h>
+
 #define GL_GLEXT_PROTOTYPES
 // 3840 x 1080 x 4 x 2 = ~33MB
 #define SH_MEM_SIZE 33177600
@@ -137,6 +144,9 @@ int main(int argc, char *argv[]) {
     int drm_fd;
     int dma_buf_fd;
 
+    int sockfd;
+    const char *sockname = argv[1];
+
     char *shmdev = "/drmxuw";
     void *drm_ptr;
     void *sh_ptr;
@@ -146,11 +156,6 @@ int main(int argc, char *argv[]) {
 
     // Process ID
     pid_t pid;
-
-
-    // DmaBuf struct containing image data
-    DmaBuf *dmaBuf;
-    dmaBuf = (DmaBuf *) malloc(sizeof(DmaBuf));
 
     // Get process ID
     pid = getpid();
@@ -172,76 +177,94 @@ int main(int argc, char *argv[]) {
 
     if (!fb) {
         MSG("Cant open fb id: %#x", fb_id);
-        exit(-1);
+        goto cleanup;
     }
 
     if (!fb->handle) {
         MSG("Can't get fb handle. Ask root.");
-        exit(-1);
+        goto cleanup;
     }
     
 
     int ret = drmPrimeHandleToFD(drm_fd, fb->handle, 0, &dma_buf_fd);
     //open (dma_buf_fd, (mode_t) 0666);
-    
-	dmaBuf.width = fb->width;
-	dmaBuf.height = fb->height;
-	dmaBuf.pitch = fb->pitch;
-	dmaBuf.offset = 0;
-	dmaBuf.fourcc = DRM_FORMAT_XRGB8888;
-    dmaBuf.fd = dma_buf_fd;
-    
    
-    /** SHARED MEMORY START **/
-    // create shared memory object
-    shmID = shm_open(shmdev, O_CREAT | O_RDWR, S_IRUSR | S_IWUSR);
-    if(!shmID) {
-        perror("shm_open");
-        exit(-1);
-    }
+    DmaBuf img; 
+	img.width = fb->width;
+	img.height = fb->height;
+	img.pitch = fb->pitch;
+	img.offset = 0;
+	img.fourcc = DRM_FORMAT_XRGB8888;
+    img.fd = dma_buf_fd;
+    
+    sockfd = socket(AF_UNIX, SOCK_STREAM, 0);
+	
+	{
+		struct sockaddr_un addr;
+		addr.sun_family = AF_UNIX;
+		if (strlen(sockname) >= sizeof(addr.sun_path)) {
+			MSG("Socket filename '%s' is too long, max %d",
+				sockname, (int)sizeof(addr.sun_path));
+			goto cleanup;
+		}
+		strcpy(addr.sun_path, sockname);
+		if (-1 == bind(sockfd, (const struct sockaddr*)&addr, sizeof(addr))) {
+			perror("Cannot bind unix socket");
+			goto cleanup;
+		}
 
-    // shared memory is initalized with size 0, lets set to SH_MEM_SIZE
-    ftruncate(shmID, SH_MEM_SIZE);
+		if (-1 == listen(sockfd, 1)) {
+			perror("Cannot listen on unix socket");
+			goto cleanup;
+		}
+	}
 
-    // shared memory mapping
-    sh_ptr = mmap(NULL, SH_MEM_SIZE, PROT_READ | PROT_WRITE, MAP_SHARED, shmID, 0);
-    if(sh_ptr == MAP_FAILED) {
-        perror("cant mmap");
-        exit(-1);
-    }
+	for (;;) {
+		int connfd = accept(sockfd, NULL, NULL);
+		if (connfd < 0) {
+			perror("Cannot accept unix socket");
+			goto cleanup;
+		}
 
-    memcpy(sh_ptr, &dmaBuf. sizeof(dmaBuf));
+		MSG("accepted socket %d", connfd);
 
+		struct msghdr msg = {0};
 
-    printf("Shared BO: /dev/shm%s\n", shmdev);
-    printf("PID: %d\n", pid);
-    /** SHARED MEMORY END **/
-/*
- *
- *  for(;;) {
- *   int ret, fd;
- *    char buf[sizeof(dmaBuf.];
- *
- *    const char * dv = "/dev/shm/drmxuw";
- *  if ((fd = open(dv, O_RDONLY)) < 0)
- *    perror("open() error");
- *  else {
- *
- *
- *    while ((ret = read(fd, buf, sizeof(buf)-1)) > 0) {
- *      printf("block read: \n<%s>\n", buf);
- *    }
- *    close(fd);
- *  }
- *    sleep(1);
- *  }
- */
+		struct iovec io = {
+			.iov_base = &img,
+			.iov_len = sizeof(img),
+		};
+		msg.msg_iov = &io;
+		msg.msg_iovlen = 1;
 
+		char cmsg_buf[CMSG_SPACE(sizeof(dma_buf_fd))];
+		msg.msg_control = cmsg_buf;
+		msg.msg_controllen = sizeof(cmsg_buf);
+		struct cmsghdr *cmsg = CMSG_FIRSTHDR(&msg);
+		cmsg->cmsg_level = SOL_SOCKET;
+		cmsg->cmsg_type = SCM_RIGHTS;
+		cmsg->cmsg_len = CMSG_LEN(sizeof(dma_buf_fd));
+		memcpy(CMSG_DATA(cmsg), &dma_buf_fd, sizeof(dma_buf_fd));
 
-   for(;;) {
-        sleep(1);
-            
-   } 
+		ssize_t sent = sendmsg(connfd, &msg, MSG_CONFIRM);
+		if (sent < 0) {
+			perror("cannot sendmsg");
+			goto cleanup;
+		}
 
+		MSG("sent %d", (int)sent);
+
+		close(connfd);
+	}
+
+cleanup:
+	if (sockfd >= 0)
+		close(sockfd);
+	if (dma_buf_fd >= 0)
+		close(dma_buf_fd);
+	if (fb)
+		drmModeFreeFB(fb);
+	close(drm_fd);
+    
     return 0;
 }
