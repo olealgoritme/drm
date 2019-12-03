@@ -1,16 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
-#include <sys/shm.h>
-#include <sys/ipc.h>
-#include <sys/mman.h>
-#include <sys/stat.h>
-#include <fcntl.h>
-#include <libdrm/drm_fourcc.h>
-#include <xf86drm.h>
-#include <xf86drmMode.h>
-#include <X11/Xlib.h>
 #include <EGL/egl.h>
 #include <EGL/eglext.h>
 #include <X11/Xlib.h>
@@ -22,18 +9,29 @@
 #include <xf86drm.h>
 #include <xf86drmMode.h>
 
+#include <fcntl.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <X11/Xlib.h>
+
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <sys/un.h>
+
+#include <sys/shm.h>
+#include <sys/ipc.h>
+#include <sys/mman.h>
+#include <sys/stat.h>
 #define OUTPUT_WIDTH 1920
 #define OUTPUT_HEIGHT 540
 
-#define GL_GLEXT_PROTOTYPES
+#define MSG(fmt, ...) printf(fmt "\n", ##__VA_ARGS__)
+
 // 3840 x 1080 x 4 x 2 = ~33MB
 #define SH_MEM_SIZE 33177600
-
-// chunk sizes
-#define CHUNK_SIZE 1024
-
-#define MSG(fmt, ...) printf(fmt "\n", ##__VA_ARGS__)
 #define MAX_FBS 16
+
 
 typedef struct {
   int width, height;
@@ -42,10 +40,6 @@ typedef struct {
   int fd;
 } DmaBuf;
 
-void copyBfr(void *to_addr, EGLClientBuffer *cBuf) {
-    // copy buffer to shared virtual memory address via pointer (instead of using offset)
-    memcpy(to_addr, cBuf, sizeof(cBuf));
-}
 
 static const EGLint configAttribs[] = {EGL_SURFACE_TYPE,
                                        EGL_PBUFFER_BIT,
@@ -61,7 +55,7 @@ static const EGLint configAttribs[] = {EGL_SURFACE_TYPE,
                                        EGL_OPENGL_BIT,
                                        EGL_NONE};
 
-void runEGL(DmaBuf *dmaBuf, void *to_addr) {
+void runEGL(const DmaBuf *dmaBuf) {
 
   // 1. Initialize EGL
   // CREATE EGL CONTEXT WITHOUT DISPLAY (just to get context)
@@ -128,8 +122,6 @@ void runEGL(DmaBuf *dmaBuf, void *to_addr) {
    glUniform1i(glGetUniformLocation(prog, "tex"), 0);
    
 
-  GLubyte *pixels = malloc(4 * 3840 * 1080);
-  
   for (;;) {
 
     glViewport(0, 0, OUTPUT_WIDTH, OUTPUT_HEIGHT);
@@ -137,18 +129,29 @@ void runEGL(DmaBuf *dmaBuf, void *to_addr) {
     glUniform2f(glGetUniformLocation(prog, "res"), OUTPUT_WIDTH, OUTPUT_HEIGHT);
     glRects(-1, -1, 1, 1);
     
-    
-    // copy pixel buffer to shared virtual memory address via pointer (instead of using offset)
-    //glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, OUTPUT_WIDTH, OUTPUT_HEIGHT, 0, GL_BGRA, GL_UNSIGNED_BYTE, pixels);
-    GLuint id = 0;
-    glGenBuffers(1, &id);
-    glBindBuffer(GL_ARRAY_BUFFER, id);
-    glFinish();
-    
-    glReadPixels(0, 0, 3840, 1080, GL_RGBA, GL_UNSIGNED_BYTE, pixels);
-    memcpy(to_addr, pixels, (sizeof(pixels)));
-
     eglSwapBuffers(eglDpy, eglSurf);
+  
+    /*
+     *GLuint fb = 0;
+     *glGenFramebuffers(0, &fb);
+     *glBindFramebuffer(GL_FRAMEBUFFER, fb);
+     *printf("%d\n", fb); 
+     */
+    
+    
+    while (XPending(xdisp)) {
+      XEvent e;
+      XNextEvent(xdisp, &e);
+      switch (e.type) {
+      case KeyPress:
+        switch (XLookupKeysym(&e.xkey, 0)) {
+        case XK_Escape:
+        case XK_q:
+          eglTerminate(eglDpy);
+          return;
+        }
+      }
+    }
 
 }
 
@@ -156,7 +159,6 @@ void runEGL(DmaBuf *dmaBuf, void *to_addr) {
   eglTerminate(eglDpy);
 
 }
-
 
 int getScreenSize(int *w, int *h) {
 
@@ -259,29 +261,23 @@ uint32_t getFbId(int scrW, int scrH) {
     return 0;
 }
 
-int main(int argc, char *argv[]) {
+
+int main(int argc, const char *argv[]) {
+
 
     uint32_t fb_id;
-    int scrW, scrH;
-    int drm_fd;
-    int dma_buf_fd;
-
-    const char *sockname = argv[1];
-
-    void *drm_ptr;
-    void *sh_ptr;
-
-    const char *card = "/dev/dri/card0";
     drmModeFBPtr fb;
 
     pid_t pid;
     pid = getpid();
 
-    // Shared memory
-    int shmID;
-    char *shmdev = "/drmxuw";
+    const char *shmdev = "/drmxuw";
     void *addr;
 
+    const char *card = "/dev/dri/card0";
+    int shm_fd;
+    int scrW, scrH;
+    int drm_fd, dma_buf_fd;
 
     drm_fd = open(card, O_RDWR); // O_RDONLY | O_RDWR
 
@@ -294,6 +290,7 @@ int main(int argc, char *argv[]) {
     // Trying to match screen size with fbid
     getScreenSize(&scrW, &scrH);
     fb_id = getFbId(scrW, scrH);
+    
     MSG("Trying fb id: %#x", fb_id);
 
     fb = drmModeGetFB(drm_fd, fb_id);
@@ -310,36 +307,31 @@ int main(int argc, char *argv[]) {
     
 
     int ret = drmPrimeHandleToFD(drm_fd, fb->handle, 0, &dma_buf_fd);
-   
+    
+    // open shared memory object
+    shm_fd = shm_open(shmdev, O_RDONLY, S_IRUSR | S_IWUSR);
+    if(!shm_fd) {
+        perror("shm_open");
+        exit(-1);
+    }
+
+    // shared memory mapping
+    addr = mmap(NULL, SH_MEM_SIZE, PROT_READ, MAP_SHARED, shm_fd, 0);
+    if(addr == MAP_FAILED) {
+        perror("cant mmap");
+        exit(-1);
+    }
+
+  
     DmaBuf img;
 	img.width = fb->width;
 	img.height = fb->height;
 	img.pitch = fb->pitch;
 	img.offset = 0;
 	img.fourcc = DRM_FORMAT_XRGB8888;
-    img.fd = dma_buf_fd;
+    img.fd = shm_fd;
     
-
-    // create/truncate shared memory object
-    shmID = shm_open(shmdev, O_CREAT | O_RDWR | O_TRUNC, S_IRUSR | S_IWUSR);
-    if(!shmID) {
-        perror("shm_open");
-        exit(-1);
-    }
-
-    // shared memory is initalized with size 0, lets fix that
-    ftruncate(shmID, SH_MEM_SIZE);
-
-    // shared memory attach
-    addr = mmap(NULL, SH_MEM_SIZE, PROT_WRITE, MAP_SHARED, shmID, 0);
-    if(addr == MAP_FAILED) {
-        perror("cant mmap");
-        exit(-1);
-    }
-
-    runEGL(&img, addr);
-
-    printf("Shared BO: /dev/shm%s\n", shmdev);
-    printf("PID: %d\n", pid);
+    
+	runEGL(&img);
 
 }
